@@ -1,0 +1,7 @@
+session.*
+.saves*
+*.swp
+emacs/.emacs.d/recentf
+emacs/.emacs.d/auto-save-liste/*
+emacs/.emacs.d/bookmarks
+emacs/.emacs.d/ido.last 

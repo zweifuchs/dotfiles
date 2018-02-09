@@ -1,0 +1,60 @@
+alias more='less'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+alias ll='ls -AlFh --group-directories-first'
+alias la='ls -alFh --group-directories-first'
+alias lc='ls -alFhC --group-directories-first'
+alias lll='ls -alFh --group-directories-first | more'
+alias l='ls -aCF --group-directories-first'
+alias mkdir='mkdir -p'
+
+alias t='tail -f'
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+
+
+alias cd..='cd ..'
+alias ..='cd ..'
+
+alias psaux='ps aux|grep $1'
+
+# do not delete / or prompt if deleting more than 3 files at a time #
+alias rm='rm -I --preserve-root'
+
+# confirmation #
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+
+
+# Parenting changing perms on / #
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+## webdev stuff
+
+alias a2restart="sudo service apache2 restart"
+alias a2log="tail -f /var/log/apache2/access.log"
+export PATH="$HOME/.node_modules/bin:$PATH"
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# docker stuff
+alias docker_kill_all='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'
+alias docker_kill_all_images='docker rmi $(docker images -q)'
+
+# adb google android stuff
+if [ -d "$HOME/adb-fastboot/platform-tools" ] ; then
+    export PATH="$HOME/adb-fastboot/platform-tools:$PATH"
+fi
+
+
+func pstorm() {
+echo "starting phpstorm..."
+~/tools/PhpStorm-171.3780.104/bin/phpstorm.sh $1 &!
+}
+
+alias gco='git checkout'
