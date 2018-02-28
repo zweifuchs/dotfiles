@@ -34,6 +34,29 @@
   (load-theme 'suscolors t)
   )
 
+
+;; alf
+;; unset C- and M- digit keys
+;; so i can use them for my own stuff ;)
+(dotimes (n 10)
+  (global-unset-key (kbd (format "C-%d" n)))
+  (global-unset-key (kbd (format "M-%d" n)))
+  )
+
+
+;; alf
+;; use eyebrowse - set the new 
+(require 'eyebrowse)
+
+(progn
+            (define-key eyebrowse-mode-map (kbd "M-1") 'eyebrowse-switch-to-window-config-1)
+            (define-key eyebrowse-mode-map (kbd "M-2") 'eyebrowse-switch-to-window-config-2)
+            (define-key eyebrowse-mode-map (kbd "M-3") 'eyebrowse-switch-to-window-config-3)
+            (define-key eyebrowse-mode-map (kbd "M-4") 'eyebrowse-switch-to-window-config-4)
+            (eyebrowse-mode t)
+            (setq eyebrowse-new-workspace t))
+
+
 ;; Better defaults
 ;; Allow pasting from regular clipboard
 (setq x-select-enable-clipboard t)
