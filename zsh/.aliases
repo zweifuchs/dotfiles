@@ -9,7 +9,7 @@ case "$(uname -s)" in
 	alias rm='rm -I --preserve-root'
      
 	echo 'Linux'   
-	alias ls = "ls --color=auto"
+	alias ls="ls --color=auto"
     ;;                                                                                                                                                                                
                                                                                                                                                                                        
 esac      
