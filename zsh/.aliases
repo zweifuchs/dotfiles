@@ -1,6 +1,18 @@
+case "$(uname -s)" in                                                                                                                                                                  
+   Darwin)                                                                                                                                                                             
+     echo 'Mac OS X'                                                                                                                                                                   alias ls = "gls --color=auto"
+alias rm='grm -I --preserve-root'
+    ;;                                                                                                                                                                                
+   Linux)                                                                                                                                                                              
+alias rm='rm -I --preserve-root'
+     echo 'Linux'                                                                                                                                                                      	alias ls = "ls --color=auto"
+    ;;                                                                                                                                                                                
+                                                                                                                                                                                       
+esac      
+
+
 alias more='less'
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
 alias ll='ls -AlFh --group-directories-first'
 alias la='ls -alFh --group-directories-first'
 alias lc='ls -alFhC --group-directories-first'
@@ -19,7 +31,6 @@ alias ..='cd ..'
 alias psaux='ps aux|grep $1'
 
 # do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -I --preserve-root'
 
 # confirmation #
 alias mv='mv -i'

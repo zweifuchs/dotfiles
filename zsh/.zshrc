@@ -1,18 +1,25 @@
 # Path to your oh-my-zsh installation.
 
-if [ "$(uname)" == "Darwin" ]; then
-    # Do something under Mac OS X platform        
-	
+case "$(uname -s)" in
+
+   Darwin)
+     echo 'Mac OS X'
 export ZSH=/Users/alfredeichenseher/.oh-my-zsh
 export PATH="/Users/alfredeichenseher/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 alias emacs='open -a /Applications/Emacs.app $1'
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    # Do something under GNU/Linux platform
+
+     ;;
+
+   Linux)
+     echo 'Linux'
 export ZSH=/home/alf/.oh-my-zsh
 export PATH="/home/alf/tools/phpstorm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 
-fi
+
+     ;;
+
+esac
 
 
 # Set name of the theme to load.
