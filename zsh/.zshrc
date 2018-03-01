@@ -1,5 +1,19 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/alf/.oh-my-zsh
+
+if [ "$(uname)" == "Darwin" ]; then
+    # Do something under Mac OS X platform        
+	
+export ZSH=/Users/alfredeichenseher/.oh-my-zsh
+export PATH="/Users/alfredeichenseher/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+alias emacs='open -a /Applications/Emacs.app $1'
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # Do something under GNU/Linux platform
+export ZSH=/home/alf/.oh-my-zsh
+export PATH="/home/alf/tools/phpstorm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+
+
+fi
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +67,7 @@ plugins=(git, symfony2)
 
 # User configuration
 
-  export PATH="/home/alf/tools/phpstorm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+# export PATH="/home/alf/tools/phpstorm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
