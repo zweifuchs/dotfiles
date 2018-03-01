@@ -1,11 +1,15 @@
 case "$(uname -s)" in                                                                                                                                                                  
    Darwin)                                                                                                                                                                             
-     echo 'Mac OS X'                                                                                                                                                                   alias ls = "gls --color=auto"
-alias rm='grm -I --preserve-root'
+   echo 'Mac OS X'
+   alias ls="gls --color=auto"
+
+	alias rm='grm -I --preserve-root'
     ;;                                                                                                                                                                                
    Linux)                                                                                                                                                                              
-alias rm='rm -I --preserve-root'
-     echo 'Linux'                                                                                                                                                                      	alias ls = "ls --color=auto"
+	alias rm='rm -I --preserve-root'
+     
+	echo 'Linux'   
+	alias ls = "ls --color=auto"
     ;;                                                                                                                                                                                
                                                                                                                                                                                        
 esac      
