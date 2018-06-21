@@ -8,6 +8,9 @@
    (quote
     ("97d039a52cfb190f4fd677f02f7d03cf7dbd353e08ac8a0cb991223b135ac4e6" default)))
  '(inhibit-startup-screen t)
+ '(org-agenda-files
+   (quote
+    ("/home/alf/org/cloud/2018_prj.org" "/home/alf/org/cloud/audioghost.org" "/home/alf/org/cloud/blender.org" "/home/alf/org/cloud/boltcms.org" "/home/alf/org/cloud/buchhaltung.org" "/home/alf/org/cloud/capture.org" "/home/alf/org/cloud/contao4.org" "/home/alf/org/cloud/drupal.org" "/home/alf/org/cloud/einkauf.org" "/home/alf/org/cloud/godot.org" "/home/alf/org/cloud/linux.org" "/home/alf/org/cloud/mpu.org" "/home/alf/org/cloud/nas_2018.org" "/home/alf/org/cloud/notes.org" "/home/alf/org/cloud/org.org" "/home/alf/org/cloud/privat.org" "/home/alf/org/cloud/projects.org" "/home/alf/org/cloud/simpleaccounts.org" "/home/alf/org/cloud/timwedding.org" "/home/alf/org/cloud/todo.org" "/home/alf/org/cloud/web_diebergedeswahnsinns.de.org" "/home/alf/org/cloud/web_westernbiological.org" "/home/alf/org/cloud/webdev.org" "/home/alf/org/cloud/tax/_taxes.org" "/home/alf/org/cloud/clients/decrignis.org" "/home/alf/org/cloud/clients/gluecklich.org" "/home/alf/org/cloud/clients/hbh.org" "/home/alf/org/cloud/clients/maxkeller.org" "/home/alf/org/cloud/clients/nuwave.org" "/home/alf/org/cloud/clients/pamir.org" "/home/alf/org/cloud/clients/rookman.org" "/home/alf/org/cloud/clients/ursberg.org" "/home/alf/org/cloud/clients/wup.org" "/home/alf/org/cloud/clients/Ontraq/migration.org" "/home/alf/org/cloud/clients/Ontraq/ontraq.org" "/home/alf/org/cloud/clients/Ontraq/ontraqbackup.org" "/home/alf/org/cloud/clients/RafaelBernardo/headachehurts.org" "/home/alf/org/cloud/clients/RafaelBernardo/leezafive.org" "/home/alf/org/cloud/clients/Tillus/tillus.org" "/home/alf/org/cloud/business/strategy.org" "/home/alf/org/cloud/misc/birthdays.org" "/home/alf/org/cloud/misc/habits.org")))
  '(org-support-shift-select t)
  '(rainbow-html-colors t)
  '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode))))
@@ -53,6 +56,11 @@
             (define-key eyebrowse-mode-map (kbd "M-2") 'eyebrowse-switch-to-window-config-2)
             (define-key eyebrowse-mode-map (kbd "M-3") 'eyebrowse-switch-to-window-config-3)
             (define-key eyebrowse-mode-map (kbd "M-4") 'eyebrowse-switch-to-window-config-4)
+            (define-key eyebrowse-mode-map (kbd "M-5") 'eyebrowse-switch-to-window-config-5)
+            (define-key eyebrowse-mode-map (kbd "M-6") 'eyebrowse-switch-to-window-config-6)
+            (define-key eyebrowse-mode-map (kbd "M-7") 'eyebrowse-switch-to-window-config-7)
+            (define-key eyebrowse-mode-map (kbd "M-8") 'eyebrowse-switch-to-window-config-8)
+
             (eyebrowse-mode t)
             (setq eyebrowse-new-workspace t))
 
@@ -103,6 +111,9 @@
 
 
 ;; ALFIS MISC STUFF
+(global-set-key (kbd "C-x f") 'recentf-open-files) ; open recent files
+
+
 (defvar --backup-directory "~/.emacs-backups")
 (if (not (file-exists-p --backup-directory))
         (make-directory --backup-directory t))
@@ -139,19 +150,20 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-(setq org-agenda-files '("~/org/projects"))
+(setq org-agenda-files '("~/org/cloud"
+                         "~/org/cloud/tax"
+                         "~/org/cloud/clients"
+                         "~/org/cloud/clients/Ontraq"
+                         "~/org/cloud/clients/RafaelBernardo"
+                         "~/org/cloud/clients/Tillus"
+                         "~/org/cloud/clients/Ursberg"                       
+                         "~/org/cloud/business"
+                         "~/org/cloud/misc"))
 
-(setq org-agenda-files (quote ("~/org/clients"
-                                "~/org/projects"
-                                "~/org/misc"
-                                "~/org/notes.org"
-                                "~/org/nx-projects"
-                                )))
-
-(setq org-default-notes-file '("~/misc/todo.org"))
+(setq org-default-notes-file '("~/org/cloud/capture.org"))
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@/!)")))
 
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
@@ -161,8 +173,6 @@
               ("TODO" ("WAITING") ("CANCELLED") ("NEXT") )
               ("NEXT" ("WAITING") ("CANCELLED") )
               ("DONE" ("WAITING") ("CANCELLED") ("NEXT")))))
-
-
 
 
 ;; indent
@@ -261,21 +271,23 @@
 
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file "~/org/misc/todo.org")
+      (quote (("t" "todo" entry (file "~/org/cloud/todo.org")
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("r" "respond" entry (file "~/org/misc/todo.org")
+              ("s" "Scheduled todo" entry (file "~/org/cloud/todo.org")
+               "* TODO %?\n%U\n%a\nSCHEDULED: %t\n\n")
+              ("r" "respond" entry (file "~/org/cloud/todo.org")
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
-              ("n" "note" entry (file "~/org/misc/todo.org")
+              ("n" "note" entry (file "~/org/cloud/todo.org")
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree "~/git/org/diary.org")
                "* %?\n%U\n" :clock-in t :clock-resume t)
-              ("w" "org-protocol" entry (file "~/org/misc/todo.org")
+              ("w" "org-protocol" entry (file "~/org/cloud/todo.org")
                "* TODO Review %c\n%U\n" :immediate-finish t)
-              ("m" "Meeting" entry (file "~/org/misc/todo.org")
+              ("m" "Meeting" entry (file "~/org/cloud/todo.org")
                "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
-              ("p" "Phone call" entry (file "~/org/misc/todo.org")
+              ("p" "Phone call" entry (file "~/org/cloud/todo.org")
                "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
-              ("h" "Habit" entry (file "~/org/misc/todo.org")
+              ("h" "Habit" entry (file "~/org/cloud/todo.org")
                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
 
 
@@ -493,6 +505,91 @@
                nil))))
 
 
+;; Alfis keybindings
+
+;; Use this to switch in tiled windows: use SUPER-left and right
+
+(defun my-previous-window ()
+  "Previous window"
+  (interactive)
+  (other-window -1))
+
+(defun my-next-window ()
+  "Next window"
+  (interactive)
+  (other-window +1))
+
+(global-set-key (kbd "<s-left>") 'my-previous-window)
+(global-set-key (kbd "<s-right>") 'my-next-window)
+
+;; Add Move up and down
+
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(global-set-key [(meta shift up)]  'move-line-up)
+(global-set-key [(meta shift down)]  'move-line-down)
+
+;; More Orgmode changes
+(custom-set-variables
+ '(org-agenda-ndays 10) ;; agenda 10 days ahead
+ '(org-deadline-warning-days 14)  ;; deadline warning for 14 days
+ '(org-agenda-start-on-weekday nil)  ;; Start on current day
+ '(org-agenda-show-all-dates t)  ;; show every day (also empty ones)
+;; '(org-agenda-skip-deadline-if-done t)   ;; dont show deadline if done
+;; '(org-agenda-skip-scheduled-if-done t)   ;; don't show scheduled when done
+ )
+
+
+;; I prefer to schedule all new tasks to today’s date as a default, so I update the org-capture-templates variable
+;; 
+
+;;(setq org-capture-templates
+;;      '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")
+;;         "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
+
+;;sort tasks in order of when they are due and then by priority
+;;(setq org-agenda-sorting-strategy
+;;  (quote
+;;   ((agenda deadline-up priority-down)
+;;    (todo priority-down category-keep)
+;;    (tags priority-down category-keep)
+;;    (search category-keep))))
+
+
+;;open agenda in current window
+(setq org-agenda-window-setup (quote current-window))
+;;show me tasks scheduled or due in next fortnight
+;;(setq org-agenda-span (quote fortnight))
+;;don't show tasks as scheduled if they are already shown as a deadline
+(setq org-agenda-skip-scheduled-if-deadline-is-shown t)
+;;don't give awarning colour to tasks with impending deadlines
+;;if they are scheduled to be done
+;;(setq org-agenda-skip-deadline-prewarning-if-scheduled (quote pre-scheduled))
+
+(setq org-agenda-start-day "-1d") ;; start agenda view yesterday
+(setq org-agenda-ndays 15) ;; show me 15 days
+(setq org-log-done 'time)
+(setq org-agenda-skip-scheduled-if-done t
+      org-agenda-skip-deadline-if-done  t)
+
+(fset 'addScheduledTodo
+      [M-return S-right return ?\C-c ?\C-s return ?\C-u ?\C-c ?! return up up end ? ])      
+
+
+(global-set-key (kbd "<f5>") 'addScheduledTodo) ; Alt+a
 
 
 

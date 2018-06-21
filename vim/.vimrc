@@ -17,3 +17,5 @@ set incsearch
 set history=667
 set undolevels=667
 set pastetoggle=<F2>
+
+highlight LineNr ctermfg=lightyellow 

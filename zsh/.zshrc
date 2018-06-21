@@ -154,3 +154,4 @@ export GOBIN=$HOME/go/code/bin
 export PATH=$PATH:$HOME/mkutil
 
 alias vimgo='vim -u ~/.vimrc.go'
+alias uget='uget-gtk'

@@ -31,4 +31,9 @@ fi
   
 $MYSQL -vv -uroot -p$1 -e "$SQL"
 echo "FINISHED"
-echo "Created DB:$DBNAME with User:$USER and Password:$PASS"
+echo "Created DB: $DBNAME with User: $USER and Password: $PASS"
+echo "Created DB: $DBNAME with User: $USER and Password: $PASS" >> /home/alf/mysqlpass.txt
+echo "adding credentials to credentials.info"
+touch credentials.info
+echo "Created DB: $DBNAME with User: $USER and Password: $PASS" >> credentials.info
+
