@@ -10,7 +10,9 @@
  '(inhibit-startup-screen t)
  '(org-agenda-files
    (quote
-    ("/home/alf/org/cloud/2018_prj.org" "/home/alf/org/cloud/audioghost.org" "/home/alf/org/cloud/blender.org" "/home/alf/org/cloud/boltcms.org" "/home/alf/org/cloud/buchhaltung.org" "/home/alf/org/cloud/capture.org" "/home/alf/org/cloud/contao4.org" "/home/alf/org/cloud/drupal.org" "/home/alf/org/cloud/einkauf.org" "/home/alf/org/cloud/godot.org" "/home/alf/org/cloud/linux.org" "/home/alf/org/cloud/mpu.org" "/home/alf/org/cloud/nas_2018.org" "/home/alf/org/cloud/notes.org" "/home/alf/org/cloud/org.org" "/home/alf/org/cloud/privat.org" "/home/alf/org/cloud/projects.org" "/home/alf/org/cloud/simpleaccounts.org" "/home/alf/org/cloud/timwedding.org" "/home/alf/org/cloud/todo.org" "/home/alf/org/cloud/web_diebergedeswahnsinns.de.org" "/home/alf/org/cloud/web_westernbiological.org" "/home/alf/org/cloud/webdev.org" "/home/alf/org/cloud/tax/_taxes.org" "/home/alf/org/cloud/clients/decrignis.org" "/home/alf/org/cloud/clients/gluecklich.org" "/home/alf/org/cloud/clients/hbh.org" "/home/alf/org/cloud/clients/maxkeller.org" "/home/alf/org/cloud/clients/nuwave.org" "/home/alf/org/cloud/clients/pamir.org" "/home/alf/org/cloud/clients/rookman.org" "/home/alf/org/cloud/clients/ursberg.org" "/home/alf/org/cloud/clients/wup.org" "/home/alf/org/cloud/clients/Ontraq/migration.org" "/home/alf/org/cloud/clients/Ontraq/ontraq.org" "/home/alf/org/cloud/clients/Ontraq/ontraqbackup.org" "/home/alf/org/cloud/clients/RafaelBernardo/headachehurts.org" "/home/alf/org/cloud/clients/RafaelBernardo/leezafive.org" "/home/alf/org/cloud/clients/Tillus/tillus.org" "/home/alf/org/cloud/business/strategy.org" "/home/alf/org/cloud/misc/birthdays.org" "/home/alf/org/cloud/misc/habits.org")))
+    ("/home/alf/org/cloud/2018_prj.org" "/home/alf/org/cloud/audioghost.org" "/home/alf/org/cloud/blender.org" "/home/alf/org/cloud/boltcms.org" "/home/alf/org/cloud/buchhaltung.org" "/home/alf/org/cloud/capture.org" "/home/alf/org/cloud/contao4.org" "/home/alf/org/cloud/drupal.org" "/home/alf/org/cloud/einkauf.org" "/home/alf/org/cloud/godot.org" "/home/alf/org/cloud/linux.org" "/home/alf/org/cloud/mpu.org" "/home/alf/org/cloud/nas_2018.org" "/home/alf/org/cloud/notes.org" "/home/alf/org/cloud/org.org" "/home/alf/org/cloud/privat.org" "/home/alf/org/cloud/projects.org" "/home/alf/org/cloud/simpleaccounts.org" "/home/alf/org/cloud/timwedding.org" "/home/alf/org/cloud/todo.org" "/home/alf/org/cloud/web_diebergedeswahnsinns.de.org" "/home/alf/org/cloud/web_westernbiological.org" "/home/alf/org/cloud/webdev.org" "/home/alf/org/cloud/tax/_taxes.org" "/home/alf/org/cloud/clients/decrignis.org" "/home/alf/org/cloud/clients/gluecklich.org" "/home/alf/org/cloud/clients/hbh.org" "/home/alf/org/cloud/clients/maxkeller.org" "/home/alf/org/cloud/clients/nuwave.org" "/home/alf/org/cloud/clients/pamir.org" "/home/alf/org/cloud/clients/rookman.org" "/home/alf/org/cloud/clients/ursberg.org" "/home/alf/org/cloud/clients/wup.org" "/home/alf/org/cloud/clients/Ontraq/migration.org" "/home/alf/org/cloud/clients/Ontraq/ontraq.org" "/home/alf/org/cloud/clients/Ontraq/ontraqbackup.org" "/home/alf/org/cloud/clients/RafaelBernardo/headachehurts.org" "/home/alf/org/cloud/clients/RafaelBernardo/leezafive.org" "/home/alf/org/cloud/clients/Tillus/tillus.org" "/home/alf/org/cloud/business/strategy.org" "/home/alf/org/cloud/misc/birthdays.org" "/home/alf/org/cloud/misc/habits.org" 
+"/mnt/octopus/syncthing/org/mobileorg.org"
+     )))
  '(org-support-shift-select t)
  '(rainbow-html-colors t)
  '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode))))
@@ -158,7 +160,9 @@
                          "~/org/cloud/clients/Tillus"
                          "~/org/cloud/clients/Ursberg"                       
                          "~/org/cloud/business"
-                         "~/org/cloud/misc"))
+                         "~/org/cloud/misc"
+                         "/mnt/octopus/syncthing/org"
+                         ))
 
 (setq org-default-notes-file '("~/org/cloud/capture.org"))
 
@@ -272,6 +276,8 @@
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
       (quote (("t" "todo" entry (file "~/org/cloud/todo.org")
+               "* TODO %?\n%U\n%a\n")
+              ("i" "INTERRUPT" entry (file "~/org/cloud/todo.org")
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
               ("s" "Scheduled todo" entry (file "~/org/cloud/todo.org")
                "* TODO %?\n%U\n%a\nSCHEDULED: %t\n\n")
@@ -544,7 +550,7 @@
 
 ;; More Orgmode changes
 (custom-set-variables
- '(org-agenda-ndays 10) ;; agenda 10 days ahead
+ ;;'(org-agenda-ndays 10) ;; agenda 10 days ahead
  '(org-deadline-warning-days 14)  ;; deadline warning for 14 days
  '(org-agenda-start-on-weekday nil)  ;; Start on current day
  '(org-agenda-show-all-dates t)  ;; show every day (also empty ones)
@@ -574,7 +580,7 @@
 ;;show me tasks scheduled or due in next fortnight
 ;;(setq org-agenda-span (quote fortnight))
 ;;don't show tasks as scheduled if they are already shown as a deadline
-(setq org-agenda-skip-scheduled-if-deadline-is-shown t)
+;;(setq org-agenda-skip-scheduled-if-deadline-is-shown t)
 ;;don't give awarning colour to tasks with impending deadlines
 ;;if they are scheduled to be done
 ;;(setq org-agenda-skip-deadline-prewarning-if-scheduled (quote pre-scheduled))
@@ -582,14 +588,17 @@
 (setq org-agenda-start-day "-1d") ;; start agenda view yesterday
 (setq org-agenda-ndays 15) ;; show me 15 days
 (setq org-log-done 'time)
-(setq org-agenda-skip-scheduled-if-done t
-      org-agenda-skip-deadline-if-done  t)
+;;(setq org-agenda-skip-scheduled-if-done t
+;;      org-agenda-skip-deadline-if-done  t)
 
 (fset 'addScheduledTodo
       [M-return S-right return ?\C-c ?\C-s return ?\C-u ?\C-c ?! return up up end ? ])      
 
 
 (global-set-key (kbd "<f5>") 'addScheduledTodo) ; Alt+a
+(global-set-key (kbd "C-c r") 'org-refile) ; Alt+a
+
+
 
 
 
