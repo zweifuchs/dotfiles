@@ -552,7 +552,7 @@
 (custom-set-variables
  ;;'(org-agenda-ndays 10) ;; agenda 10 days ahead
  '(org-deadline-warning-days 14)  ;; deadline warning for 14 days
- '(org-agenda-start-on-weekday nil)  ;; Start on current day
+ '(org-agenda-start-on-weekday 1)  ;; Start on current day
  '(org-agenda-show-all-dates t)  ;; show every day (also empty ones)
 ;; '(org-agenda-skip-deadline-if-done t)   ;; dont show deadline if done
 ;; '(org-agenda-skip-scheduled-if-done t)   ;; don't show scheduled when done
