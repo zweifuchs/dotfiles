@@ -571,7 +571,7 @@
 ;; 
 
 ;;(setq org-capture-templates
-;;      '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")
+;;      '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")y
 ;;         "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
 
 ;;sort tasks in order of when they are due and then by priority
@@ -610,3 +610,7 @@
 (setq org-return-follows-link t)
 
 
+;; ALF Save recent clocked tasks
+(setq org-clock-persist t)
+(setq org-clock-persist-file "~/org-clock/org-clock-save.el")
+(org-clock-persistence-insinuate)
