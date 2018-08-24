@@ -10,9 +10,10 @@
  '(inhibit-startup-screen t)
  '(org-agenda-files
    (quote
-    ("/home/alf/org/cloud/2018_prj.org" "/home/alf/org/cloud/audioghost.org" "/home/alf/org/cloud/blender.org" "/home/alf/org/cloud/boltcms.org" "/home/alf/org/cloud/buchhaltung.org" "/home/alf/org/cloud/capture.org" "/home/alf/org/cloud/contao4.org" "/home/alf/org/cloud/drupal.org" "/home/alf/org/cloud/einkauf.org" "/home/alf/org/cloud/godot.org" "/home/alf/org/cloud/linux.org" "/home/alf/org/cloud/mpu.org" "/home/alf/org/cloud/nas_2018.org" "/home/alf/org/cloud/notes.org" "/home/alf/org/cloud/org.org" "/home/alf/org/cloud/privat.org" "/home/alf/org/cloud/projects.org" "/home/alf/org/cloud/simpleaccounts.org" "/home/alf/org/cloud/timwedding.org" "/home/alf/org/cloud/todo.org" "/home/alf/org/cloud/web_diebergedeswahnsinns.de.org" "/home/alf/org/cloud/web_westernbiological.org" "/home/alf/org/cloud/webdev.org" "/home/alf/org/cloud/tax/_taxes.org" "/home/alf/org/cloud/clients/decrignis.org" "/home/alf/org/cloud/clients/gluecklich.org" "/home/alf/org/cloud/clients/hbh.org" "/home/alf/org/cloud/clients/maxkeller.org" "/home/alf/org/cloud/clients/nuwave.org" "/home/alf/org/cloud/clients/pamir.org" "/home/alf/org/cloud/clients/rookman.org" "/home/alf/org/cloud/clients/ursberg.org" "/home/alf/org/cloud/clients/wup.org" "/home/alf/org/cloud/clients/Ontraq/migration.org" "/home/alf/org/cloud/clients/Ontraq/ontraq.org" "/home/alf/org/cloud/clients/Ontraq/ontraqbackup.org" "/home/alf/org/cloud/clients/RafaelBernardo/headachehurts.org" "/home/alf/org/cloud/clients/RafaelBernardo/leezafive.org" "/home/alf/org/cloud/clients/Tillus/tillus.org" "/home/alf/org/cloud/business/strategy.org" "/home/alf/org/cloud/misc/birthdays.org" "/home/alf/org/cloud/misc/habits.org" 
-"/mnt/octopus/syncthing/org/mobileorg.org"
-     )))
+    ("/Users/alfredeichenseher/org/cloud/2018_prj.org" "/Users/alfredeichenseher/org/cloud/alfredbiz.org" "/Users/alfredeichenseher/org/cloud/alpha.org" "/Users/alfredeichenseher/org/cloud/audioghost.org" "/Users/alfredeichenseher/org/cloud/beta.org" "/Users/alfredeichenseher/org/cloud/blender.org" "/Users/alfredeichenseher/org/cloud/boltcms.org" "/Users/alfredeichenseher/org/cloud/buchhaltung.org" "/Users/alfredeichenseher/org/cloud/capture.org" "/Users/alfredeichenseher/org/cloud/contao4.org" "/Users/alfredeichenseher/org/cloud/drupal.org" "/Users/alfredeichenseher/org/cloud/einkauf.org" "/Users/alfredeichenseher/org/cloud/godot.org" "/Users/alfredeichenseher/org/cloud/linux.org" "/Users/alfredeichenseher/org/cloud/macbook.org" "/Users/alfredeichenseher/org/cloud/mpu.org" "/Users/alfredeichenseher/org/cloud/nas_2018.org" "/Users/alfredeichenseher/org/cloud/notes.org" "/Users/alfredeichenseher/org/cloud/org.org" "/Users/alfredeichenseher/org/cloud/privat.org" "/Users/alfredeichenseher/org/cloud/projects.org" "/Users/alfredeichenseher/org/cloud/simpleaccounts.org" "/Users/alfredeichenseher/org/cloud/timwedding.org" "/Users/alfredeichenseher/org/cloud/todo.org" "/Users/alfredeichenseher/org/cloud/web_diebergedeswahnsinns.de.org" "/Users/alfredeichenseher/org/cloud/web_westernbiological.org" "/Users/alfredeichenseher/org/cloud/webdev.org" "/Users/alfredeichenseher/org/cloud/tax/_taxes.org" "/Users/alfredeichenseher/org/cloud/clients/decrignis.org" "/Users/alfredeichenseher/org/cloud/clients/gluecklich.org" "/Users/alfredeichenseher/org/cloud/clients/hbh.org" "/Users/alfredeichenseher/org/cloud/clients/maxkeller.org" "/Users/alfredeichenseher/org/cloud/clients/nuwave.org" "/Users/alfredeichenseher/org/cloud/clients/pamir.org" "/Users/alfredeichenseher/org/cloud/clients/rookman.org" "/Users/alfredeichenseher/org/cloud/clients/ursberg.org" "/Users/alfredeichenseher/org/cloud/clients/wup.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/migration.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/ontraq.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/ontraq_conflict-20180503-172914.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/ontraqbackup.org" "/Users/alfredeichenseher/org/cloud/clients/RafaelBernardo/headachehurts.org" "/Users/alfredeichenseher/org/cloud/clients/RafaelBernardo/leezafive.org" "/Users/alfredeichenseher/org/cloud/clients/Tillus/tillus.org" "/Users/alfredeichenseher/org/cloud/business/strategy.org" "/Users/alfredeichenseher/org/cloud/misc/birthdays.org" "/Users/alfredeichenseher/org/cloud/misc/habits.org")))
+ '(org-agenda-show-all-dates t)
+ '(org-agenda-start-on-weekday nil)
+ '(org-deadline-warning-days 14)
  '(org-support-shift-select t)
  '(rainbow-html-colors t)
  '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode))))
@@ -549,14 +550,7 @@
 (global-set-key [(meta shift down)]  'move-line-down)
 
 ;; More Orgmode changes
-(custom-set-variables
- ;;'(org-agenda-ndays 10) ;; agenda 10 days ahead
- '(org-deadline-warning-days 14)  ;; deadline warning for 14 days
- '(org-agenda-start-on-weekday nil)  ;; Start on current day
- '(org-agenda-show-all-dates t)  ;; show every day (also empty ones)
-;; '(org-agenda-skip-deadline-if-done t)   ;; dont show deadline if done
-;; '(org-agenda-skip-scheduled-if-done t)   ;; don't show scheduled when done
- )
+
 
 
 ;; I prefer to schedule all new tasks to today’s date as a default, so I update the org-capture-templates variable
