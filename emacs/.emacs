@@ -1,3 +1,10 @@
+(require 'package) ;; You might already have this line
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
+(package-initialize) ;; You might already have this line
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -22,23 +29,28 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-level-6 ((t (:inherit outline-6 :foreground "tomato")))))
 
 
+
+ 
+
+ 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;;(require 'ox-confluence)
 
-(require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
+
 
 (when (display-graphic-p)
   (load-theme 'suscolors t)
   )
+
+(unless (require 'use-package nil t)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package diminish
+  :ensure t)
 
 
 ;; alf
@@ -167,16 +179,17 @@
 (setq org-default-notes-file '("~/org/cloud/capture.org"))
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@/!)")))
+      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "PROJECT(p)" "|" "DONE(d!)" "CANCELLED(c@/!)")))
 
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
-              ("WAITING" ("NEXT")("WAITING" . t))
-              ("NEXT" ("WAITING")("NEXT" . t))
-              (done ("WAITING") ("NEXT") )
-              ("TODO" ("WAITING") ("CANCELLED") ("NEXT") )
-              ("NEXT" ("WAITING") ("CANCELLED") )
-              ("DONE" ("WAITING") ("CANCELLED") ("NEXT")))))
+              ("PROJECT" ("WAITING") ("CANCELLED") ("PRJ") ("NEXT") ("PRJ" . t) )
+              ("WAITING" ("NEXT")("PRJ")("WAITING" . t))
+              ("NEXT" ("WAITING")("PRJ")("NEXT" . t))
+              (done ("WAITING") ("NEXT") ("PRJ"))
+              ("TODO" ("WAITING") ("CANCELLED") ("PRJ") ("NEXT") )
+              ("NEXT" ("WAITING") ("CANCELLED") ("PRJ") )
+              ("DONE" ("WAITING") ("CANCELLED") ("PRJ") ("NEXT")))))
 
 
 ;; indent
@@ -319,80 +332,6 @@
 ;; Compact the block agenda view
 (setq org-agenda-compact-blocks t)
 ;; 
-;; Custom agenda command definitions
-(setq org-agenda-custom-commands
-      (quote (("N" "Notes" tags "NOTE"
-               ((org-agenda-overriding-header "Notes")
-                (org-tags-match-list-sublevels t)))
-              ("h" "Habits" tags-todo "STYLE=\"habit\""
-               ((org-agenda-overriding-header "Habits")
-                (org-agenda-sorting-strategy
-                 '(todo-state-down effort-up category-keep))))
-              (" " "Agenda"
-               ((agenda "" nil)
-                (tags "REFILE"
-                      ((org-agenda-overriding-header "Tasks to Refile")
-                       (org-tags-match-list-sublevels nil)))
-                (tags-todo "-CANCELLED/!"
-                           ((org-agenda-overriding-header "Stuck Projects")
-                            (org-agenda-skip-function 'bh/skip-non-stuck-projects)
-                            (org-agenda-sorting-strategy
-                             '(category-keep))))
-                (tags-todo "-HOLD-CANCELLED/!"
-                           ((org-agenda-overriding-header "Projects")
-                            (org-agenda-skip-function 'bh/skip-non-projects)
-                            (org-tags-match-list-sublevels 'indented)
-                            (org-agenda-sorting-strategy
-                             '(category-keep))))
-                (tags-todo "-CANCELLED/!NEXT"
-                           ((org-agenda-overriding-header (concat "Project Next Tasks"
-                                                                  (if bh/hide-scheduled-and-waiting-next-tasks
-                                                                      ""
-                                                                    " (including WAITING and SCHEDULED tasks)")))
-                            (org-agenda-skip-function 'bh/skip-projects-and-habits-and-single-tasks)
-                            (org-tags-match-list-sublevels t)
-                            (org-agenda-todo-ignore-scheduled bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-todo-ignore-deadlines bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-todo-ignore-with-date bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-sorting-strategy
-                             '(todo-state-down effort-up category-keep))))
-                (tags-todo "-REFILE-CANCELLED-WAITING-HOLD/!"
-                           ((org-agenda-overriding-header (concat "Project Subtasks"
-                                                                  (if bh/hide-scheduled-and-waiting-next-tasks
-                                                                      ""
-                                                                    " (including WAITING and SCHEDULED tasks)")))
-                            (org-agenda-skip-function 'bh/skip-non-project-tasks)
-                            (org-agenda-todo-ignore-scheduled bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-todo-ignore-deadlines bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-todo-ignore-with-date bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-sorting-strategy
-                             '(category-keep))))
-                (tags-todo "-REFILE-CANCELLED-WAITING-HOLD/!"
-                           ((org-agenda-overriding-header (concat "Standalone Tasks"
-                                                                  (if bh/hide-scheduled-and-waiting-next-tasks
-                                                                      ""
-                                                                    " (including WAITING and SCHEDULED tasks)")))
-                            (org-agenda-skip-function 'bh/skip-project-tasks)
-                            (org-agenda-todo-ignore-scheduled bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-todo-ignore-deadlines bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-todo-ignore-with-date bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-sorting-strategy
-                             '(category-keep))))
-                (tags-todo "-CANCELLED+WAITING|HOLD/!"
-                           ((org-agenda-overriding-header (concat "Waiting and Postponed Tasks"
-                                                                  (if bh/hide-scheduled-and-waiting-next-tasks
-                                                                      ""
-                                                                    " (including WAITING and SCHEDULED tasks)")))
-                            (org-agenda-skip-function 'bh/skip-non-tasks)
-                            (org-tags-match-list-sublevels nil)
-                            (org-agenda-todo-ignore-scheduled bh/hide-scheduled-and-waiting-next-tasks)
-                            (org-agenda-todo-ignore-deadlines bh/hide-scheduled-and-waiting-next-tasks)))
-                (tags "-REFILE/"
-                      ((org-agenda-overriding-header "Tasks to Archive")
-                       (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
-                       (org-tags-match-list-sublevels nil))))
-               nil))))
-
 
 ;;
 ;; 7 Refiling tasks:
@@ -460,7 +399,10 @@
                ((org-agenda-overriding-header "Habits")
                 (org-agenda-sorting-strategy
                  '(todo-state-down effort-up category-keep))))
-              (" " "Agenda"
+
+              ("pa" "Active Projects" tags-todo "TODO=\"PROJECT\"")
+               ("pn" "Next steps" tags-todo "PRJ&NEXT|TODO=\"PROJECT\"")
+              ("Y" "Agenda"
                ((agenda "" nil)
                 (tags "REFILE"
                       ((org-agenda-overriding-header "Tasks to Refile")
@@ -614,3 +556,117 @@
 (setq org-clock-persist t)
 (setq org-clock-persist-file "~/org-clock/org-clock-save.el")
 (org-clock-persistence-insinuate)
+
+;; Godmode stuff
+(use-package god-mode
+  :ensure t
+  :defines saved-god-mode-line-faces
+  :config
+ (require 'god-mode-isearch)
+ (add-to-list 'god-exempt-major-modes 'term-mode)
+ (add-to-list 'god-exempt-major-modes 'magit-mode)
+ (add-to-list 'god-exempt-major-modes 'org-agenda-mode)
+ (add-to-list 'god-exempt-major-modes 'calc-mode)
+ (add-to-list 'god-exempt-major-modes 'ibuffer-mode)
+;; (defun god-mode-get-out()
+;;   )
+ (defun god-mode-update-cursor ()
+  (let ((limited-colors-p (> 257 (length (defined-colors)))))
+    (cond (god-local-mode (progn
+                            (set-face-background 'mode-line (if limited-colors-p "white" "#e9e2cb"))
+                            (set-face-background 'mode-line-inactive (if limited-colors-p "white" "#e9e2cb"))))
+          (t (progn
+               (set-face-background 'mode-line (if limited-colors-p "black" "#0a2832"))
+               (set-face-background 'mode-line-inactive (if limited-colors-p "black" "#0a2832")))))))
+
+ (add-hook 'god-mode-enabled-hook 'god-mode-update-cursor)
+ (add-hook 'god-mode-disabled-hook 'god-mode-update-cursor)
+ :bind (:map god-mode-isearch-map
+             ("<escape>" . god-mode-isearch-disable))
+ :bind (:map god-local-mode-map
+             ("i" . god-local-mode)
+             ("<return>" . god-local-mode)
+             ("<backspace>" . god-local-mode)
+             ("V" . mark-current-line))
+ :bind 
+        ("<f2>" . 'god-local-mode) 
+ 
+  )
+
+;; (global-set-key (kbd "<f2>") 'god-mode-all)
+;; (setq god-exempt-major-modes nil)
+;; (setq god-exempt-predicates nil)
+
+;; isearch
+(use-package isearch
+  :config
+  (require 'god-mode-isearch)
+  :bind
+  (("C-S-r" . isearch-backward-regexp)
+   ("C-S-s" . isearch-forward-regexp)
+   :map isearch-mode-map
+   ("<M-down>" . isearch-ring-advance)
+   ("<M-up>" . isearch-ring-retreat)
+   ("<escape>" . god-mode-isearch-activate)
+   :map minibuffer-local-isearch-map
+   ("<M-down>" . next-history-element)
+   ("<M-up>" . previous-history-element)))
+
+;; ALF Miscs:
+(display-time-mode 1)
+
+
+;; multiple cursors
+(use-package multiple-cursors
+  :ensure t
+  :bind (("s-1" . mc/mark-next-like-this)
+         ("s-2" . mc/unmark-next-like-this)
+         ("s-3" . mc/mark-all-in-region)   
+         ("C-S-<mouse-1>" . mc/add-cursor-on-click)))
+
+;; ALF - Show matching and unmatched delimiters, and auto-close them as well.
+
+(use-package smartparens-config
+  :ensure smartparens
+  :config
+  ;; (use-package smartparens-config)
+  ;; ;; highlights matching pairs
+  ;; (setq sp-base-key-bindings 'paredit)
+  ;; (setq sp-autoskip-closing-pair 'always)
+  ;; (sp-use-paredit-bindings)
+  ;; (sp-pair "{" nil :post-handlers
+  ;;          '(((lambda (&rest _ignored)
+  ;;               (prelude-smart-open-line-above)) "RET")))
+  (show-smartparens-global-mode t)
+
+  (add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
+  (add-hook 'LaTeX-mode-hook 'turn-on-smartparens-mode)
+  (add-hook 'markdown-mode-hook 'turn-on-smartparens-mode))
+
+
+;; ALF
+;; helm etc
+
+;; Helm - incremental completion framework
+(use-package helm
+  :ensure t
+  :bind (("M-a" . helm-M-x)
+         ("C-x C-f" . helm-find-files)
+         ("C-x f" . helm-recentf)
+         ("C-SPC" . helm-dabbrev)
+         ("M-y" . helm-show-kill-ring)
+         ("C-x b" . helm-buffers-list))
+  :bind (:map helm-map
+	      ("M-i" . helm-previous-line)
+	      ("M-k" . helm-next-line)
+	      ("M-I" . helm-previous-page)
+	      ("M-K" . helm-next-page)
+	      ("M-h" . helm-beginning-of-buffer)
+	      ("M-H" . helm-end-of-buffer))
+  :config (progn
+	    (setq helm-buffers-fuzzy-matching t)
+            (helm-mode 1)))
+
+
+;; ALF
+(setq org-log-into-drawer t)
