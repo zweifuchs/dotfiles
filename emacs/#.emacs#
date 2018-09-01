@@ -163,11 +163,9 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-;(setq org-agenda-files (directory-files-recursively "~/org/cloud/" "\.org$"))
+(setq org-agenda-files (directory-files-recursively "~/org/cloud/" "\.org$"))
 
-(load-library "find-lisp")
-(setq org-agenda-files
-   (find-lisp-find-files "~/org/cloud/" "\.org$"))
+
 
 (setq org-default-notes-file '("~/org/cloud/capture.org"))
 
