@@ -17,11 +17,9 @@
  '(inhibit-startup-screen t)
  '(org-agenda-files
    (quote
-
-    ("/Users/alfredeichenseher/org/cloud/2018_prj.org" "/Users/alfredeichenseher/org/cloud/alfredbiz.org" "/Users/alfredeichenseher/org/cloud/alpha.org" "/Users/alfredeichenseher/org/cloud/audioghost.org" "/Users/alfredeichenseher/org/cloud/beta.org" "/Users/alfredeichenseher/org/cloud/blender.org" "/Users/alfredeichenseher/org/cloud/boltcms.org" "/Users/alfredeichenseher/org/cloud/buchhaltung.org" "/Users/alfredeichenseher/org/cloud/capture.org" "/Users/alfredeichenseher/org/cloud/contao4.org" "/Users/alfredeichenseher/org/cloud/drupal.org" "/Users/alfredeichenseher/org/cloud/einkauf.org" "/Users/alfredeichenseher/org/cloud/godot.org" "/Users/alfredeichenseher/org/cloud/linux.org" "/Users/alfredeichenseher/org/cloud/macbook.org" "/Users/alfredeichenseher/org/cloud/mpu.org" "/Users/alfredeichenseher/org/cloud/nas_2018.org" "/Users/alfredeichenseher/org/cloud/notes.org" "/Users/alfredeichenseher/org/cloud/org.org" "/Users/alfredeichenseher/org/cloud/privat.org" "/Users/alfredeichenseher/org/cloud/projects.org" "/Users/alfredeichenseher/org/cloud/simpleaccounts.org" "/Users/alfredeichenseher/org/cloud/timwedding.org" "/Users/alfredeichenseher/org/cloud/todo.org" "/Users/alfredeichenseher/org/cloud/web_diebergedeswahnsinns.de.org" "/Users/alfredeichenseher/org/cloud/web_westernbiological.org" "/Users/alfredeichenseher/org/cloud/webdev.org" "/Users/alfredeichenseher/org/cloud/tax/_taxes.org" "/Users/alfredeichenseher/org/cloud/clients/decrignis.org" "/Users/alfredeichenseher/org/cloud/clients/gluecklich.org" "/Users/alfredeichenseher/org/cloud/clients/hbh.org" "/Users/alfredeichenseher/org/cloud/clients/maxkeller.org" "/Users/alfredeichenseher/org/cloud/clients/nuwave.org" "/Users/alfredeichenseher/org/cloud/clients/pamir.org" "/Users/alfredeichenseher/org/cloud/clients/rookman.org" "/Users/alfredeichenseher/org/cloud/clients/ursberg.org" "/Users/alfredeichenseher/org/cloud/clients/wup.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/migration.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/ontraq.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/ontraq_conflict-20180503-172914.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/ontraqbackup.org" "/Users/alfredeichenseher/org/cloud/clients/RafaelBernardo/headachehurts.org" "/Users/alfredeichenseher/org/cloud/clients/RafaelBernardo/leezafive.org" "/Users/alfredeichenseher/org/cloud/clients/Tillus/tillus.org" "/Users/alfredeichenseher/org/cloud/business/strategy.org" "/Users/alfredeichenseher/org/cloud/misc/birthdays.org" "/Users/alfredeichenseher/org/cloud/misc/habits.org")))
+    ("/Users/alfredeichenseher/org/cloud/2018_prj.org" "/Users/alfredeichenseher/org/cloud/alfredbiz.org" "/Users/alfredeichenseher/org/cloud/alfredbiz_conflict-20180824-110203.org" "/Users/alfredeichenseher/org/cloud/alpha.org" "/Users/alfredeichenseher/org/cloud/audioghost.org" "/Users/alfredeichenseher/org/cloud/beta.org" "/Users/alfredeichenseher/org/cloud/blender.org" "/Users/alfredeichenseher/org/cloud/boltcms.org" "/Users/alfredeichenseher/org/cloud/buchhaltung.org" "/Users/alfredeichenseher/org/cloud/capture.org" "/Users/alfredeichenseher/org/cloud/contao4.org" "/Users/alfredeichenseher/org/cloud/drupal.org" "/Users/alfredeichenseher/org/cloud/dsa-rpg.org" "/Users/alfredeichenseher/org/cloud/dsa.org" "/Users/alfredeichenseher/org/cloud/einkauf.org" "/Users/alfredeichenseher/org/cloud/godot.org" "/Users/alfredeichenseher/org/cloud/linux.org" "/Users/alfredeichenseher/org/cloud/macbook.org" "/Users/alfredeichenseher/org/cloud/mpu.org" "/Users/alfredeichenseher/org/cloud/nas_2018.org" "/Users/alfredeichenseher/org/cloud/notes.org" "/Users/alfredeichenseher/org/cloud/org.org" "/Users/alfredeichenseher/org/cloud/privat.org" "/Users/alfredeichenseher/org/cloud/projects.org" "/Users/alfredeichenseher/org/cloud/simpleaccounts.org" "/Users/alfredeichenseher/org/cloud/test.org" "/Users/alfredeichenseher/org/cloud/timwedding.org" "/Users/alfredeichenseher/org/cloud/todo.org" "/Users/alfredeichenseher/org/cloud/web_diebergedeswahnsinns.de.org" "/Users/alfredeichenseher/org/cloud/web_westernbiological.org" "/Users/alfredeichenseher/org/cloud/webdev.org" "/Users/alfredeichenseher/org/cloud/tax/_taxes.org" "/Users/alfredeichenseher/org/cloud/clients/decrignis.org" "/Users/alfredeichenseher/org/cloud/clients/gluecklich.org" "/Users/alfredeichenseher/org/cloud/clients/hbh.org" "/Users/alfredeichenseher/org/cloud/clients/maxkeller.org" "/Users/alfredeichenseher/org/cloud/clients/nuwave.org" "/Users/alfredeichenseher/org/cloud/clients/pamir.org" "/Users/alfredeichenseher/org/cloud/clients/rookman.org" "/Users/alfredeichenseher/org/cloud/clients/ursberg.org" "/Users/alfredeichenseher/org/cloud/clients/wup.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/migration.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/ontraq.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/ontraq_conflict-20180503-172914.org" "/Users/alfredeichenseher/org/cloud/clients/Ontraq/ontraqbackup.org" "/Users/alfredeichenseher/org/cloud/clients/RafaelBernardo/headachehurts.org" "/Users/alfredeichenseher/org/cloud/clients/RafaelBernardo/leezafive.org" "/Users/alfredeichenseher/org/cloud/clients/Tillus/tillus.org" "/Users/alfredeichenseher/org/cloud/misc/birthdays.org" "/Users/alfredeichenseher/org/cloud/misc/habits.org")))
  '(org-agenda-show-all-dates t)
-'(org-agenda-start-on-weekday 1)
-
+ '(org-agenda-start-on-weekday 1)
  '(org-deadline-warning-days 14)
  '(org-support-shift-select t)
  '(rainbow-html-colors t)
@@ -403,7 +401,11 @@
                  '(todo-state-down effort-up category-keep))))
 
               ("pa" "Active Projects" tags-todo "TODO=\"PROJECT\"")
-               ("pn" "Next steps" tags-todo "PRJ&NEXT|TODO=\"PROJECT\"")
+              ("pn" "Next steps" tags-todo "PRJ&NEXT|TODO=\"PROJECT\"")
+              ("w" "Working stuff"
+               ((agenda "" nil)
+                                    (tags-todo "TODO=\"PROJECT\"")))
+
               ("Y" "Agenda"
                ((agenda "" nil)
                 (tags "REFILE"
@@ -669,6 +671,11 @@
 	    (setq helm-buffers-fuzzy-matching t)
             (helm-mode 1)))
 
-
 ;; ALF
 (setq org-log-into-drawer t)
+
+;;ALF
+(add-hook 'dired-mode-hook 'hl-line-mode)
+(add-hook 'package-menu-mode-hook 'hl-line-mode)
+(add-hook 'org-agenda-mode-hook 'hl-line-mode)
+
