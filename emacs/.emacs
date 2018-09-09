@@ -16,7 +16,6 @@
     ("97d039a52cfb190f4fd677f02f7d03cf7dbd353e08ac8a0cb991223b135ac4e6" default)))
  '(inhibit-startup-screen t)
  '(org-agenda-show-all-dates t)
- '(org-agenda-start-on-weekday 1)
  '(org-deadline-warning-days 14)
  '(org-log-done (quote note))
  '(org-support-shift-select t)
@@ -683,3 +682,20 @@
 
 ;; y or n
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; ALF use python3.7 in org
+
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
+(setq org-babel-python-command "python3.7")
+
+;; Agenda view
+;; look in front 10 days
+;; look back 3 days
+;; start today 
+(setq org-agenda-span 10
+      org-agenda-start-on-weekday nil
+      org-agenda-start-day "-3d")
