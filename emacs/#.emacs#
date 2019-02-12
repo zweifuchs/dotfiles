@@ -18,8 +18,6 @@
  '(org-agenda-show-all-dates t)
  '(org-agenda-start-on-weekday 1)
  '(org-deadline-warning-days 14)
- '(org-log-done (quote note))
- '(org-export-backends (quote (ascii html icalendar latex md odt confluence)))
  '(org-support-shift-select t)
  '(rainbow-html-colors t)
  '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode))))

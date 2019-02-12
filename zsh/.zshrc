@@ -8,7 +8,7 @@ export ZSH=/Users/alfredeichenseher/.oh-my-zsh
 export PATH="/Users/alfredeichenseher/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 alias emacs='open -a /Applications/Emacs.app $1'
-
+source /usr/local/opt/chruby/share/chruby/chruby.sh
      ;;
 
    Linux)
