@@ -1,0 +1,9 @@
+ls
+ll
+pwd
+PWD
+echo $PWD
+eco $PATH
+echo $PATH
+chruby 2.6
+exit

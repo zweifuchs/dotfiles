@@ -13,11 +13,13 @@
  '(custom-enabled-themes (quote (suscolors)))
  '(custom-safe-themes
    (quote
-    ("97d039a52cfb190f4fd677f02f7d03cf7dbd353e08ac8a0cb991223b135ac4e6" default)))
+    ("a7004835dd02c73989032e57574087ec78ce8c2dd0d79f21cdd7423c01d9d2f5" "97d039a52cfb190f4fd677f02f7d03cf7dbd353e08ac8a0cb991223b135ac4e6" default)))
  '(inhibit-startup-screen t)
  '(org-agenda-show-all-dates t)
  '(org-deadline-warning-days 14)
+ '(org-export-backends (quote (ascii html icalendar latex md odt confluence)))
  '(org-log-done (quote note))
+ '(org-log-repeat (quote note))
  '(org-support-shift-select t)
  '(rainbow-html-colors t)
  '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode))))
@@ -30,10 +32,18 @@
 
 
 
+
+;;ruby?
+  (add-to-list 'auto-mode-alist
+               '("\\.\\(?:cap\\|gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
+  (add-to-list 'auto-mode-alist
+               '("\\(?:Brewfile\\|Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
+
  
 
  
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/lisp/emacs-calfw-master/")
 ;;(require 'ox-confluence)
 
 
@@ -76,6 +86,8 @@
             (eyebrowse-mode t)
             (setq eyebrowse-new-workspace t))
 
+;; alf use speedkeys
+(setq org-use-speed-commands t)
 
 ;; Better defaults
 ;; Allow pasting from regular clipboard
@@ -179,7 +191,7 @@
               ("PROJECT" ("WAITING") ("CANCELLED") ("PRJ") ("NEXT") ("PRJ" . t) )
               ("WAITING" ("NEXT")("PRJ")("WAITING" . t))
               ("NEXT" ("WAITING")("PRJ")("NEXT" . t))
-              ("FINISHED" ("WAITING")("PRJ")("NEXT")("CANCELLED")("FINISHED" . t))
+              ("FINISHED" ("WAITING")("NEXT")("CANCELLED")("FINISHED" . t))
               ("INACTIVE" ("WAITING")("PRJ")("NEXT")("CANCELLED" . t)("FINISHED"))
               ("ON HOLD" ("WAITING")("PRJ")("NEXT")("CANCELLED")("FINISHED") ("HOLD" . t))              
               (done ("WAITING") ("NEXT") ("PRJ") ("HOLD") )
@@ -346,7 +358,8 @@
 
 ; Use IDO for both buffer and file completion and ido-everywhere to t
 (setq org-completion-use-ido t)
-(setq ido-everywhere t)
+                                        ;
+;(setq ido-everywhere t)
 (setq ido-max-directory-size 100000)
 (ido-mode (quote both))
 ; Use the current window when visiting files and buffers with ido
@@ -395,8 +408,19 @@
                 (org-agenda-sorting-strategy
                  '(todo-state-down effort-up category-keep))))
 
-              ("pa" "Active Projects" tags-todo "TODO=\"PROJECT\"")
-               ("pn" "Next steps" tags-todo "PRJ&NEXT|TODO=\"PROJECT\"")
+          
+              ("q" "Only Tasks with WORK tag"
+               ((agenda "" ((org-agenda-span 1)
+                            (org-agenda-start-on-weekday nil)
+                            (org-agenda-start-day "0d")
+                            (org-agenda-repeating-timestamp-show-all t)
+                            (org-agenda-tag-filter-preset '("+WORK"))
+                            )
+                        ))
+               )
+
+              ("w" "All Active Projects" ((tags-todo "+PRJ+TODO=\"PROJECT\"") (todo "NEXT")))
+               
               ("Y" "Agenda"
                ((agenda "" nil)
                 (tags "REFILE"
@@ -531,7 +555,7 @@
 ;;(setq org-agenda-skip-deadline-prewarning-if-scheduled (quote pre-scheduled))
 
 (setq org-agenda-start-day "-1d") ;; start agenda view yesterday
-(setq org-agenda-ndays 15) ;; show me 15 days
+(setq org-agenda-ndays 7) ;; show me 15 days
 
 ;;(setq org-agenda-skip-scheduled-if-done t
 ;;      org-agenda-skip-deadline-if-done  t)
@@ -540,8 +564,10 @@
       [M-return S-right return ?\C-c ?\C-s return ?\C-u ?\C-c ?! return up up end ? ])      
 
 
+;; ALF custom shortcuts
 (global-set-key (kbd "<f5>") 'addScheduledTodo) ; Alt+a
 (global-set-key (kbd "C-c r") 'org-refile) ; Alt+a
+
 
 
 (setq org-return-follows-link t)
@@ -650,6 +676,7 @@
          ("C-x f" . helm-recentf)
          ("C-SPC" . helm-dabbrev)
          ("M-y" . helm-show-kill-ring)
+         ("C-x C-r" . helm-recentf)
          ("C-x b" . helm-buffers-list))
   :bind (:map helm-map
 	      ("M-i" . helm-previous-line)
@@ -686,11 +713,62 @@
 ;; ALF use python3.7 in org
 
 
+;;(org-babel-do-load-languages
+;; 'org-babel-load-languages
+;; '((python . t)
+;;(ruby . r)
+;;))
+
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((python . t)))
+ ; load all language marked with (lang . t).
+ '((C . t)
+   (R . t)
+  
+   (awk)
+   (calc)
+   (clojure)
+   (comint)
+   (css)
+   (ditaa . t)
+   (dot . t)
+   (emacs-lisp . t)
+  
+   (gnuplot . t)
+   (haskell)
+   (io)
+   (java)
+   (js)
+   (latex)
+   (ledger)
+  
+   (lisp)
+  
+   (maxima)
+   (mscgen)
+   (ocaml)
+   (octave)
+   (org . t)
+   (perl)
+   (picolisp)
+   (plantuml)
+   (python . t)
+   (ref)
+   (ruby . t)
+  
+   (scala)
+   (scheme)
+  
+   (shell . t)
+   (shen)
+   (sql)
+   (sqlite)))
 
 (setq org-babel-python-command "python3.7")
+(setq org-babel-ruby-command "/home/alf/.rubies/ruby-2.6.1/bin/ruby")
+
+;; Load async for source blocks
+(require 'ob-async)
 
 ;; Agenda view
 ;; look in front 10 days
@@ -699,3 +777,95 @@
 (setq org-agenda-span 10
       org-agenda-start-on-weekday nil
       org-agenda-start-day "-3d")
+
+
+;; Log clock out with note
+(setq org-log-note-clock-out t)
+
+;; Log reschedule and redeadline
+(setq org-log-reschedule (quote time))
+(setq org-log-redeadline (quote time))
+
+;; log done state
+(setq org-log-done (quote time))
+;; columns view agenda
+;;(setq org-columns-default-format "%20ITEM(Task) %1PRIORITY %TAGS(Tags) %6TODO %4EFFORT{:} %4CLOCKSUM")
+(setq org-agenda-overriding-columns-format "%CATEGORY %50ITEM(Task) %1PRIORITY %TAGS(Tags) %6TODO %4EFFORT{:} %4CLOCKSUM")
+(setq org-agenda-columns-add-appointments-to-effort-sum t)
+(setq org-agenda-default-appointment-duration 60)
+(set-face-attribute 'default nil :height 100)
+(set-face-attribute 'org-column nil :height 100)
+;;(set-face-attribute 'org-column-title nil :height 100)
+
+
+;; https://github.com/alphapapa/helm-org-rifle
+(use-package helm-org-rifle
+  :ensure t
+  :bind (("<f6>" . helm-org-rifle-agenda-files)
+         ("C-x C-f" . helm-find-files)
+         ("C-x f" . helm-recentf)
+         ("C-SPC" . helm-dabbrev)
+         ("M-y" . helm-show-kill-ring)
+         ("C-x b" . helm-buffers-list))
+
+
+  )
+
+(use-package calfw
+  :commands (cfw:open-calendar-buffer))
+
+(use-package calfw-org
+  :commands (cfw:open-org-calendar))
+
+
+
+(defun sudired ()
+  (interactive)
+  (require 'tramp)
+  (let ((dir (expand-file-name default-directory)))
+    (if (string-match "^/sudo:" dir)
+        (user-error "Already in sudo")
+      (dired (concat "/sudo::" dir)))))
+(define-key dired-mode-map "!" 'sudired)
+
+(setq org-latex-caption-above nil)
+
+(setq org-latex-pdf-process 
+      '("xelatex -interaction nonstopmode %f"
+        "xelatex -shell-escape -interaction nonstopmode  %f"
+        "xelatex -shell-escape -interaction nonstopmode  %f"
+     "xelatex -interaction nonstopmode %f"))
+
+
+(add-to-list 'org-latex-classes
+             '("ae-article"
+               "\\documentclass{article}
+\\usepackage[hidelinks]{hyperref}
+\\usepackage{geometry}
+\\pagenumbering{roman}
+\\geometry{a4paper,left=2.5cm,top=2cm,right=2.5cm,bottom=2cm,marginparsep=7pt, marginparwidth=.6in}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+
+(add-to-list 'org-latex-classes
+          '("koma-article"
+             "\\documentclass{scrartcl}"
+             ("\\section{%s}" . "\\section*{%s}")
+             ("\\subsection{%s}" . "\\subsection*{%s}")
+             ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+             ("\\paragraph{%s}" . "\\paragraph*{%s}")
+             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-latex-classes
+             '("book"
+               "\\documentclass{book}"
+               ("\\part{%s}" . "\\part*{%s}")
+               ("\\chapter{%s}" . "\\chapter*{%s}")
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+             )

@@ -5,10 +5,12 @@
       '(
         cua-cut-region
         cua-paste
+        org-self-insert-command
         ))
 
 (setq mc/cmds-to-run-once
       '(
         end-of-visual-line
+        eyebrowse-switch-to-window-config-1
         god-mode-all
         ))

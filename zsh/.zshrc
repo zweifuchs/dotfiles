@@ -13,10 +13,10 @@ alias emacs='open -a /Applications/Emacs.app $1'
    Linux)
      echo 'Linux'
 export ZSH=/home/alf/.oh-my-zsh
+export _Z_DATA="$HOME/.config/.z"
 export PATH="/home/alf/tools/phpstorm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-
-
-
+export PATH="/home/alf/tools/z:$PATH"
+. /home/alf/tools/z/z.sh
      ;;
 
 esac
@@ -155,3 +155,6 @@ export PATH=$PATH:$HOME/mkutil
 
 alias vimgo='vim -u ~/.vimrc.go'
 alias uget='uget-gtk'
+alias thedeploy='BUNDLE_GEMFILE=/home/alf/prj/ruby/deploy/Gemfile bundle exec  ruby /home/alf/prj/ruby/deploy/deploy.rb'
+alias ttime='BUNDLE_GEMFILE=/home/alf/prj/ruby/teatime/Gemfile bundle exec  ruby /home/alf/prj/ruby/teatime/teatime.rb'
+
