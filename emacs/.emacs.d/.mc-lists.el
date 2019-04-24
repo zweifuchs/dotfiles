@@ -3,9 +3,12 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        beginning-of-visual-line
         cua-cut-region
         cua-paste
+        helm-M-x
         org-self-insert-command
+        save-some-buffers
         ))
 
 (setq mc/cmds-to-run-once

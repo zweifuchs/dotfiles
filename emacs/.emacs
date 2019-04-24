@@ -15,6 +15,9 @@
    (quote
     ("a7004835dd02c73989032e57574087ec78ce8c2dd0d79f21cdd7423c01d9d2f5" "97d039a52cfb190f4fd677f02f7d03cf7dbd353e08ac8a0cb991223b135ac4e6" default)))
  '(inhibit-startup-screen t)
+ '(org-agenda-files
+   (quote
+    ("/home/alf/org/cloud/mylinux.org" "/home/alf/org/cloud/dashboard.org" "/home/alf/org/cloud/todo.org" "/home/alf/org/cloud/knowledge/emacstest.org" "/home/alf/org/cloud/knowledge/dsa.org" "/home/alf/org/cloud/knowledge/o2.org" "/home/alf/org/cloud/knowledge/links.org" "/home/alf/org/cloud/knowledge/svganimation.org" "/home/alf/org/cloud/knowledge/pilze.org" "/home/alf/org/cloud/knowledge/osx.org" "/home/alf/org/cloud/knowledge/server.org" "/home/alf/org/cloud/knowledge/aftereffects.org" "/home/alf/org/cloud/knowledge/synology.org" "/home/alf/org/cloud/knowledge/vscode.org" "/home/alf/org/cloud/knowledge/macbook.org" "/home/alf/org/cloud/knowledge/webdev.org" "/home/alf/org/cloud/knowledge/drupal.org" "/home/alf/org/cloud/knowledge/auto.org" "/home/alf/org/cloud/knowledge/linux.org" "/home/alf/org/cloud/knowledge/git.org" "/home/alf/org/cloud/knowledge/python.org" "/home/alf/org/cloud/knowledge/contao4.org" "/home/alf/org/cloud/knowledge/orgmode.org" "/home/alf/org/cloud/knowledge/godot.org" "/home/alf/org/cloud/knowledge/boltcms.org" "/home/alf/org/cloud/knowledge/javascript.org" "/home/alf/org/cloud/knowledge/golang.org" "/home/alf/org/cloud/knowledge/blender.org" "/home/alf/org/cloud/knowledge/adobe.org" "/home/alf/org/cloud/knowledge/docker.org" "/home/alf/org/cloud/biglist.org" "/home/alf/org/cloud/projects/mpu.org" "/home/alf/org/cloud/projects/audioghost.org" "/home/alf/org/cloud/projects/nas_2018.org" "/home/alf/org/cloud/projects/timwedding.org" "/home/alf/org/cloud/projects/babeltest.org" "/home/alf/org/cloud/projects/2018_prj.org" "/home/alf/org/cloud/projects/projects.org" "/home/alf/org/cloud/projects/web_diebergedeswahnsinns.de.org" "/home/alf/org/cloud/projects/web_westernbiological.org" "/home/alf/org/cloud/business/alfredbiz.org" "/home/alf/org/cloud/business/clients/temp.org" "/home/alf/org/cloud/business/clients/gluecklich.org" "/home/alf/org/cloud/business/clients/ontraq.org" "/home/alf/org/cloud/business/clients/mutik-gmbh.org" "/home/alf/org/cloud/business/clients/rafaelbernardo.org" "/home/alf/org/cloud/business/clients/captaingrafik.org" "/home/alf/org/cloud/business/clients/hbh.org" "/home/alf/org/cloud/business/clients/cdcweb.org" "/home/alf/org/cloud/business/clients/Tillus/tillus.org" "/home/alf/org/cloud/business/clients/pamir.org" "/home/alf/org/cloud/business/clients/nuwave.org" "/home/alf/org/cloud/business/clients/RafaelBernardo/headachehurts.org" "/home/alf/org/cloud/business/clients/RafaelBernardo/leezafive.org" "/home/alf/org/cloud/business/clients/ursberg.org" "/home/alf/org/cloud/business/clients/geiger.org" "/home/alf/org/cloud/business/clients/westwoodbbluegrasband.org" "/home/alf/org/cloud/business/clients/maxkeller.org" "/home/alf/org/cloud/business/clients/fakeclient.org" "/home/alf/org/cloud/business/clients/wup.org" "/home/alf/org/cloud/business/clients/decrignis.org" "/home/alf/org/cloud/business/clients/rookman.org" "/home/alf/org/cloud/business/tax/_taxes.org" "/home/alf/org/cloud/blogs.org" "/home/alf/org/cloud/simpleaccounts.org" "/home/alf/org/cloud/notes.org" "/home/alf/org/cloud/personal/justiz.org" "/home/alf/org/cloud/personal/beta.org" "/home/alf/org/cloud/personal/hirtenhaus.org" "/home/alf/org/cloud/personal/alpha.org" "/home/alf/org/cloud/personal/krankenkasse.org" "/home/alf/org/cloud/personal/umzug.org" "/home/alf/org/cloud/personal/hia.org" "/home/alf/org/cloud/personal/privat.org" "/home/alf/org/cloud/personal/christmas2017.org" "/home/alf/org/cloud/personal/boardgames.org" "/home/alf/org/cloud/personal/einkauf.org" "/home/alf/org/cloud/personal/birthdays.org" "/home/alf/org/cloud/personal/habits.org" "/home/alf/org/cloud/system.org")))
  '(org-agenda-show-all-dates t)
  '(org-deadline-warning-days 14)
  '(org-export-backends (quote (ascii html icalendar latex md odt confluence)))
@@ -23,7 +26,7 @@
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
-    (use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish)))
+    (org-mru-clock inf-ruby helm-swoop use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish)))
  '(rainbow-html-colors t)
  '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode))))
 (custom-set-faces
@@ -32,6 +35,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-level-6 ((t (:inherit outline-6 :foreground "tomato")))))
+
 
 
 
@@ -63,6 +67,13 @@
   :ensure t)
 
 
+;;Alf - ruby
+(unless (package-installed-p 'inf-ruby)
+  (package-install 'inf-ruby))
+
+
+
+
 ;; alf
 ;; unset C- and M- digit keys
 ;; so i can use them for my own stuff ;)
@@ -76,6 +87,10 @@
 ;; use eyebrowse - set the new 
 (require 'eyebrowse)
 
+;; alf
+;; org-collector
+(require 'org-collector)
+
 (progn
             (define-key eyebrowse-mode-map (kbd "M-1") 'eyebrowse-switch-to-window-config-1)
             (define-key eyebrowse-mode-map (kbd "M-2") 'eyebrowse-switch-to-window-config-2)
@@ -85,6 +100,10 @@
             (define-key eyebrowse-mode-map (kbd "M-6") 'eyebrowse-switch-to-window-config-6)
             (define-key eyebrowse-mode-map (kbd "M-7") 'eyebrowse-switch-to-window-config-7)
             (define-key eyebrowse-mode-map (kbd "M-8") 'eyebrowse-switch-to-window-config-8)
+            (define-key eyebrowse-mode-map (kbd "M-0") 'eyebrowse-close-window-config)
+            (define-key eyebrowse-mode-map (kbd "M-s-<left>") 'eyebrowse-prev-window-config)
+            (define-key eyebrowse-mode-map (kbd "M-s-<right>") 'eyebrowse-next-window-config)
+            
 
             (eyebrowse-mode t)
             (setq eyebrowse-new-workspace t))
@@ -158,6 +177,9 @@
       )
 
 (setq vc-make-backup-files t)           ; Version also Files in Source control
+
+(global-set-key (kbd "C-x +") 'maximize-window)
+(global-set-key (kbd "C-x -") 'balance-windows)
 
 ;; ALFIS ORG MODE STUFF:
 ;; source highlught
@@ -249,6 +271,10 @@
 (global-set-key (kbd "C-s-<f12>") 'bh/save-then-publish)
 (global-set-key (kbd "C-c c") 'org-capture)
 
+;; Alf - helm plz
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+
 
 ;; ALF 
 (defun alf-org-clock-in()
@@ -260,6 +286,8 @@
 (setq org-duration-format (quote h:mm))
 (setq org-time-clocksum-format (quote (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
 
+
+;; ALF - for quick select tasks
 
 ;; ALF END
 
@@ -304,33 +332,51 @@
     (beginning-of-line 0)
     (org-remove-empty-drawer-at "LOGBOOK" (point))))
 
-(add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
+;;(add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
 
 
+;; Alf capture at point
+(defun alf/org-capture-at-point ()
+  "Insert an org capture template at point."
+  (interactive)
+  (org-capture 0))
 
 
 ;; I use C-c c to start capture mode
 (global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c d") 'alf/org-capture-at-point)
 
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file "~/org/cloud/todo.org")
-               "* TODO %?\n%U\n%a\n")
-              ("i" "INTERRUPT" entry (file "~/org/cloud/todo.org")
+      (quote (("t" "todo" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "TASKS")
+               "* TODO %?\n:PROPERTIES:\n:CREATED_AT: %U\n:END:\n%a\n\n\n")
+              ("i" "INTERRUPT" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "INTERRUPTS")
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("s" "Scheduled todo" entry (file "~/org/cloud/todo.org")
+              ("s" "Scheduled todo" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "TASKS")
                "* TODO %?\n%U\n%a\nSCHEDULED: %t\n\n")
-              ("r" "respond" entry (file "~/org/cloud/todo.org")
-               "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
-              ("n" "note" entry (file "~/org/cloud/todo.org")
+              ("n" "note" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "NOTES")
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("j" "Journal" entry (file+datetree "~/git/org/diary.org")
+              ("b" "Bookmark" entry (file+olp "~/org/cloud/knowledge/bookmarks.org" "INCOMING")
+               "* %? \n%U\n%a\n" :clock-keep t )
+              ("j" "Journal" entry (file+olp+datetree "~/org/cloud/personal/journal.org" "log")
                "* %?\n%U\n" :clock-in t :clock-resume t)
-              ("w" "org-protocol" entry (file "~/org/cloud/todo.org")
+              ("w" "org-protocol" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING")
                "* TODO Review %c\n%U\n" :immediate-finish t)
-              ("m" "Meeting" entry (file "~/org/cloud/todo.org")
-               "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
-              ("p" "Phone call" entry (file "~/org/cloud/todo.org")
+              ("r" "Rechnung" entry (file+headline "~/org/cloud/business/alfredbiz.org" "Ausgaben_alle")
+               "* TODO %^{PROMPT|Rechungsname} \n:PROPERTIES:\n:netto: %^{netto}\n:ust: %^{Ust}\n:brutto: %^{brutto}\n:link: [[%^{link to file}][pdf]]\n:END: \n%^u\n%^L\n%?")
+              ("m" "Meeting" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "INTERRUPTS")               
+               "* MEETING with %? :PAUSE:\n%U" :clock-in t :clock-resume t)
+              ("p" "PAUSE - All thing have a break")               
+              ("pp" "PAUSE" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "BREAKS")               
+               "* PAUSE with %? :PAUSE:\n%U" :clock-in t :clock-resume t)
+              ("pt" "PAUSE ten mins" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "BREAKS")               
+               "* Ten Minute Break with %? :PAUSE:\n%U" :clock-in t :clock-resume t)
+              ("pc" "Coffee Break" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "BREAKS")               
+               "* PAUSE with %? :PAUSE:\n%U" :clock-in t :clock-resume t)
+              ("pb" "Big Break" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "BREAKS")               
+               "* PAUSE with %? :PAUSE:\n%U" :clock-in t :clock-resume t)
+
+              ("f" "Phone call" entry (file "~/org/cloud/todo.org")
                "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
               ("h" "Habit" entry (file "~/org/cloud/todo.org")
                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
@@ -375,8 +421,26 @@
 ;;; Alf cua Mode:
 (cua-mode t)
 
-;;; ALF
 
+;; ALF move subtree
+(defun alf/org-move-subtree-to-other-window()
+    (interactive)
+    (org-previous-visible-heading 0)
+    (my-next-window)
+    (org-previous-visible-heading 0)
+    (my-next-window)
+    (org-cut-subtree)
+    (my-next-window)
+    (org-paste-subtree)
+    (my-next-window)
+
+    (setq this-command 'dummy/entry)
+)
+
+(global-set-key (kbd "<C-M-left>") 'alf/org-move-subtree-to-other-window)
+(global-set-key (kbd "<C-M-right>") 'alf/org-move-subtree-to-other-window)
+
+;;; ALF
 (defun org-goto-last-heading-in-tree ()
   (interactive)
   (org-forward-heading-same-level 100)
@@ -639,6 +703,32 @@
 ;; ALF Miscs:
 (display-time-mode 1)
 
+;; ALF
+(use-package helm-swoop
+  :ensure t
+  :bind
+  (("M-o" . helm-swoop)
+   ("M-O" . helm-swoop-back-to-last-point)
+   ("C-c M-o" . helm-multi-swoop)
+   ;; ("C-c M-O" . helm-multi-swoop-all)
+   )
+  :config
+  ;; Save buffer when helm-multi-swoop-edit complete
+  (setq helm-multi-swoop-edit-save t)
+  ;; If this value is t, split window inside the current window
+  (setq helm-swoop-split-with-multiple-windows nil)
+  ;; Split direcion. 'split-window-vertically or 'split-window-horizontally
+  (setq helm-swoop-split-direction 'split-window-horizontally)
+  ;; If nil, you can slightly boost invoke speed in exchange for text color
+  (setq helm-swoop-speed-or-color t)
+  (bind-keys :map isearch-mode-map
+             ("M-o" . helm-swoop-from-isearch))
+  (bind-keys :map helm-swoop-map
+             ("M-o" . helm-multi-swoop-all-from-helm-swoop)
+             ;; ("M-i" . helm-swoop-from-evil-search)
+             )
+  )
+
 
 ;; multiple cursors
 (use-package multiple-cursors
@@ -758,7 +848,7 @@
    (python . t)
    (ref)
    (ruby . t)
-  
+  (php . t)
    (scala)
    (scheme)
   
@@ -872,3 +962,6 @@
                ("\\subsection{%s}" . "\\subsection*{%s}")
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
              )
+
+;;Alf - Org-habit
+(add-to-list 'org-modules 'org-habit)
