@@ -21,6 +21,9 @@
  '(org-log-done (quote note))
  '(org-log-repeat (quote note))
  '(org-support-shift-select t)
+ '(package-selected-packages
+   (quote
+    (use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish)))
  '(rainbow-html-colors t)
  '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode))))
 (custom-set-faces
