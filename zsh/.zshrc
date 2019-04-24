@@ -158,3 +158,4 @@ alias uget='uget-gtk'
 alias thedeploy='BUNDLE_GEMFILE=/home/alf/prj/ruby/deploy/Gemfile bundle exec  ruby /home/alf/prj/ruby/deploy/deploy.rb'
 alias ttime='BUNDLE_GEMFILE=/home/alf/prj/ruby/teatime/Gemfile bundle exec  ruby /home/alf/prj/ruby/teatime/teatime.rb'
 
+alias gam="git add -A && git commit -m"
