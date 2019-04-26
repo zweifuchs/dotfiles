@@ -6,3 +6,4 @@ emacs/.emacs.d/auto-save-liste/*
 emacs/.emacs.d/bookmarks
 emacs/.emacs.d/ido.last 
 *.elc
+emacs/.emacs.d/eshell/history
