@@ -6,6 +6,7 @@
         beginning-of-visual-line
         cua-cut-region
         cua-paste
+        cua-scroll-down
         helm-M-x
         org-self-insert-command
         save-some-buffers
@@ -16,4 +17,5 @@
         end-of-visual-line
         eyebrowse-switch-to-window-config-1
         god-mode-all
+        mc/mark-all-in-region
         ))

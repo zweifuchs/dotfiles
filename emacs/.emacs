@@ -368,23 +368,23 @@
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
       (quote (("t" "todo" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "TASKS")
-               "* TODO %?\n:PROPERTIES:\n:CREATED_AT: %U\n:END:\n%a\n\n\n")
+               "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n%a\n\n\n")
               ("i" "INTERRUPT" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "INTERRUPTS")
-               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+               "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n%a\n" :clock-in t :clock-resume t)
               ("s" "Scheduled todo" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "TASKS")
-               "* TODO %?\n%U\n%a\nSCHEDULED: %t\n\n")
+               "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n%a\nSCHEDULED: %t\n\n")
               ("n" "note" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "NOTES")
-               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+               "* %? :NOTE:\n:PROPERTIES:\n:CREATED: %U\n:END:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("b" "Bookmark" entry (file+olp "~/org/cloud/knowledge/bookmarks.org" "INCOMING")
                "* %? \n%U\n%a\n" :clock-keep t )
               ("j" "Journal" entry (file+olp+datetree "~/org/cloud/personal/journal.org" "log")
-               "* %?\n%U\n" :clock-in t :clock-resume t)
+               "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n%U\n" :clock-in t :clock-resume t)
               ("w" "org-protocol" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING")
                "* TODO Review %c\n%U\n" :immediate-finish t)
               ("r" "Rechnung" entry (file+headline "~/org/cloud/business/alfredbiz.org" "Ausgaben_alle")
                "* TODO %^{PROMPT|Rechungsname} \n:PROPERTIES:\n:netto: %^{netto}\n:ust: %^{Ust}\n:brutto: %^{brutto}\n:link: [[%^{link to file}][pdf]]\n:END: \n%^u\n%^L\n%?")
               ("m" "Meeting" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "INTERRUPTS")               
-               "* MEETING with %? :PAUSE:\n%U" :clock-in t :clock-resume t)
+               "* MEETING with %? :PAUSE:\n:PROPERTIES:\n:CREATED: %U\n:END:\n%U" :clock-in t :clock-resume t)
               ("p" "PAUSE - All thing have a break")               
               ("pp" "PAUSE" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "BREAKS")               
                "* PAUSE with %? :PAUSE:\n%U" :clock-in t :clock-resume t)
@@ -589,6 +589,19 @@
 
 (global-set-key (kbd "<s-left>") 'my-previous-window)
 (global-set-key (kbd "<s-right>") 'my-next-window)
+
+(define-key org-mode-map (kbd "M-S-C-<left>") nil)
+(define-key org-mode-map (kbd "M-S-C-<right>") nil)
+
+
+
+    (global-set-key (kbd "M-S-C-<left>") 'shrink-window-horizontally)
+    (global-set-key (kbd "M-S-C-<right>") 'enlarge-window-horizontally)
+    (global-set-key (kbd "M-S-C-<down>") 'shrink-window)
+    (global-set-key (kbd "M-S-C-<up>") 'enlarge-window)
+
+
+
 
 ;; Add Move up and down
 
@@ -984,3 +997,7 @@
 
 ;;Alf - Org-habit
 (add-to-list 'org-modules 'org-habit)
+
+
+;;ALF TESTS
+;; get rid of vertical splitting all the time
