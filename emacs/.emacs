@@ -1,9 +1,18 @@
 (require 'package) ;; You might already have this line
 (setq package-archives
-      '(("melpa" . "https://melpa.org/packages/")
-        ("gnu" . "https://elpa.gnu.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
+      '(
+        ("elpa" . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")        
+        ))
 (package-initialize) ;; You might already have this line
+
+(unless (package-installed-p 'use-package)
+  ;; only fetch the archives if you don't have use-package installed
+  ;; (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+;;(setf use-package-always-ensure t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -23,10 +32,11 @@
  '(org-export-backends (quote (ascii html icalendar latex md odt confluence)))
  '(org-log-done (quote note))
  '(org-log-repeat (quote note))
+ '(org-super-agenda-moe t)
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
-    (org-mru-clock inf-ruby helm-swoop use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish)))
+    (calfw-org calfw isearch which-key origami org-super-agenda org-mru-clock inf-ruby helm-swoop use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish)))
  '(rainbow-html-colors t)
  '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode))))
 (custom-set-faces
@@ -227,21 +237,22 @@
 (setq org-default-notes-file '("~/org/cloud/capture.org"))
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@/!)")
+      '((sequence "TODO(t)" "PROGRESS(o@/!)" "NEXT(n)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@/!)")
       (sequence "PROJECT(p@!)" "ON HOLD(h!@/!@)" "|" "FINISHED(f!@)" "INACTIVE(i!@/!)")))
 
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
-              ("PROJECT" ("WAITING") ("CANCELLED") ("PRJ") ("NEXT") ("PRJ" . t) )
-              ("WAITING" ("NEXT")("PRJ")("WAITING" . t))
-              ("NEXT" ("WAITING")("PRJ")("NEXT" . t))
-              ("FINISHED" ("WAITING")("NEXT")("CANCELLED")("FINISHED" . t))
-              ("INACTIVE" ("WAITING")("PRJ")("NEXT")("CANCELLED" . t)("FINISHED"))
+              ("PROJECT" ("WAITING") ("CANCELLED")("PROGRESS") ("PRJ") ("NEXT") ("PRJ" . t) )
+              ("WAITING" ("NEXT")("PRJ")("PROGRESS")("WAITING" . t))
+              ("PROGRESS" ("NEXT")("PRJ")("WAITING") ("PROGRESS" . t))              
+              ("NEXT" ("WAITING")("PROGRESS")("PRJ")("NEXT" . t))
+              ("FINISHED" ("WAITING")("NEXT")("PROGRESS")("CANCELLED")("FINISHED" . t))
+              ("INACTIVE" ("WAITING")("PRJ")("NEXT")("PROGRESS")("CANCELLED" . t)("FINISHED"))
               ("ON HOLD" ("WAITING")("PRJ")("NEXT")("CANCELLED")("FINISHED") ("HOLD" . t))              
               (done ("WAITING") ("NEXT") ("PRJ") ("HOLD") )
-              ("TODO" ("WAITING") ("CANCELLED") ("PRJ") ("NEXT") )
-              ("NEXT" ("WAITING") ("CANCELLED") ("PRJ") )
-              ("DONE" ("WAITING") ("CANCELLED") ("PRJ") ("NEXT")))))
+              ("TODO" ("HOLD")("PROGRESS")("WAITING") ("CANCELLED") ("PRJ") ("NEXT") )
+              ("NEXT" ("HOLD")("PROGRESS")("WAITING") ("CANCELLED") ("PRJ") )
+              ("DONE" ("HOLD")("PROGRESS")("WAITING") ("CANCELLED") ("PRJ") ("NEXT")))))
 
 
 ;; indent
@@ -257,7 +268,7 @@
 (global-set-key (kbd "<f5>") 'bh/org-todo)
 (global-set-key (kbd "<S-f5>") 'bh/widen)
 (global-set-key (kbd "<f7>") 'bh/set-truncate-lines)
-(global-set-key (kbd "<f8>") 'org-cycle-agenda-files)
+(global-set-key (kbd "<f8>") 'org-cycle-agendafiles)
 (global-set-key (kbd "<f9> <f9>") 'bh/show-org-agenda)
 (global-set-key (kbd "<f9> b") 'bbdb)
 (global-set-key (kbd "<f9> c") 'calendar)
@@ -382,7 +393,18 @@
               ("w" "org-protocol" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING")
                "* TODO Review %c\n%U\n" :immediate-finish t)
               ("r" "Rechnung" entry (file+headline "~/org/cloud/business/alfredbiz.org" "Ausgaben_alle")
-               "* TODO %^{PROMPT|Rechungsname} \n:PROPERTIES:\n:netto: %^{netto}\n:ust: %^{Ust}\n:brutto: %^{brutto}\n:link: [[%^{link to file}][pdf]]\n:END: \n%^u\n%^L\n%?")
+               "* TODO %^{PROMPT|Rechungsname} :COST:
+:PROPERTIES:
+:KONTO: %^{Welches Konto?}
+:YEAR: %^{Jahr?}
+:MONTH: %^{Monat?}
+:ID: %^{ID?}
+:NETTO: %^{netto}
+:UST: %^{Ust}
+:BRUTTO: %^{brutto}
+:LINK: [[%^{link to file}][pdf]]
+:END: \n%^u\n%
+\n%?")
               ("m" "Meeting" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "INTERRUPTS")               
                "* MEETING with %? :PAUSE:\n:PROPERTIES:\n:CREATED: %U\n:END:\n%U" :clock-in t :clock-resume t)
               ("p" "PAUSE - All thing have a break")               
@@ -494,7 +516,7 @@
                 (org-agenda-sorting-strategy
                  '(todo-state-down effort-up category-keep))))
 
-          
+              
               ("q" "Only Tasks with WORK tag"
                ((agenda "" ((org-agenda-span 1)
                             (org-agenda-start-on-weekday nil)
@@ -504,9 +526,119 @@
                             )
                         ))
                )
+              ("u" . "SUPER Agenda")
 
-              ("w" "All Active Projects" ((tags-todo "+PRJ+TODO=\"PROJECT\"") (todo "NEXT")))
-               
+
+              ("ux" "SUPER Agenda"
+               (
+                (agenda "" (
+                            (org-agenda-span 1)
+                            (org-agenda-compact-blocks nil)
+                            (org-agenda-start-day "0d")
+                            (org-super-agenda-groups '(
+                                                       (:name "Today"
+                                                              :scheduled today
+                                                              :time-grid t
+                                                              :order 1
+                                                              )
+                                                       (:name "In Progress"
+                                                              :todo ("PROGRESS")
+                                                              :order 10
+                                                              )                                                       
+                                                       (:name "Next Items"
+                                                              :tag ("NEXT" "outbox")
+                                                              :order 20
+                                                              )
+
+                                                       (:name "Urgent"
+                                                              :priority "A"
+                                                              :order 30
+                                                              )                                                 
+                                                       
+                                                       (:name "Work related"
+                                                              :tag ("WORK" "PAID")
+                                                              :order 40
+                                                              )
+
+                                                       (:name "Privat related"
+                                                              :tag ("PRIV" "UNPAID")
+                                                              :order 50
+                                                              )
+                                                       (:name "ORGA related"
+                                                              :tag ("ORGA")
+                                                              :order 60
+                                                              )
+                                                       (:name "Projects"
+                                                              :todo "PROJECT"
+                                                              :order 70
+                                                              )
+                                                       
+                                                       ))))
+
+                                (tags-todo "NEXT" (
+                                   (org-super-agenda-groups '(                                    
+                                                              (:name "NEXT"
+                                                                     :order 90)
+                                                              )
+                                                            ))
+                           )
+
+                            (agenda "" (
+                                        (org-agenda-span 14)
+                                        (org-agenda-compact-blocks nil)
+                                        (org-agenda-start-on-weekday nil)
+                            (org-agenda-start-day "+1d")
+                            (org-super-agenda-groups '(
+                                                       (:auto-category t
+                                                              :order 1
+                                                              )
+                                                       
+                                                       ))))
+ 
+
+                
+                
+                ))
+
+
+              
+              ("ui" "SUPER Projects"
+               (
+                (tags-todo "+ACTIVE+PRJ+TODO=\"PROJECT\"" (
+                                   (org-super-agenda-groups '(                                    
+                                                              (:name "Aktive Projekte"
+                                                               :order 100)
+                                                              )
+                                                            ))
+                           )
+                (tags-todo "NEXT" (
+                                   (org-super-agenda-groups '(                                    
+                                                              (:name "NEXT"
+                                                               :order 90)
+                                                              )
+                                                            ))
+                           )
+                (tags-todo "+INACTIVE+PRJ+TODO=\"PROJECT\"" (
+                                   (org-super-agenda-groups '(                                    
+                                                              (:name "Inaktive Projekte"
+                                                               :order 10)
+                                                              )
+                                                            ))
+                           )
+                
+                (tags-todo "+PRJ+TODO=\"PROJECT\"" (
+                                                    (org-super-agenda-groups '(
+                                                                               (
+                                                                                :name "Alle anderen Projekte"
+                                                                                :auto-category t
+                                                                                :order 60
+                                                                                )  
+                                                                               )))))
+               )
+              
+              ("w" "All Active Projects" ((tags-todo "+PRJ+TODO=\"PROJECT\"") (todo "NEXT")
+                                          ))
+              
               ("Y" "Agenda"
                ((agenda "" nil)
                 (tags "REFILE"
@@ -571,6 +703,41 @@
                        (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
                        (org-tags-match-list-sublevels nil))))
                nil))))
+
+
+;; Super agenda config kram
+
+(use-package org-super-agenda
+  :ensure t
+  :config
+  (org-super-agenda-mode t)
+  )
+
+(use-package origami
+  :ensure t
+  :config
+
+  (bind-keys :map org-super-agenda-header-map
+             ("<tab>" . origami-toggle-node))
+  
+  (defvar ap/org-super-agenda-auto-show-groups
+    '("Next Items" "alpha" "Priority A items" "Priority B items"))
+
+  (defun ap/org-super-agenda-origami-fold-default ()
+    "Fold certain groups by default in Org Super Agenda buffer."
+    (forward-line 3)
+    (cl-loop do (origami-forward-toggle-node (current-buffer) (point))
+             while (origami-forward-fold-same-level (current-buffer) (point)))
+    (--each ap/org-super-agenda-auto-show-groups
+      (goto-char (point-min))
+      (when (re-search-forward (rx-to-string `(seq bol " " ,it)) nil t)
+        (origami-show-node (current-buffer) (point)))))
+
+  :hook ((org-agenda-mode . origami-mode)
+         ;(org-agenda-finalize . ap/org-super-agenda-origami-fold-default)
+         )
+)
+
 
 
 ;; Alfis keybindings
@@ -652,9 +819,9 @@
 ;;don't give awarning colour to tasks with impending deadlines
 ;;if they are scheduled to be done
 ;;(setq org-agenda-skip-deadline-prewarning-if-scheduled (quote pre-scheduled))
-
-(setq org-agenda-start-day "-1d") ;; start agenda view yesterday
-(setq org-agenda-ndays 7) ;; show me 15 days
+;; moshi
+;;(setq org-agenda-start-day "-1d") ;; start agenda view yesterday
+;;(setq org-agenda-ndays 7) ;; show me 15 days
 
 ;;(setq org-agenda-skip-scheduled-if-done t
 ;;      org-agenda-skip-deadline-if-done  t)
@@ -732,6 +899,11 @@
    :map minibuffer-local-isearch-map
    ("<M-down>" . next-history-element)
    ("<M-up>" . previous-history-element)))
+
+;; whichkey
+(use-package which-key
+  :ensure t)
+(which-key-mode)
 
 ;; ALF Miscs:
 (display-time-mode 1)
@@ -900,9 +1072,9 @@
 ;; look in front 10 days
 ;; look back 3 days
 ;; start today 
-(setq org-agenda-span 10
-      org-agenda-start-on-weekday nil
-      org-agenda-start-day "-3d")
+;; (setq org-agenda-span 10
+;;      org-agenda-start-on-weekday nil
+;;      org-agenda-start-day "-3d")
 
 
 ;; Log clock out with note
@@ -954,47 +1126,47 @@
       (dired (concat "/sudo::" dir)))))
 (define-key dired-mode-map "!" 'sudired)
 
-(setq org-latex-caption-above nil)
+;; (setq org-latex-caption-above nil)
 
-(setq org-latex-pdf-process 
-      '("xelatex -interaction nonstopmode %f"
-        "xelatex -shell-escape -interaction nonstopmode  %f"
-        "xelatex -shell-escape -interaction nonstopmode  %f"
-     "xelatex -interaction nonstopmode %f"))
-
-
-(add-to-list 'org-latex-classes
-             '("ae-article"
-               "\\documentclass{article}
-\\usepackage[hidelinks]{hyperref}
-\\usepackage{geometry}
-\\pagenumbering{roman}
-\\geometry{a4paper,left=2.5cm,top=2cm,right=2.5cm,bottom=2cm,marginparsep=7pt, marginparwidth=.6in}"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+;; (setq org-latex-pdf-process 
+;;       '("xelatex -interaction nonstopmode %f"
+;;         "xelatex -shell-escape -interaction nonstopmode  %f"
+;;         "xelatex -shell-escape -interaction nonstopmode  %f"
+;;      "xelatex -interaction nonstopmode %f"))
 
 
-(add-to-list 'org-latex-classes
-          '("koma-article"
-             "\\documentclass{scrartcl}"
-             ("\\section{%s}" . "\\section*{%s}")
-             ("\\subsection{%s}" . "\\subsection*{%s}")
-             ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-             ("\\paragraph{%s}" . "\\paragraph*{%s}")
-             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+;; (add-to-list 'org-latex-classes
+;;              '("ae-article"
+;;                "\\documentclass{article}
+;; \\usepackage[hidelinks]{hyperref}
+;; \\usepackage{geometry}
+;; \\pagenumbering{roman}
+;; \\geometry{a4paper,left=2.5cm,top=2cm,right=2.5cm,bottom=2cm,marginparsep=7pt, marginparwidth=.6in}"
+;;                ("\\section{%s}" . "\\section*{%s}")
+;;                ("\\subsection{%s}" . "\\subsection*{%s}")
+;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("book"
-               "\\documentclass{book}"
-               ("\\part{%s}" . "\\part*{%s}")
-               ("\\chapter{%s}" . "\\chapter*{%s}")
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-             )
+
+;; (add-to-list 'org-latex-classes
+;;           '("koma-article"
+;;              "\\documentclass{scrartcl}"
+;;              ("\\section{%s}" . "\\section*{%s}")
+;;              ("\\subsection{%s}" . "\\subsection*{%s}")
+;;              ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;;              ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;;              ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+;; (add-to-list 'org-latex-classes
+;;              '("book"
+;;                "\\documentclass{book}"
+;;                ("\\part{%s}" . "\\part*{%s}")
+;;                ("\\chapter{%s}" . "\\chapter*{%s}")
+;;                ("\\section{%s}" . "\\section*{%s}")
+;;                ("\\subsection{%s}" . "\\subsection*{%s}")
+;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+;;              )
 
 ;;Alf - Org-habit
 (add-to-list 'org-modules 'org-habit)
@@ -1013,3 +1185,11 @@
 ;; GPG key to use for encryption
 ;; Either the Key ID or set to nil to use symmetric encryption.
 (setq org-crypt-key nil)
+
+
+
+(setq split-height-threshold 120
+      split-width-threshold 160)
+
+
+

@@ -165,3 +165,6 @@ if [ -f '/Users/alfredeichenseher/Downloads/google-cloud-sdk/path.zsh.inc' ]; th
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/alfredeichenseher/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alfredeichenseher/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+chruby ruby-2.6.1
+echo "i was run"
