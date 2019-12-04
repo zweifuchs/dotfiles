@@ -159,3 +159,5 @@ alias thedeploy='BUNDLE_GEMFILE=/home/alf/prj/ruby/deploy/Gemfile bundle exec  r
 alias ttime='BUNDLE_GEMFILE=/home/alf/prj/ruby/teatime/Gemfile bundle exec  ruby /home/alf/prj/ruby/teatime/teatime.rb'
 
 alias gam="git add -A && git commit -m"
+chruby ruby-2.6.1
+echo "i was run"

@@ -1,0 +1,226 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/alf/www/toniafeegrass/" . "site/")
+ ("/home/alf/www/contao/" . "site/")
+ ("/home/alf/commercial/Rechnungen/" . "2019/")
+ ("/var/www/cdcrignis2/" . "site/")
+ ("/var/www/" . "cdcrignis2/")
+ ("/home/alf/org/cloud/business/clients/" . "RafaelBernardo/")
+ ("/home/alf/org/cloud/business/" . "clients/")
+ ("/home/alf/org/cloud/" . "business/")
+ ("/home/alf/org/cloud/clients/" . "Ontraq/")
+ ("/home/alf/org/nx-projects/clients/" . "Rafael-bernardo-projects/")
+ ("/home/alf/org/nx-projects/" . "clients/")
+ ("/mnt/octopus/nextcloud/alfred-eichenseher.de/hauptmann/" . "org/")
+ ("/mnt/octopus/nextcloud/alfred-eichenseher.de/" . "hauptmann/")
+ ("/mnt/octopus/nextcloud/" . "alfred-eichenseher.de/")
+ ("/mnt/octopus/" . "nextcloud/")
+ ("/mnt/" . "pluto/")
+ ("/" . "mnt/")
+ ("/home/alf/www/hugo/site/" . "content/")
+ ("/home/alf/www/hugo/" . "site/")
+ ("/home/alf/www/" . "toniafeegrass/")
+ ("/home/alf/commercial/clients/ontraq/" . "sommercable/")
+ ("/home/alf/commercial/clients/" . "ontraq/")
+ ("/home/alf/commercial/" . "Rechnungen/")
+ ("/home/alf/" . "org/")
+ ("/home/alf/org/" . "cloud/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/alf/www/toniafeegrass/site/"
+ "/home/alf/www/contao/site/"
+ "/home/alf/org/"
+ "/home/alf/org/cloud/business/"
+ "/home/alf/org/cloud/"
+ "/home/alf/org/cloud/knowledge/"
+ "/home/alf/org/cloud/business/clients/"
+ "/mnt/pluto/"
+ "/home/alf/org/root/"
+ "/home/alf/commercial/Rechnungen/2019/"
+ "/home/alf/"
+ "/var/www/cdcrignis2/site/"
+ "/"
+ "/home/alf/www/cdcrignis2/"
+ "/home/alf/org/cloud/business/clients/Ontraq/"
+ "/home/alf/org/cloud/personal/"
+ "/home/alf/org/cloud/business/tax/"
+ "/home/alf/Dropbox/"
+ "/home/alf/Downloads/"
+ "/home/alf/org/cloud/clients/RafaelBernardo/"
+ "/home/alf/org/cloud/clients/Ontraq/"
+ "/home/alf/org/cloud/info/"
+ "/home/alf/org/cloud/clients/"
+ "/home/alf/org/cloud/contacts/"
+ "/home/alf/nextcloud/org/cloud/"
+ "/home/alf/org/cloud/tax/"
+ "/home/alf/org/nx-projects/ontraq/"
+ "/home/alf/org/nx-projects/clients/Rafael-bernardo-projects/"
+ "/home/alf/org/nx-projects/"
+ "/home/alf/org/misc/"
+ "/home/alf/org/nx-projects/clients/"
+ "/home/alf/org/nx-projects/clients/Raffa/"
+ "/home/alf/org/clients/"
+ "/home/alf/org/projects/projects/"
+ "/mnt/octopus/nextcloud/alfred-eichenseher.de/hauptmann/org/"
+ "/home/alf/org/projects/"
+ "/home/alf/org/tax/"
+ "/home/alf/org/websites/"
+ "/home/alf/www/hugo/site/content/"
+ "/home/alf/commercial/clients/ontraq/sommercable/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "test.org"
+ "ontraq.org"
+ "svganimation.org"
+ "nuwave_conflict-20180711-074056.org"
+ ".emacs"
+ "git.org"
+ "adobe.org"
+ "golang.org"
+ "todo.org"
+ "macbook.org"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/alf/www/toniafeegrass/site/" (23988 9444 242696 887000) "web/" "config/" "var/" "files/" ".travis.yml" "../" "README.md" "composer.json" "templates/" "./" "vendor/" "composer.lock" "system/" ".gitignore" "assets/")
+
+ ("/home/alf/www/toniafeegrass/" (23988 8532 942163 922000) "backup.sh" "rsnapshot2.conf" "site/" "credentials.info" "../" "deploy-config.yaml" "./" "rsnapshot.conf")
+
+ ("/home/alf/www/contao/site/" (23991 63615 545166 770000) "web/" "config/" "var/" "files/" ".travis.yml" "../" "README.md" "composer.json" "templates/" "./" "vendor/" "composer.lock" "system/" ".gitignore" "assets/")
+
+ ("/home/alf/www/contao/" (23991 63558 724700 541000) "site/" "credentials.info" "contao-base/" "../" "contao483-test/" "./")
+
+ ("/home/alf/www/" (23991 4477 977380 320000) "invoice.old/" "tmp/" "base-contao/" "testm/" "thedpr/" "cms.tar.gz" "symfony/" "C-D-O/" "hbh/" "hugotest/" "nowusee/" "cms.tar.gs.backup" ".ruby-version" "survey/" "bliq.old/" "webpack/" "evarumpf/" "wishlist/" "westwoodbluegrassband/" "vue/" "drupalicious/" "SQL/" "westernbiological/" "de_W0dty3BIcCKy_ppL5094NnmZeqbWsRuWx7fZqo2qOkw.js" "envvars_alf" "headache.backup/" "bliq/" "contao4/" "cdcrignis.sql" "tables/" "old_leeza5/" "stagingcms5/" "contao47/" "invoice/" "site/" "cutout/" "googlec1bbd39a822553b9.html" "../" "js_playgrounda/" "updatecms-2018_02_07--08-57-03.tar.gz" "headache/" "pre-andreas-vogg/" "threejs/" "cv/" "rss/" "maxkeller/" "backupstagingcms5/" "sc_prdcms_f.tar.gz" "old-osteo-eschenlohr/" "cdcrignis/" "leezafive/" "updatecms/" "gulper/" "rails/" "alfredeichenseher/" "m-hbh/" "contao35/" "varbase/" "Designovation/" "nichvergessen/" "cdcrignis2/" "./" "andreas-vogg/" "backup/" "drupal/" "vuecontao/" "crignis/" "pwire/" "directus/" "bliq.tar.gz" "diebergedeswahnsinns/" "osteoeschenlohr/" "browserify/" ".ruby-version.zip" "headache-2018_02_27--08-27-04.tar.gz" "contao/" "vuecli/" "archive/" "myandroid/" "html/" "192-mvd/" "boltcms/" "playground/" "staudentoepferei/" "hugo/" "pre-neudert-vogg/" "toniafeegrass/" "quick/" "old-neudert-vogg/")
+
+ ("/home/alf/" (23991 63672 453635 187000) ".rememberme" ".node_repl_history" "node_modules/" ".vue-cli-ui/" "dir1.txt" ".xscreensaver" ".idlerc/" "tmp/" ".v8flags.7.6.303.29-node.16.893f53c159eab9178ab181bad8da4262.json" ".bundle/" "ruby-install-0.6.0.tar.gz" "PlayOnLinux's virtual drives/" ".vim_go_runtime/" "prj/" ".encfs/" ".v8flags.5.1.281.93.alf.json" "Public/" ".PlayOnLinux/" ".v8flags.6.2.414.46-node.17.alf.json" ".asunder_album_genre" "Tegelberg Branderschrofen Bergtour Schwangau - tourentipp.pdf" "commercial/" ".godot/" "112wweqe3.png" "virt_down/" ".viminfo" ".emacs.d/" ".ordbrand/" "ruby-install-0.6.0/" ".fonts/" "stellungname.org~" "go/" "owncloud_alfred-eichenseher.de/" ".PhpStorm2017.1/" ".deskmetrics" "kalender/" "112wweqe..png" "SC-JobID24_de_fr-Testfile.xlf" ".ruby-version" ".mozilla-backup/" ".asunder_album_title" ".bash_logout" ".emacs~" ".sudo_as_admin_successful" "banana_media/" ".sunvox_opensample" ".credentials" "h" ".emacs.bak~" "Scripts/" ".Xdefaults" "TMGMT_3.jpeg" ".pry_history" ".composer/" ".sunvox_timeline" ".plexmediaplayer/" ".anydesk/" "stellungname.org" ".emacs-backups/" ".node-gyp/" ".solargraph/" ".vnc/" "backup.sh" "Untitled 1.odt" "rsnapshot2.conf" ".emacs.bak" ".vim/" "org.old/" "work/" "esniper.log" ".ptpython/" "org.backup/" ".gnupg/" ".pryrc" "Jan Grass Bachelorarbeit 05-04-1_W2E_folder/" ".sunvox_soundnet" "org.tar.gz" "SQL/" ".gphoto/" ".v8flags.5.1.281.84.alf.json" ".HipChat/" ".Xauthority" ".TrueCrypt/" ".vimrc.go" "Pictures/" "nextcloud/" ".spacemacs" ".v8flags.5.1.281.101.alf.json" "boobs.test" "playlists/" "*message*-20190202-161747" "*message*-20190228-150836" "#*message*-20190221-182752#" "tmp.js" ".purple/" "venus/" "xbmc/" ".steam/" ".yarnrc" "TMGMT_4.jpeg" ".aliases" "Game Night (2018) HD TS.mkv.aria2" ".v8flags.5.0.71.52.alf.json" "backuplog.log" "connectbanana.sh" "lsusb1.txt" ".zprofile" "dropbox.sh" ".Xmodmap" ".viminfo.go" "github/" "mozilla.pdf" ".emacs" ".config/" ".v8flags.5.1.281.98.alf.json" "adb-fastboot/" ".mozilla/" ".v8flags.6.7.288.49-node.19.alf.json" ".workrave/" ".asunder_album_artist" ".ICEauthority" ".txt" "Jan_grass_11.04. Bachelorarbeit_.pdf" "oh-my-zsh.backup/" "Temp/" ".steampid" "Jan Grass Bachelorarbeit 05-04-1_W2E.odt" ".gnome/" "#*message*-20181107-154739#" ".sabnzbd/" ".npmrc" ".java/" ".esniper" ".sunvox_pateditor" ".gem/" ".gksu.lock" "112wqe..png" ".zcompdump-prime-5.1.1" ".texmf-var/" ".gitconfig" ".xsession-errors" ".npm/" "Dropbox/" "Kamera/" "TMGMT_2.jpeg" ".adobe/" "test1/" "myhosts.txt" ".tmux.conf" "Videos/" ".oh-my-zsh/" "html.html.twig" ".kodi/" "esniper.16069.1.bug.html" "encfs/" "Documents/" ".sunvox_song_l" "git/" ".buckt" ".zshrc.pre-oh-my-zsh" "tmp.t" ".php_history" "mkutil/" "TMGMT_1.jpeg" ".dbus/" ".john/" ".drush/" "dead.letter" ".profile" ".android/" ".wget-hsts" "src/" ".apport-ignore.xml" "alsa-info.sh" ".rubies/" ".v8flags.5.8.283.41.alf.json" ".QtWebEngineProcess/" ".bash_history" ".thunderbird/" ".TrueCrypt-lock-alf" "Prof. Rainer Mausfeld - Die Angst der Machteliten vor dem Volk-Rk6I9gXwack.mp3" ".wp-cli/" ".selected_editor" ".vimrc" ".local/" ".thumbnails/" ".ripoff/" "temp/" "lsusb2.txt" ".gnome2/" ".v8flags.5.1.281.88.alf.json" "Soulseek Downloads/" "music/" ".idea/" ".fltk/" "local/" "dotfiles.2019-04-24.bak/" ".scribus/" "todo.org" "nodesource_setup.sh" ".xchat2/" ".steampath" ".asunder" "Desktop/" ".mysql_history" "sunvox_config.ini" ".vscode/" ".macromedia/" "photorec.ses" ".v8flags.7.6.303.29-node.16.alf.json" "*message*-20181218-134315" ".zshrc" "java_error_in_PHPSTORM.hprof" "#notes.org#" ".FBReader/" ".node_modules/" "test.tar.gz" "zweifuchs/" "TMGMT_5.jpeg" "Prof. Rainer Mausfeld - Die Angst der Machteliten vor dem Volk-Rk6I9gXwack.m4a" ".pulse-cookie" "backup/" ".v8flags.5.1.281.89.alf.json" ".xsession-errors.old" "lmms/" "testdisk.log" ".zsh_history" ".gconf/" ".z" ".v8flags.5.1.281.95.alf.json" ".tmux.conf.backup" ".v8flags.5.1.281.102.alf.json" ".zcompdump" ".sunvox_synth_l" ".nano/" "Downloads/" ".oracle_jre_usage/" "No Surprises - Vintage 1930s Jazz Radiohead Cover ft. Chloe Feoranzo-upb2m2JTGGA.m4a" ".lesshst" "untitled.blend" ".v8flags.5.0.71.52.root.json" ".gvfs/" "ownCloud/" ".vuerc" ".emacs.old" ".gtk-bookmarks" ".guard_history" ".cache/" "Music/" "112wweqe2.png" ".additional_aliases/" "heapDump-Phpstorm-1496053433803.hprof.zip" ".lmmsrc.xml" ".rnd" ".cddbslave/" "postcss" "mysqlpass.txt" ".vagrant.d/" ".v8flags.5.1.281.83.alf.json" ".ssh/" "Sync/" ".atom/" "site-.tar.gz" ".delaboratory/" "package-lock.json" ".virtualenvs/" ".aMule/" ".python_history" ".pki/" ".SoulseekQt/" ".PhpStorm2016.3/" ".dosbox/" "org/" ".jbidwatcher/" "#nodecd#" "dotfiles.backup/" ".Skype/" ".pylint.d/" ".zynaddsubfx-bank-cache.xml" "Templates/" ".dropbox/" "dir2.txt" ".nv/" ".sundog_files_preview" ".putty/" "No Surprises - Vintage 1930s Jazz Radiohead Cover ft. Chloe Feoranzo-upb2m2JTGGA.f313.webm.part" "vst/" "#ontraq.org#" ".nvidia-settings-rc" "screenshots/" "Health Imefpact Assessment_Checkliefsten.odt" "old.PhpStorm2016.3/" ".fonts.conf.old" "Jan Grass Bachelorarbeit 05-04-1.odt" "test.css" ".dmrc" "emacs.d.backup/" "logfile" "www/" "bin/" "run.sh" "org-clock/" "rsnapshot.conf" "Document-2.pdf" "tools/" "New document 1.2017_06_16_20_54_51.0.svg" "PhpstormProjects/" "dotfiles/" ".xsel.log" "media/" ".dropbox-dist/" ".bashrc" ".Osmos/" "Jordan B. Peterson - 12 Rules for Life: An Antidote to Chaos/" "Playlist 57.xspf" "../" "./")
+
+ ("/home/alf/org/" (23972 15783 920722 134000) "dash_diff.txt" "root/" ".git/" "../" "cloud/" "./")
+
+ ("/home/alf/org/cloud/business/" (23970 58466 810590 547000) "alfredbiz.org_archive" "alfredbiz.org" "../" "clients/" "./" "tax/")
+
+ ("/home/alf/org/cloud/" (23945 41594 936142 409000) "mylinux.org" "dashboard.org" "../" "todo.org" ".gitignore" "knowledge/" "biglist.org" "archive/" "./" "dashboard.org_archive" "system.tex" "system.pdf" "projects/" "Assets/" "privat.org_archive" "business/" "accounts.org" "#notes.org#" ".#notes.org" "accounts_old.org" "simpleaccounts.org" "notes.org" "personal/" "test.csv" "system.org")
+
+ ("/home/alf/org/cloud/knowledge/" (23922 2984 930116 157000) "emacstest.org" "dsa.org" "../" "orgmode.tex" "vagrant.org" "o2.org" "links.org" "svganimation.org" "gamedev.org" "pilze.org" "osx.org" "./" "server.org" "aftereffects.org" ".#linux.org" "synology.org" "bookmarks.org" "vscode.org" "vim-editor.org" "macbook.org" "webdev.org" "mysql.org" "orgmode.pdf" "ruby.org" "drupal.org" "auto.org" "linux.org" "git.org" "secrets.org.gpg" "python.org" "contao4.org" "dev_php.org" "orgmode.org" "godot.org" "test_orgmode.svg" "boltcms.org" "javascript.org" "#linux.org#" "golang.org" "blender.org" "adobe.org" "docker.org")
+
+ ("/home/alf/org/cloud/business/clients/" (23874 42390 224253 432000) "temp.org" "gluecklich.org" "mutik-gmbh.tex" "captaingrafik.tex" "../" "Angebot-mutik-2019-05-01.tex" "fakeclient.pdf" "Angebot-2019-05-01.out" "mutik-gmbh.odt" "Angebot-2019-05-01.log" "nuwave_conflict.org.tmp" "diffy.txt" "Angebot-webauftritt-Nora-Eschenlohr-2019-07-29-01.pdf" "decrignis.org_archive" "ontraq.org" "./" "mutik-gmbh.org" "Angebot-mutik-BQ-2019-05-01.tex" ".#ontraq.org" "mutik-gmbh.html" "nuwave.org_archive" "trailerhaus.de" "captaingrafik.pdf" "rafaelbernardo.org" "ontraq_tmp.org" "captaingrafik.org" "hbh.org" "mutik-gmbh.pdf" "cdcweb.org" "Tillus/" "pamir.org" "nuwave.org" "RafaelBernardo/" "ursberg.org" "Angebot - Servicevertrag - mutik-gmbh.pdf" "rafaelbernardo.pdf" "captaingrafik.odt" "geiger.org" "westwoodbbluegrasband.org" "Angebot-2019-05-01.tex" "Ursberg/" "rafaelbernardo.tex" "geiger.org_archive" "mutik/" "maxkeller.org" "fakeclient.org" "Angebot-2019-05-01.pdf" "trailerhaus.html" "wup.org" "decrignis.html" "fakeclient.tex" "decrignis.org" "trailerhaus.org" "Angebot-mutik-BQ-2019-05-01.pdf" "rookman.org" "Angebot-mutik-2019-05-01.pdf" "Angebot-2019-05-01.aux")
+
+ ("/home/alf/org/root/" (23833 49946 999164 36000) "business.org" "accounts.org" "../" "accounts.backup.org" "./" "accounting.org")
+
+ ("/mnt/pluto/" (23796 47826 472162 444000) "Work/" "../" "./")
+
+ ("/mnt/" (23747 9914 921748 910000) "boot-sav/" "banana_media/" "octopus/" "venus/" "owncloud/" "backupghost/" "../" "imac/" "sdh1/" "monstore/" "pluto/" "./" "banana_usb/" "banana_root/" "sdf1/" "sda/" "hasenjagt/" "ceresdav/")
+
+ ("/home/alf/commercial/Rechnungen/2019/" (23724 13278 746435 356000) "all-inkl/" "../" "Dropbox/" "Hetzner/" "crignis-druck/" "./" "verschiedenes/")
+
+ ("/home/alf/commercial/Rechnungen/" (23614 19617 991660 919000) "Hetzner_2016-08-15_R0006110171.pdf" "FLT_2YORHA48416_0.pdf" "Hetzner_2017-03-15_R0006742348.pdf" "2018/" "Hetzner_2016-07-15_R0006024508.pdf" "Hetzner_2017-10-15_R0007406095.pdf" "Hetzner_2016-09-15_R0006197167.pdf" "Auto/" "2019/" "Hetzner_2016-06-15_R0005939192.pdf" "Hetzner_2016-05-15_R0005854777.pdf" "Hetzner_2017-08-15_R0007216148 (1).pdf" "ticket_flora_rav.pdf" "PDF_Rechnung_M211170170624136_02-2017.pdf" "FLT_OM3NBF25335_0_Absetzbar.pdf" "../" "NFE4TZ_ABsetzbar.pdf" "Dropbox/" "FLT_OW22ND15591_0.pdf" "Amazon_Invoice_2018_08_30.pdf" "Hetzner_2018-01-15_R0007702098 (1).pdf" "Hetzner_2016-11-15_R0006374814.pdf" "Hetzner/" "Misc/" "Hetzner_2016-12-15_R0006464976.pdf" "Hetzner_2017-02-15_R0006648685.pdf" "Hetzner_2017-08-15_R0007216148.pdf" "PDF_Rechnung_M211180205994628_08-2018.pdf" "./" "Hetzner_2016-04-15_R0005771203.pdf" "Buero/" "All Inkl/" "mindfactory_2018_03_21_4tb_platte_und_zubeheor.pdf" "Amazon_Invoice_2018_08_22.pdf" "Hetzner_2017-09-15_R0007310811 (1).pdf" "Hetzner_2017-12-15_R0007600160.pdf" "Rechnung_reichelt_WD_RED_2018_09_07.pdf" "Hetzner_2017-09-15_R0007310811.pdf" "Hetzner_2017-01-15_R0006555972.pdf" "angebot_wup_13_01_2017_gross.pdf" "Hetzner_2016-10-15_R0006285425.pdf" "2017/" "PDF_Rechnung_M211170166386636_12-2016.pdf" "Hetzner_2016-03-15_R0005688065.pdf" "FLT_M2NXSA38958_0.pdf" "Hetzner_2018-02-15_R0007803852.pdf" "Hetzner_2016-12-15_R0006464976 (1).pdf" "Hetzner_2016-03-15_R0005688065 (1).pdf" "Hetzner_2018-01-15_R0007702098.pdf")
+
+ ("/home/alf/commercial/" (23451 15859 502375 594000) "Auto/" "alfredbiz/" "clients/" "Krankenkasse/" "../" "Rechnungen/" "templates/" "./" "Lebenslauf/" "2015/" "logos/" "photos/" "Steuer/")
+
+ ("/var/www/cdcrignis2/site/" (23735 16705 444048 473000) "node_modules/" "app/" "web/" "yarn.lock.old" "var/" ".git/" "files/" "package.json" "yarn-error.log" "source/" "thedeployer.log" "../" "yarn.lock" "gulpfile.js" "tmp.html" "ess_sync.txt" "build/" "composer.json" "templates/" "./" "vendor/" "composer.lock" "system/" ".gitignore" "assets/" "sql/")
+
+ ("/var/www/cdcrignis2/" (23735 17560 31328 772000) "backup.sh" "rsnapshot2.conf" "cdcrignis.sql" "site/" "credentials.info" "../" "up.sh" "deploy-config.yaml" "./" "db_dump/" "rsnapshot.conf")
+
+ ("/var/www/" (23723 3185 395076 440000) "tmp/" "testm/" "thedpr/" "cms.tar.gz" "symfony/" "C-D-O/" "hbh/" "hugotest/" "cms.tar.gs.backup" ".ruby-version" "survey/" "bliq.old/" "webpack/" "evarumpf/" "vue/" "drupalicious/" "SQL/" "westernbiological/" "de_W0dty3BIcCKy_ppL5094NnmZeqbWsRuWx7fZqo2qOkw.js" "envvars_alf" "headache.backup/" "bliq/" "contao4/" "cdcrignis.sql" "tables/" "old_leeza5/" "stagingcms5/" "contao47/" "invoice/" "site/" "cutout/" "googlec1bbd39a822553b9.html" "../" "js_playgrounda/" "updatecms-2018_02_07--08-57-03.tar.gz" "headache/" "pre-andreas-vogg/" "osteo-eschenlohr/" "threejs/" "cv/" "maxkeller/" "backupstagingcms5/" "sc_prdcms_f.tar.gz" "cdcrignis/" "leezafive/" "updatecms/" "gulper/" "alfredeichenseher/" "m-hbh/" "varbase/" "Designovation/" "nichvergessen/" "cdcrignis2/" "./" "andreas-vogg/" "backup/" "drupal/" "vuecontao/" "crignis/" "pwire/" "directus/" "diebergedeswahnsinns/" "browserify/" ".ruby-version.zip" "headache-2018_02_27--08-27-04.tar.gz" "vuecli/" "archive/" "myandroid/" "html/" "boltcms/" "playground/" "staudentoepferei/" "hugo/" "pre-neudert-vogg/" "quick/" "old-neudert-vogg/")
+
+ ("/var/" (22898 64587 721556 593000) "tmp/" "crash/" "cache/" "opt/" "../" "snap/" "lib/" "log/" "local/" "run/" "./" "metrics/" "backups/" "kxstudio/" "spool/" "mail/" "www/" "lock/")
+
+ ("/home/alf/www/cdcrignis2/" (23735 13519 989007 958000) "backup.sh" "rsnapshot2.conf" "cdcrignis.sql" "site/" "credentials.info" "../" "up.sh" "deploy-config.yaml" "./" "db_dump/" "rsnapshot.conf")
+
+ ("/home/alf/dotfiles/emacs/" (23726 1915 754800 42000) ".emacs.d/" ".emacs" "../" "./")
+
+ ("/home/alf/org/cloud/archive/contacts/" (23716 52315 949751 874000) "../" "ontraq.org" "./" "clients.org" "ontraq.org_archive")
+
+ ("/home/alf/org/cloud/business/clients/RafaelBernardo/" (23612 23431 482500 694000) "../" "headachehurts.tex" "./" "headachehurts.org" "headachehurts.org.bak" "headachehurts.pdf" "leezafive.org" "headache_overview1.txt")
+
+ ("/home/alf/org/cloud/business/clients/Ontraq/" (23716 50419 626937 129000) "../" "ontraq.org" "migration.org" "./" ".#ontraq.org" "ontraqbackup.org" "ontraq.md" "ontraq.org.old" ".#migration.org" "ontraq.html" "notes3" "#ontraq.org#" "ontraq.org_archive")
+
+ ("/home/alf/dotfiles/" (23191 44187 227543 652000) ".git/" "emacs/" "../" "tmux/" "mkutil/" "./" ".gitignore" "vim/" "zsh/")
+
+ ("/mnt/octopus/nextcloud/alfred-eichenseher.de/hauptmann/org/" (23612 49813 786679 718000) "mylinux.org" "../" "todo.org" "knowledge/" "biglist.org" "archive/" "./" "projects/" "privat.org_archive" "business/" "blogs.org" "simpleaccounts.org" "notes.org" "#simpleaccounts.org#" "personal/" "test.csv")
+
+ ("/home/alf/Downloads/" (23560 58964 221644 851000) "hbh2017-05-11-08-47-23.sql" "file.html" "01 - Die Rache der Mumie.rar" "DEU_63_lang_expose.pdf" "Motion Array Extrude.ffx.zip" "Database_hbh_2017-06-08_164016.sql" "Butcher_M.,_Farina_M._-_Go_in_Practice_-_2016.pdf.zip" "UCI_I4.0Walk.zip" "IE11.Win7.For.Windows.VirtualBox/" "youonlyliveonce.pdf" "TUAK2015special.zip" "#JobID24_de_fr.xlf#" "cards.pdf" "esniper-2-33-0 (4).tgz" "Kelt_Dockins_-_Design_Patterns_in_PHP_and_Laravel_-_2017.pdf.zip" "Tauch4.zip" "tempelhof.zip" "Screenshot of Filament doc 2" "esniper-2-35-0 (1).tgz" "jssor.slider.devpack.zip" "directus-build-6.4.0-20170710010648.tar.gz" "William_Kennedy,_Brian_Ketelsen,_Erik_St._Martin_-_Go_in_Action_-_2015 (1).zip" "Storyboarder-1.5.1-linux-x86_64.AppImage" "Tempo_Worklogs_04-10-2017.pdf" "color-theme-zenburn.el" "example.svg" "Nemeth_D.,_Hoffman_K._-_Cloud_Native_Go_Building_Web_Applications_and_Microservices_for_the_Cloud_with_Go_and_React_-_2016.PDF.zip" "Download_2018-06-25_15_39_07.zip" "139 - Der Rabe ( Edgar Allan Poe ).rar" "Artemij_Fedosejev_-_React.js_Essentials_-_2015.zip" "eintr.texi.tar.gz" "TUAK2015special (1).zip" "FlGeUnDa.rar" "Design ohne Titel.pdf" "forest.blend" "body_movin.json" "Python-3.7.0.tar.xz" "HUK_24_Antrag.pdf" "Kelt_Dockins_-_Design_Patterns_in_PHP_and_Laravel_-_2017.pdf (1).zip" "Tauch3.zip" "Zuordnungsliste_1987720314_Aerotwin_Twin_de_WB._V138890691_.pdf" "Level_Up_Your_Web_Apps_With_Go.zip" "Sebastien_Armand_-_Extending_Symfony2_Web_Application_Framework_-_2014.zip" "OXID_ESHOP_CE_4.10.5.zip" "Yoga Wittelsbacher Turnhalle C 2017  .pdf" "UStVA_2017_januar.pdf" "eintr.info.gz" "util.js" "138 - Die Ratten in den Wänden ( Howard Phillips Lovecraft ).rar" "50museumstoblowyourmind.pdf" "howtogetmotivated-2560x1440.png" "esniper-2-33-0.tgz" "limesurvey_group_1321.lsg" "glitch-glitch-art-static-vhs-Favim.com-1195658.png" "UStVA_2017_maerz.pdf" "Download_2018-07-10_19_53_58.zip" "code_1.25.1-1531323788_amd64.deb" "Umweltzone (Ausnahmegenehmigung); Beantragung.pdf" "raeume.svg" "Yoga Wittelsbacher Turnhalle  + grüner Raum A 2018 neu.pdf" "SQLogo_SnakeButton.png" "139 - Der Rabe ( Edgar Allan Poe )/" "esniper-2-33-0 (3).tgz" "limesurvey_group_1322.lsg" "User_ Alfred Eichenseher_2018-04-01_2018-04-30.pdf" "Rechnung_anarchia.pdf" "limesurvey_group_1332.lsg" "Matthias_Noback_-_A_Year_With_Symfony_-_2014.pdf.zip" "OruxMaps7.2.7.apk" "Piwik Export _ Main metrics _ January 1 – May 24, 2018.csv" "DSA-SchnellstartregelnGRT2016_9676.pdf" "Humble Bundle - alfred.eichenseher@googlemail.com_files/" "The-Python-3-Standard-Library-by-Example.pdf" "tabbis.js-master.zip" "Roboto.zip" "htmlhintrc" "Tauch2.zip" "limesurvey_group_1323.lsg" "export 19.05.zip" "TUAK2015.zip" "20180829-1933266-umsatz.CSV" "armbian/" "dmenu/" "Database_hbh_2017-07-28_151820.sql" "syncthing-linux-amd64-v0.14.48 (1).tar.gz" "ParaType - DIN Condensed Light (1).otf" "Locas In Love - Use Your Illusion 3&4.zip" "Agus_Kurniawan_-_Go_Programming_by_Example.pdf.zip" "180928_Landing_Page_Vorschlag_n_v_RZ Ordner.zip" "fonts/" "Fluent Python (2015).pdf" "amtemu.v0.8.1.mac-painter.dmg" "Nemeth_D.,_Hoffman_K._-_Cloud_Native_Go_Building_Web_Applications_and_Microservices_for_the_Cloud_with_Go_and_React_-_2016.PDF (1).zip" "images/" "((Demonoid_www.Demonoid.pw))-CINEMA_4D_Studio_R19_024_macOS_[dada].TORRENT" "steuerberechnung_2018-09-18-123109.pdf" "Database_hbh_cms_2018-05-25_171916.sql" "Go_-_Building_Web_Applications.pdf.zip" "directus-build.zip" "20180829-1933266-umsMT940.TXT" "cv.king.pdf" "limesurvey_question_44095.lsq" "bliss.min (1).js" "Email-02.wav" "IADWDIS_commented_english.pdf" "DINCondensed-Light.zip" "ef_conv_zip_mIgQ9fOGAC0lud1B9dX5WgeF.zip" "20180709-1933266-umsatz(1).CSV" "Einkommensteuerbescheid_2016_2000267939597500517_103_214_10206_ELSTER_2017-12-06_09.51.27.pdf" "buildingrestfulpythonwebservices.pdf" "Filipova_O._-_Learning_Vue.js_2_-_2016 (1).zip" "Note-by-Chair-and-selected-documents-ordered-from-Six4Three.pdf" "DERE2017_Folder_klein.pdf" "wind.svg" "Doug Hellmann - The Python 3 Standard Library by Example (2017, Addison Wesley).epub" "primes_umap_1e6_16k_tight_crop.png" "SQLOGO_old_logo.png" "PHP_&_MySQL_For_Dummies,_4th_Edition.zip" "Download_2018-06-25_15_36_55.zip" "Humble Bundle - alfred.eichenseher@googlemail.com.html" "Jens_Lekman_-_I_Know_What_Love_Isn't_[mp3-320-2012].zip" "artofrprogramming.pdf" "Untermietvertrag_Muster_2015.docx" "pubkey.asc" "Rekognitionsheuristik_tpl.zip" "scdev/" "Adobe_Zii_for_Adobe_CC15_-_CC18_3.0.4_[TNT].dmg" "xubuntu-18.04.1-desktop-amd64.iso.torrent" "darth-vader.png" "fontawesome-webfont (1).ttf" "howtogetmotivated-7100x5000.png" "POCKETBOOK_sw_20171124_641_U_641.5.17.971_gdb_pn_user/" "Butcher_M.,_Farina_M._-_Go_in_Practice_-_2016.pdf (1).zip" "Projektmanagement-f-r-Ingenieure-Ein-praxisnahes-Lehrbuch-f-r-den-systematischen-Projekterfolg.pdf" "fontawesome-webfont (1).woff" "JobID24_de_fr.xlf" "Rita (1).psd" "CoreRulebookErrata_5.0.zip" "platform-tools-latest-linux.zip" "PDF_Rechnung_M211180205994628_08-2018.pdf" "Musterkuendigung-Stromanbieter-ausserordentlich.pdf" "Tauch1.zip" "esniper-2-35-0.tgz" "IADWDIS_commented_english (1).pdf" "Tauch5.zip" "Tempo_Worklogs_04-10-2017.csv" "BMW_RDP_Animation.zip" "Screenshot of Filament doc" "large.png" "esniper-2-33-0 (2).tgz" "Packt.-.Go.Building.Web.Applications.2016.RETAiL.ePUB.eBOOK-DiSTRiBUTiON[xwarez].zip" "05 - Akasha.rar" "02 - Dracula, Jagd der Vampire.rar" "vscode/" "Database_hbh_cms_2017-07-29_122842.sql" "Panike_Hotel.mp4" "Luciano Ramalho - Fluent Python - 2015.pdf" "Scene4.mov" "03 - Der Fluch von Loch Ness.rar" "example (2).svg" "CSSNotesForProfessionals.pdf" "GravitDesigner.zip" "example (1).svg" "steuerberechnung_2017-09-03-161427.pdf" "fontawesome-webfont.woff" "Database_hbh_cms_2017-07-28_151719.sql" "blais-curator-a4cd48acc629/" "Rita.psd" "UStVA_2017_februar.pdf" "cards.rar" "rsce_team.zip" "apexcharts-bundle.zip" "limesurvey_group_1318.lsg" "20180709-1933266-umsatz.CSV" "rsce_team (7).zip" "steuerberechnung_2017-09-08-103331.pdf" "emacs-lispintro-26.1/" "fontawesome-webfont.ttf" "fullPage.js-master.zip" "Tempo_Worklogs_04-09-2017.csv" "onedrive_manifest.db" "Adobe_Zii_for_Adobe_CC15_-_CC18_3.0.4_[TNT] (1).dmg" "steuerberechnung_2017-09-08-103315.pdf" "William_Kennedy,_Brian_Ketelsen,_Erik_St._Martin_-_Go_in_Action_-_2015.zip" "Ryer_M._-_Go_Programming_Blueprints,_2nd_Edition_-_2016 (1).zip" "Ryer_M._-_Go_Programming_Blueprints,_2nd_Edition_-_2016.zip" "Download_2018-07-12_16_58_51.zip" "SQLAB Favicons 2017 (1).zip" "20180829-1933266-umsatz (1).CSV" "Wettbewerbsaufruf_Arbeitswelten_WiD171106.pdf" "06 - Whitechapel.rar" "138 - Die Ratten in den Wänden ( Howard Phillips Lovecraft )/" "SQLAB Favicons 2017.zip" "TUAK2015special (1)/" "Database_hbh2_2017-05-11_160850.sql" "Adobe_Zii_for_Adobe_CC15_-_CC18_3.0.4_[TNT](1).dmg" "BMW_Global.zip" "2017-02-08_Logo-deCrignis.ai" "mb_manual_ga-j3455n-d3h_e.pdf" "util (1).js" "Go_Programming_by_Example.zip" "PDF_Rechnung_M211180204197069_07-2018.pdf" "hbh_cms2017-08-20-08-25-30.sql" "User_ Alfred Eichenseher_2018-04-01_2018-04-30.csv" "Untermietvertrag_Muster_2015 (1).docx" "ParaType - DIN Condensed Light.otf" "md_slider_export_02_02_2018.zip" "Alan_A._A._Donovan,_Brian_W._Kernighan_-_The_Go_Programming_Language_-_2015.epub.zip" "20171229-20180828-1933266-camt52Booked.ZIP" "Maxon Cinema 4D R19 - WIN.torrent" "serialize-0.2.js" "GravitDesigner/" "logos/" "symfony-2.0.zip" "Führerschein; Beantragung.pdf" "bliss.js" "2017-02-08_Logo-deCrignis.png" "hbh_cms.sql" "syncthing-linux-amd64-v0.14.48.tar.gz" "Jens_Lekman_-_Life_Will_See_You_Now_(2017).zip" "Font-Awesome-master/" "eintr.texi (1).tar.gz" "FLT_64U42V56929_0.pdf" "Alan_A._A._Donovan,_Brian_W._Kernighan_-_The_Go_Programming_Language_-_2015.epub (1).zip" "use-package-20180715.1801.tar" "hbh.sql" "Mastering_Concurrency_in_Go_[PACKT].pdf.zip" "full-speed-python.pdf" "bliss.min.js" "../" "./")
+
+ ("/home/alf/Dropbox/" (23571 50504 423320 200000) "IdentPlus.bmp" "Erste Schritte mit Dropbox.pdf" "org_db/" ".dropbox.cache/" "Ameise.jpeg" "OXID eShop 6.0.0 Zertifizierung Technik 1 - Shopadminstration.pdf" "OXID eShop 6.0.0 Zertifizierung Technik 3 - Entwicklerschulung Basis II.pdf" "NuWave/" "westernbiological/" "Books/" "headachehurts/" "tempelhof/" "OXID eShop 6.0.0 Zertifizierung Technik 1 - Shopadminstration 1-72.pdf" "serv/" "ontraq-cj/" "OXID eShop 6.0.0 Zertifizierung Technik 3 - Entwicklerschulung Basis II (1).pdf" "../" "maxkeller/" "tox.txt" "Datenaustausch Alfred Eichenseher/" "tmpshare/" "Flora Bday 35/" "Rookman/" "OXID eShop 6.0.0 Zertifizierung Technik 2 - Entwicklerschulung Basis I 1-79.pdf" "temp/" "OXID eShop 6.0.0 Zertifizierung Technik 2 - Entwicklerschulung Basis I.pdf" "Alfred/" "./" "Homepage/" "ontraq-dev/" "Kamera-Uploads/" "Industrie_40/" "Gaby/" "industrie40/" ".PhpStorm2016.3/" ".dropbox" "Pkt/" "Smart Maintenace.jpeg" "BLIQ_webfiles_181101/" "De Crignis/" "dotfiles/")
+
+ ("/home/alf/org/cloud/business/tax/" (23612 23430 330489 781000) "../" "./" "_taxes.org")
+
+ ("/home/alf/org/cloud/personal/" (23612 23434 282527 210000) "justiz.org" "../" "beta.org" "hirtenhaus.org" "./" "alpha.org" "umzug.org" "privat.org" "christmas2017.org" "boardgames.org" "einkauf.org" "birthdays.org" "habits.org")
+
+ ("/home/alf/org/cloud/clients/RafaelBernardo/" (23377 31602 307489 664000) "../" "headachehurts.tex" "./" "headachehurts.org" "headachehurts.org.bak" "headachehurts.pdf" "leezafive.org" "headache_overview1.txt")
+
+ ("/home/alf/org/cloud/tax/" (23364 20276 336562 693000) "../" "./" "_taxes.org")
+
+ ("/home/alf/nextcloud/org/cloud/" (23372 14977 244025 248000) "alfredbiz.org" "../" "todo.org" "buchhaltung.org" "mpu.org" "beta.org" "clients/" ".stfolder/" "archive/" "./" "audioghost.org" "#org.org#" "org.org" ".#org.org" "alpha.org" "macbook.org" "nas_2018.org" "timwedding.org" "privat.org_archive" "webdev.org" "misc/" "drupal.org" "tax/" "linux.org" "info/" ".stignore" "capture.org" "privat.org" "contao4.org" "2018_prj.org" "projects.org" "simpleaccounts.org" "web_diebergedeswahnsinns.de.org" "notes.org" "godot.org" "boltcms.org" "einkauf.org" "blender.org" "web_westernbiological.org")
+
+ ("/home/alf/org/cloud/clients/" (23372 14977 240025 208000) "gluecklich.org" "../" "nuwave_conflict.org.tmp" "./" "nuwave.org_archive" "hbh.org" "Ontraq/" "Tillus/" "pamir.org" "nuwave.org" "RafaelBernardo/" "ursberg.org" "Ursberg/" "maxkeller.org" "#nuwave.org#" "wup.org" "decrignis.html" "decrignis.org" "rookman.org" ".#nuwave.org")
+
+ ("/home/alf/org/cloud/info/" (23368 17996 22782 604000) "../" "svganimation.org" "osx.org" "./" "aftereffects.org" "git.org" "golang.org" "adobe.org")
+
+ ("/home/alf/org/cloud/clients/Ontraq/" (23372 14021 370150 23000) "../" "ontraq.org" "migration.org" "./" "ontraqbackup.org" "ontraq.org.old" "notes3" "ontraq.org_archive")
+
+ ("/home/alf/nextcloud/" (23351 37537 156572 646000) "Nextcloud.mp4" "Photos/" "../" "org/" "clients/" "./" "Nextcloud Manual.pdf" "SofortUpload/" ".owncloudsync.log" "phpstorm17.1/" "Phlow/" "._sync_8df8fcbb8fef.db" "Photos (2)/" "wanderlust/" "._sync_8df8fcbb8fef.db-shm" "Books/" "Files/" ".owncloudsync.log.1" "Documents/" "._sync_8df8fcbb8fef.db-wal")
+
+ ("/home/alf/commercial/clients/ontraq/sommercable/" (23341 3711 134908 548000) "sommercable-startseite_4-1a.jpg" "bg_sso" "imgpsh_fullsize.png" "Liste-Service (1).jpg" "Liste-Service_alle-geich-hoch.jpg" "Liste-Service.jpg" "new_ct.html" "Homepage_ToDo_260717.odt" "../" "New_Contenttypes.txt" "slider/" "Liste-News.jpg" "New_Contenttypes.org" "new_ct.org" "SC_Portalseite_background_11042017.jpg" "new_ct.org~" "objects (4).md" "new_ct.txt" "new_ct.tex" ".~lock.Homepage_ToDo_260717.odt#" "./" "new_ct.odt" "whiteboard/" "new_ct.txt~" "new_ct.tex~" "sc-config/" "images-landing/" "new_ct.md~" "SC-Konzept-Seitenaufbau-Drupal.pdf" "landingpage/" "S3_S11_Landingpage_Entwurf.jpg" "structure.org~" "new_ct.md" "new_ct.pdf" "New_Contenttypes (7).txt" "New_Contenttypes.org~" "structure.org")
+
+ ("/home/alf/org/cloud/misc/" (23345 50330 769933 482000) "../" "./" "birthdays.org" "habits.org")
+
+ ("/home/alf/ownCloud/Hofbraeuhaus/Layout/" (22912 21067 141607 289000) "Funktionsbeschreibung_V2.docx" "grid-layout.html" "Layout/" "Fonts/" "GoogleMaps_Style.json" "../" "WHD Info.md" "hbh_anpassungen_3.css" "hbh_anpassungen_1.css" "hbh_anpassungen_4.css" "hbh_anpassungen_5.css" "Grafiken/" "./" "Bilder/" "Frag Aloisius Änderung/" "Texte/")
+
+ ("/home/alf/org/cloud/contacts/" (23308 61591 223897 736000) "gluecklich.org" "../" "criginis.org" "./" ".#criginis.org" "nuwave.org" "ursberg.org" "nfq.org" "#criginis.org#" "team23.org" "wup.org" "rookman.org")
+
+ ("/home/alf/org/local/" (23203 46273 801109 811000) "../" "./")
+
+ ("/home/alf/org/nx-projects/ontraq/" (23201 23860 54809 636000) "../" ".gitignore" "migrate.org" "ontraq.org" ".git/" "./" "ontraq.org.backup" "notes_on_golive_sc_2017.org" "migrate_2.html" "notes2" "migrate_2.tex" "migrate_2.org" "git.org" "AlSoPla/" "notes" "notes3" "notes.org" "sc/" "ontraq2.org" "mbp.ontraq.org")
+
+ ("/home/alf/org/nx-projects/clients/Rafael-bernardo-projects/" (23200 64339 60894 914000) "../" "./" "headachehurts.org" "123_zies_webseite_RZ10.pdf" "rbbc_L5-web_v05.pdf" "leezafive.org")
+
+ ("/home/alf/org/nx-projects/" (23193 6838 1033 311000) "../" "48.org" "clients/" "./" "audioghost.org" "47.org" "ontraq.org.old" "ontraq.org~.old" "stellungname_v4.odt" "stellungname_v3.odt" "ontraq/" "christmas2017.org" "contao4.org" "2018_prj.org" "cv.org" "projects.org" "stellungname.org" "orgmode.org" "godot.org" "stellungname.odt" "stellungname.html" "stellungname_v2.odt")
+
+ ("/home/alf/org/projects/" (23189 24471 662016 371000) "hugo.org" "wordpress.org" "vattenfall.org" "orgmode.org~" "vattenfall.org~" "evarumpf.org" "bleachshirt.org" "alfredeichenseher.de.org" "projects.org~" "westernbiological.de.org" "wordpress.org~" "bitcoin.org" "nichvergessen.de.org" "../" "stories.org" "gingerferment.org" "welscher.org" "./" "drupal.org" "staudentoepferei.org~" "staudentoepferei.de.org" "gingerferment.org~" "orgmode.org" "hugo.org~" "blog.org" "stories.org~" "projects.org" "projects/" "nichvergessen.de.org~")
+
+ ("/home/alf/org/misc/" (23189 20790 535112 20000) "misc.org" "habits.org~" "birthdays.org~" "todo.org~" "../" "birthdays.org" "todo.org" "./" "home.org~" "home.org" "#todo.org#" "habits.org")
+
+ ("/home/alf/org/projects/projects/" (23172 41181 380741 261000) "../" "48.org" "clients/" "./" "audioghost.org" "47.org" "ontraq.org.old" "ontraq.org~.old" "stellungname_v4.odt" "stellungname_v3.odt" "ontraq/" "christmas2017.org" "contao4.org" "2018_prj.org" "cv.org" "projects.org" "stellungname.org" "godot.org" "stellungname.odt" "stellungname.html" "stellungname_v2.odt")
+
+ ("/home/alf/org/nx-projects/clients/" (23169 40700 324570 138000) "../" "./" "tillus.org" "tillus.org~" "Rafael-bernardo-projects/")
+
+ ("/home/alf/org/clients/" (23120 61980 448261 182000) "clients.org" "rookman.org" "nfq.org" "../" "ursberg.org~" "ontraq.org_archive" "team23.org" "gluecklich.org" "ontraq.org~" "nuwave.org" "ontraq.org" "./" "_taxes.org" "ursberg.org" "gluecklich.org~" "ontraq.org_archive~" "wup.org" "_taxes.org~" "wup.org~" "rookman.org~" "nuwave.org~" "clients.org~")
+
+ ("/home/alf/emacs.d.backup/" (23058 59992 381503 471000) "elpa/" "lisp/" "auto-save-list/" "ido.last~" "#recentf#" "init.el" "ido.last" "recentf~" "recentf" "bookmarks" "../" "./")
+
+ ("/home/alf/org/nx-projects/clients/Raffa/" (23110 4609 585982 247000) "../" "leezafive.org~" "./" "123_zies_webseite_RZ10.pdf" "rbbc_L5-web_v05.pdf" "leezafive.org")
+
+ ("/home/alf/www/hugo/site/content/" (23013 44738 255107 193000) "../" "post/" "./" "music.md" "quicktips/" "impressum.md" "second.md" "about.md" "music.md~")
+
+ ("/mnt/octopus/nextcloud/alfred-eichenseher.de/hauptmann/" (23037 48269 902434 795000) "Nextcloud.mp4" "Photos/" "../" "org/" "./" "Nextcloud Manual.pdf" ".owncloudsync.log" "Phlow/" "._sync_8df8fcbb8fef.db" "Photos (2)/" "wanderlust/" "._sync_8df8fcbb8fef.db-shm" "Files/" "Documents/" "._sync_8df8fcbb8fef.db-wal")
+
+ ("/mnt/octopus/nextcloud/alfred-eichenseher.de/" (23015 1845 74150 131000) "../" "./" "hauptmann/")
+
+ ("/mnt/octopus/nextcloud/" (23015 1840 366066 326000) "../" "./" "alfred-eichenseher.de/")
+
+ ("/mnt/octopus/" (23015 1832 273921 525000) "../" "ownclouds/" "Backup/" "podcasts/" "movies/" "./" "Series/" "Monstore/" "nextcloud/" ".Trash-1000/" "_recording/" "Datatomb/" "Pictures/" "Incoming/" "temp/" "VMs/" "SteamLibrary/" "wget/" "Music/" "E-Books/" "lost+found/")
+
+ ("/home/" (22327 13465 235041 699000) "alf/" "../" "./")
+
+ ("/home/alf/org/tax/" (22996 57076 163416 203000) "soll_ist_besteuerung.org" "../" "./")
+
+ ("/home/alf/org/websites/" (22955 14233 124512 465000) "../" "./" "staudentoepferei.de.org" "staudentoepferei.de.org~")
+
+ ("/home/alf/www/hugo/site/" (22897 38565 944150 649000) "web/" "static/" "content/" ".git/" "archetypes/" "../" "readme.md" ".idea/" "./" "public/" "layouts/" "data/" ".gitignore" "config.toml" "themes/")
+
+ ("/home/alf/www/hugo/" (22894 10347 630949 229000) "site/" "../" "sonntag/" "./")
+
+ ("/home/alf/commercial/clients/ontraq/" (22735 60408 57566 675000) "sq-lab.com/" "docker_tests/" "prj-docker.org~" "../" "sommercable/" "docker.org" "git/" "docker.org~" "2017_01_19.org~" "bills/" "Screenshot_2017-02-13_18-07-12.png" "./" "dropbox/" "prj-docker.org" "2017_01_19.org")
+
+ ("/home/alf/commercial/clients/" (22738 22839 585304 373000) "bmw/" "wup/" "ontraq/" "../" "cptgrafx/" "./" "gluecklich/" "self/" "Ursberg/" "eva rumpf/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

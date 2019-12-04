@@ -73,3 +73,4 @@ echo "starting phpstorm..."
 }
 
 alias gco='git checkout'
+chruby 2.6.1
