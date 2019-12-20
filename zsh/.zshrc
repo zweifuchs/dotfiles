@@ -159,5 +159,12 @@ alias thedeploy='BUNDLE_GEMFILE=/home/alf/prj/ruby/deploy/Gemfile bundle exec  r
 alias ttime='BUNDLE_GEMFILE=/home/alf/prj/ruby/teatime/Gemfile bundle exec  ruby /home/alf/prj/ruby/teatime/teatime.rb'
 
 alias gam="git add -A && git commit -m"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alfredeichenseher/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alfredeichenseher/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/alfredeichenseher/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alfredeichenseher/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
 chruby ruby-2.6.1
 echo "i was run"
