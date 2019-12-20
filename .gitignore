@@ -5,5 +5,6 @@ emacs/.emacs.d/recentf
 emacs/.emacs.d/auto-save-liste/*
 emacs/.emacs.d/bookmarks
 emacs/.emacs.d/ido.last 
+emacs/.emacs.d/%backup%~
 *.elc
 emacs/.emacs.d/eshell/history
