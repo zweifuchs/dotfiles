@@ -7,7 +7,6 @@ case "$(uname -s)" in
 export ZSH=/Users/alfredeichenseher/.oh-my-zsh
 export PATH="/Users/alfredeichenseher/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 alias emacs='open -a /Applications/Emacs.app $1'
-
      ;;
 
    Linux)
@@ -168,3 +167,8 @@ if [ -f '/Users/alfredeichenseher/Downloads/google-cloud-sdk/completion.zsh.inc'
 
 chruby ruby-2.6.1
 echo "i was run"
+function swap()
+{
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
+}
