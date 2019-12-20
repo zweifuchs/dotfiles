@@ -531,6 +531,13 @@
 
               ("ux" "SUPER Agenda"
                (
+                (tags-todo "PROGRESS" (
+                                   (org-super-agenda-groups '(                                    
+                                                              (:name "PROGRESS"
+                                                                     :order 4)
+                                                              )
+                                                            )))
+                
                 (agenda "" (
                             (org-agenda-span 1)
                             (org-agenda-compact-blocks nil)
@@ -539,7 +546,7 @@
                                                        (:name "Today"
                                                               :scheduled today
                                                               :time-grid t
-                                                              :order 1
+                                                              :order 5
                                                               )
                                                        (:name "In Progress"
                                                               :todo ("PROGRESS")
