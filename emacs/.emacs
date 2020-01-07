@@ -531,6 +531,7 @@
 
               ("ux" "SUPER Agenda"
                (
+
                 (tags-todo "+TODO=\"PROGRESS\"" (
                                    (org-super-agenda-groups '(                                    
                                                               (:name "PROGRESS"
