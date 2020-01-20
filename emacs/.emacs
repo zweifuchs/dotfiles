@@ -1072,6 +1072,8 @@
 
 (setq org-babel-python-command "python3.7")
 (setq org-babel-ruby-command "/home/alf/.rubies/ruby-2.6.1/bin/ruby")
+;;(setq org-babel-ruby-command "/Users/alfredeichenseher/.rubies/ruby-2.6.1/bin/ruby")
+
 
 ;; Load async for source blocks
 (require 'ob-async)
