@@ -383,7 +383,7 @@
               ("i" "INTERRUPT" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "INTERRUPTS")
                "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n%a\n" :clock-in t :clock-resume t)
               ("s" "Scheduled todo" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "TASKS")
-               "* TODO %?\n:SCHEDULED: %t\nPROPERTIES:\n:CREATED: %U\n:END:\n%a\n\n")
+               "* TODO %?\n:SCHEDULED: %t\n:PROPERTIES:\n:CREATED: %U\n:END:\n%a\n\n")
               ("n" "note" entry (file+olp "~/org/cloud/dashboard.org" "INCOMING" "NOTES")
                "* %? :NOTE:\n:PROPERTIES:\n:CREATED: %U\n:END:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("b" "Bookmark" entry (file+olp "~/org/cloud/knowledge/bookmarks.org" "INCOMING")
