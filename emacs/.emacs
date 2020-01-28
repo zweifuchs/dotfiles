@@ -1037,7 +1037,7 @@
  '((C . t)
    (R . t)
   
-   (awk)
+   (awk .t)
    (calc)
    (clojure)
    (comint)
@@ -1050,11 +1050,11 @@
    (haskell)
    (io)
    (java)
-   (js)
+   (js .t)
    (latex)
    (ledger)
   
-   (lisp)
+   (lisp .t)
   
    (maxima)
    (mscgen)
