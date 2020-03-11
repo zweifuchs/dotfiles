@@ -49,6 +49,24 @@
 
 
 
+;; ALF -- is this linux or macos?
+(cond
+ ((string-equal system-type "darwin") ; Mac OS X
+  (progn
+    (message "Mac OS X")
+  (setq alf-system "mac")))
+ ((string-equal system-type "gnu/linux") ; linux
+  (progn
+    (message "Linux")
+    (setq alf-system "linux"))
+
+  ))
+
+;; Alf end
+
+
+
+
 
 ;;ruby?
   (add-to-list 'auto-mode-alist
@@ -1077,8 +1095,14 @@
    (sqlite)))
 
 (setq org-babel-python-command "python3.7")
-(setq org-babel-ruby-command "/home/alf/.rubies/ruby-2.6.1/bin/ruby")
-;;(setq org-babel-ruby-command "/Users/alfredeichenseher/.rubies/ruby-2.6.1/bin/ruby")
+
+(when (eq alf-system "linux")
+  (setq org-babel-ruby-command "/home/alf/.rubies/ruby-2.6.1/bin/ruby"))
+
+
+(when (eq alf-system "mac")
+  (setq org-babel-ruby-command "/Users/alfredeichenseher/.rubies/ruby-2.7.0/bin/ruby"))
+
 
 
 ;; Load async for source blocks
