@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 
+export TIME_STYLE=long-iso
 case "$(uname -s)" in
 
    Darwin)
