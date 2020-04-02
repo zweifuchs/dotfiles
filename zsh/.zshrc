@@ -175,3 +175,8 @@ function swap()
 }
 
 eval "$(direnv hook zsh)"
+
+if [ -f $HOME/.config/pass/pass_completion ]; then
+	autoload -U $HOME/.config/pass/pass_completion  
+	compinit
+fi

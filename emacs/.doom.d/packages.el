@@ -58,3 +58,6 @@
 (package! ob-async)
 (package! org-crypt)
 (package! origami)
+(package! rufo)
+(package! direnv)
+(package! chruby)

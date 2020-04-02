@@ -69,7 +69,7 @@
 ;; alf use speedkeys
 
 ;; Allow pasting from regular clipboard
-(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
 
 ;; Auto refresh buffers
 
@@ -211,6 +211,30 @@
 (after! evil-org
   (remove-hook 'org-tab-first-hook #'+org-cycle-only-current-subtree-h))
 
+(after! org
+  (remove-hook 'org-tab-first-hook #'+org-indent-maybe-h))
+
 (map!
  :g "<s-up>" 'treemacs-select-window
  )
+(setq find-file-visit-truename t)
+(setq vc-follow-symlinks t)
+
+
+;; Add babel source blocks insert
+;;
+
+(map! :map org-mode :leader "t i" #'org-clock-in)
+(map! :map org-mode :leader "t o" #'org-clock-out)
+(map! :map org-mode :leader "t s" #'org-schedule)
+(map! :map org-mode :leader "t -" #'org-time-stamp)
+(map! :map org-mode :leader "t ." #'org-time-stamp-inactive)
+(map! :map org-mode :leader "m A" #'org-archive-to-archive-sibling)
+(map! :map org-mode :leader "a n n" #'org-toggle-narrow-to-subtree)
+(map! :map org-mode :leader "a n i" #'org-tree-to-indirect-buffer)
+(map! :map org-mode :leader "a r" #'org-reveal)
+(map! :map org-mode :leader "a <tab>" #'org-force-cycle-archived)
+(map! :leader "w <left>" #'evil-window-rotate-downwards)
+(map! :leader "w <right>" #'evil-window-rotate-upwards)
+(map! :leader "a ," #'org-insert-structure-template)
+(map! :leader "a f" #'font-lock-mode)

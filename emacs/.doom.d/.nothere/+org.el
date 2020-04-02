@@ -1,6 +1,6 @@
 ;; org config
 ;; alf use speedkeys
-;;(setq org-use-speed-commands t)
+(setq org-use-speed-commands t)
 
 
 
@@ -24,7 +24,7 @@
  '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(org-log-done (quote note))
  '(org-log-repeat (quote note))
- '(org-super-agenda-mode t)
+ '(org-super-agenda-moe t)
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
@@ -47,7 +47,7 @@
       org-babel-python-command "python3")
 
 (require 'org-collector)
-;;(require 'org-crypt)
+(require 'org-crypt)
 ;;(org-crypt-use-before-save-magic)
 (setq org-tags-exclude-from-inheritance (quote ("crypt")))
 (setq org-crypt-key nil)
@@ -338,6 +338,12 @@
 ;; Super agenda config kram
 (setq org-agenda-window-setup (quote current-window))
 
+(setq org-return-follows-link t)
+
+
+(setq org-return-follows-link t)
+
+
 ;; ALF Save recent clocked tasks
 (setq org-clock-persist t)
 (setq org-clock-persist-file "~/org-clock/org-clock-save.el")
@@ -412,6 +418,6 @@
 
 ;;Org mode hook for visual lines
 
-(add-hook 'org-mode-hook (lambda()
+(add-hook org-mode-hook (lambda()
                           (visual-line-mode)
                           ))
