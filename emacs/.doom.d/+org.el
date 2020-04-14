@@ -415,3 +415,5 @@
 (add-hook 'org-mode-hook (lambda()
                           (visual-line-mode)
                           ))
+
+(setq org-duration-format (quote h:mm))

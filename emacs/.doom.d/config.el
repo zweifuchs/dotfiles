@@ -234,6 +234,7 @@
 (map! :map org-mode :leader "a n i" #'org-tree-to-indirect-buffer)
 (map! :map org-mode :leader "a r" #'org-reveal)
 (map! :map org-mode :leader "a <tab>" #'org-force-cycle-archived)
+(map! :map org-mode :leader "o o" #'org-open-at-point)
 (map! :leader "w <left>" #'evil-window-rotate-downwards)
 (map! :leader "w <right>" #'evil-window-rotate-upwards)
 (map! :leader "a ," #'org-insert-structure-template)
