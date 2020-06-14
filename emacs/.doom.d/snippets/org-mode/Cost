@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: Cost
+# key: cost                                   
+# --
+TODO ${1:Cost name} :COST:
+:PROPERTIES:
+:KONTO:    ${2:Kostenstelle}
+:YEAR:     ${3:`(format-time-string "%Y")`}
+:MONTH:    ${4:`(replace-regexp-in-string "^0" "" (format-time-string "%m"))`}
+:ID:       ${5:Rechnungsnummer}
+:NETTO:    $6
+:UST:      $7
+:BRUTTO:   $8
+:LINK:     [[/home/alf/commercial/Kosten - Ausgaben - Rechnungen/$3/$9] [pdf]]
+:CREATED:  [`(format-time-string "%Y-%m-%d %a")`]
+:END:
+:LOGBOOK:
+:END:
+
+$0

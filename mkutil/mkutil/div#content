@@ -1,0 +1,1807 @@
+
+
+    
+
+        Why does Emacs insert ^m at the end of every line - Super User
+        
+        
+         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+    
+        
+        
+
+    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+    
+    
+    body,.top-bar{margin-top:1.9em}
+    
+    
+    
+    
+        
+
+    
+        
+                
+                
+                    
+                
+                
+                    
+                
+                
+                    
+                        **** Stack Exchange Network
+
+                        
+                            Stack Exchange network consists of 176 Q&A communities including Stack Overflow, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+                        
+                        Visit Stack Exchange
+                        
+                    
+                
+
+
+
+        
+
+
+            
+                    
+                        
+                        
+                        
+    
+        
+            Loading…
+        
+    
+
+    
+    
+
+    
+
+                    
+            
+        
+        
+
+
+        - 
+
+        - 
+            
+
+                
+                0
+            
+        
+        - 
+            
+
+                
+                +0
+            
+        
+        - 
+            
+
+        
+        
+            
+                
+                        - 
+                            
+
+                                Tour
+                                
+                                    Start here for a quick overview of the site
+                                
+                            
+                        
+                    - 
+                        
+
+                            Help Center
+                            
+                                Detailed answers to any questions you might have
+                            
+                        
+                    
+                                - 
+                                    
+
+                                        Meta
+                                        
+                                            Discuss the workings and policies of this site
+                                        
+                                    
+                                
+                            - 
+                                
+
+                                    About Us
+                                    
+                                        Learn more about Stack Overflow the company
+                                    
+                                
+                            
+                            - 
+                                
+
+                                    Business
+                                    
+                                        Learn more about hiring developers or posting ads with us
+                                    
+                                
+                            
+                
+            
+        
+        - 
+            
+
+                
+            
+        
+
+            - 
+                            
+Log in
+                            Sign up
+
+            
+
+    - 
+            
+
+    
+
+        
+            *** 
+                
+current community
+            
+        
+        
+            
+                    - 
+                            
+
+                
+        
+        
+            Super User
+        
+    
+
+    
+    
+            help
+            chat
+    
+
+                    
+                    - 
+                            
+
+        
+    
+
+                            
+        
+        
+            Meta Super User
+        
+    
+
+                    
+            
+        
+
+        
+            *** 
+your communities            
+
+
+        
+        
+
+                
+Sign up or log in to customize your list.                
+        
+
+        
+            *** more stack exchange communities
+
+            
+            company blog
+        
+        
+                
+                
+    
+
+    
+
+    
+
+     
+        
+            
+                
+                    By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.
+                
+            
+            
+                
+                    
+                
+            
+        
+    
+
+    
+
+
+
+            
+
+        
+    
+
+
+    
+        
+            Super User is a question and answer site for computer enthusiasts and power users. It only takes a minute to sign up.
+
+            Sign up to join this community
+        
+        
+            
+                
+                    
+                
+                
+                    Anybody can ask a question
+                
+            
+            
+                
+                    
+                
+                
+                    Anybody can answer
+                
+            
+            
+                
+                    
+                
+                
+                    The best answers are voted up and rise to the top
+                
+            
+        
+            
+                
+                    
+                
+            
+    
+
+
+
+
+
+        
+            
+                
+                        
+                
+
+            
+        
+
+    
+            
+
+
+    
+        
+            
+        - 
+            
+
+Home            
+        
+                - 
+                    
+
+                                - 
+            
+
+Questions            
+        
+
+        - 
+            
+
+Tags            
+        
+        - 
+            
+
+Users            
+        
+        - 
+            
+
+Unanswered            
+        
+                    
+                
+            
+        
+    
+
+
+
+
+
+
+
+        
+
+            
+
+    
+
+    
+
+        
+
+            
+                        * Why does Emacs insert ^m at the end of every line
+
+
+                
+                    
+    
+        Ask Question
+    
+
+                
+            
+            
+                    
+                        Asked
+                        9 years, 5 months ago
+                    
+                        
+                            Active
+                            5 years, 9 months ago
+                        
+                    
+                        Viewed
+                        4k times
+                    
+            
+            
+
+                
+
+
+    .everyoneloves__top-leaderboard:empty,.everyoneloves__mid-leaderboard:empty,.everyoneloves__bot-mid-leaderboard:empty{
+            margin-bottom:0;
+}
+
+
+
+    
+        
+            
+        
+        8
+        
+
+        
+            
+            1
+        
+    
+
+    
+        
+
+
+
+        
+
+        
+
+
+    
+    
+                    
+Why does Emacs insert ^m at the end of every line in my Linux environment?
+    
+
+        
+            
+                emacs 
+            
+        
+
+    
+        
+            
+                
+
+share|improve this question|
+        follow
+    ||||
+
+            
+
+            
+                
+    
+        asked Nov 29 '10 at 18:37
+    
+    
+        
+    
+    
+        Yazz.comYazz.com
+        
+            2,85366 gold badges2626 silver badges4343 bronze badges
+        
+    
+
+
+            
+        
+    
+    
+
+
+
+                
+        
+            
+
+            
+	    
+
+        
+                    add a comment
+                 | 
+            
+                 
+    
+    
+
+
+
+
+                
+
+                    
+                    
+                        
+                            
+                                ** 
+                                        4 Answers
+                                    
+4
+                                
+                            
+                            
+                                
+        
+            Active
+        
+            Oldest
+        
+            Votes
+
+
+                            
+                        
+                    
+
+
+                                          
+
+
+    
+        
+            
+        
+        15
+        
+
+    
+            
+                
+            
+
+    
+        
+
+
+
+        
+
+        
+
+
+    
+    
+Emacs Line Return and Windows, Unix, Mac, All That ^M ^J ^L
+
+
+  Q: Why does emacs show ^M in a buffer?
+  
+  A: The â^Mâ is ASCII caret notation for unprintable Carriage return char (ASCII 13). If emacs shows that, it's probably because you have mixed characters of ^M and ^J and emacs cannot interpret them consistently as newlines.
+  
+  To fix it, call âset-buffer-file-coding-systemâ, then give one of: âmacâ, âdosâ, âunixâ. Then, save the file. If that does not fix it, you can use find and replace to remove it manually.
+
+    
+    
+        
+        
+            
+
+share|improve this answer|
+        follow
+    ||||
+
+        
+
+
+    
+        
+    
+        answered Nov 29 '10 at 20:00
+    
+    
+        
+    
+    
+        ephemientephemient
+        
+            21.3k44 gold badges2525 silver badges2020 bronze badges
+        
+    
+
+
+    
+    
+    
+
+
+
+                
+        
+            
+
+                        - 
+        
+
+            
+            
+        
+        
+            
+                
+                As an addendum C-x RET f is the key chord for set-buffer-file-coding-system, so you can type that instead. I never remember it, though.
+                
+– quodlibetor
+                Apr 24 '11 at 3:26
+            
+        
+    
+
+            
+	    
+
+        
+                    add a comment
+                 | 
+            
+                 
+    
+    
+
+
+
+                                          
+
+
+    
+        
+            
+        
+        1
+        
+
+    
+            
+                
+            
+
+    
+        
+
+
+
+        
+
+        
+
+
+    
+    
+I know itÂ´s an old question,  but for the record, there are other reasons why ^M appears at the end of files. I just had the same problem. Here is what happened:
+
+
+- Every day I use the same text file on Emacs and never saw ^M. I use this file to take personal notes.
+
+- Last time I used the file I copied and pasted the contents of an e-mail I got on MS Outlook.
+
+- Today I opened the same old file and every single line had a ^M at the end, and all non-ASCII characters were replaced by strange codes like ???.
+
+
+
+How to fix it:
+
+Open the same file on VI (yes, I know, the archenemy) and search for characters that appear in a highlight color. On my terminal it is blue. Remove those characters and everything will work fine again on Emacs.
+
+Cause:
+
+The problem was caused by some strange quotation mark characters that came from Outlook. The funny thing is that Emacs does not show this problem until you reopen the file, making it hard for you to identify that your file has a problem right away.
+    
+    
+        
+        
+            
+
+share|improve this answer|
+        follow
+    ||||
+
+        
+
+
+    
+        
+    
+        answered Nov 11 '13 at 10:39
+    
+    
+        
+    
+    
+        AkiraAkira
+        
+            11111 bronze badge
+        
+    
+
+
+    
+    
+    
+
+
+
+                
+        
+            
+
+                        - 
+        
+
+            
+                    1
+            
+        
+        
+            
+                
+                I love how solving an Emavs problem involves using Vim. TAKE THAT, EMACS!
+                
+– Aviator45003
+                Jul 30 '14 at 19:04
+            
+        
+    
+
+            
+	    
+
+        
+                    add a comment
+                 | 
+            
+                 
+    
+    
+
+
+                                          
+
+
+    
+        
+            
+        
+        1
+        
+
+    
+            
+                
+            
+
+    
+        
+
+
+
+        
+
+        
+
+
+    
+    
+I know that this question has been resolved, but I wanted to mention that Dos2Unix is a handy part of a toolkit for file operation between UNIX/DOS/Mac machines. It is an easy command-based approach for adding/removing OS-preferred line endings.
+    
+    
+        
+        
+            
+
+share|improve this answer|
+        follow
+    ||||
+
+        
+    
+
+    
+        edited Nov 11 '13 at 17:01
+    
+    
+        
+    
+    
+        Mogget
+        
+            1,1781010 silver badges2424 bronze badges
+        
+    
+    
+
+
+    
+        
+    
+        answered Nov 11 '13 at 16:24
+    
+    
+        
+    
+    
+        Mike FisherMike Fisher
+        
+            2122 bronze badges
+        
+    
+
+
+    
+    
+    
+
+
+
+                
+        
+            
+
+                        - 
+        
+
+            
+            
+        
+        
+            
+                
+                Emacs can handle all the newline varieties a file might contain, without needing to modify the file as Dos2Unix does. Possibly worth knowing for those poor benighted souls who don't use God's own editor, though. :)
+                
+– Aaron Miller
+                Nov 11 '13 at 17:28
+            
+        
+    
+
+            
+	    
+
+        
+                    add a comment
+                 | 
+            
+                 
+    
+    
+
+
+                                          
+
+
+    
+        
+            
+        
+        0
+        
+
+    
+            
+                
+            
+
+    
+        
+
+
+
+        
+
+        
+
+
+    
+    
+If you are using Emacs in a primarily DOS/Windows environment, Emacs should correctly recognize the line-ending system and deal with it transparently.
+
+You might see ^M suddenly appear in a file because it has been edited, perhaps with a script, that added lines with UNIX line-endings, and now lline endings are mixed.
+
+You can fix these lines by adding ^M back onto them, save the file, kill the buffer, and re-open it. Now it should look normal, and say (DOS) as the encoding marking on the status line.
+
+The regexp to look for is \([^^M]\)$ and replace with \1^M. Remember to use Ctrl-Q to 'quote' the Ctrl-M characters.
+    
+    
+        
+        
+            
+
+share|improve this answer|
+        follow
+    ||||
+
+        
+    
+
+    
+        edited Jul 30 '14 at 18:42
+    
+    
+        
+    
+    
+        
+        
+            
+        
+    
+    
+
+
+    
+        
+    
+        answered Jul 25 '14 at 17:38
+    
+    
+        
+    
+    
+        Clay HaapalaClay Haapala
+        
+            122 bronze badges
+        
+    
+
+
+    
+    
+    
+
+
+
+                
+        
+            
+
+            
+	    
+
+        
+                    add a comment
+                 | 
+            
+                 
+    
+    
+
+
+
+                        
+                            
+                                
+                                
+                                
+                                ** 
+                                    Your Answer
+                                
+
+                                    
+
+
+
+
+
+
+    
+        
+            
+            
+                
+                    
+                
+                
+            
+        
+    
+
+    
+    
+        Thanks for contributing an answer to Super User!- Please be sure to 
+answer the question. Provide details and share your research!But avoid â¦- Asking for help, clarification, or responding to other answers.
+- Making statements based on opinion; back them up with references or personal experience.
+To learn more, see our tips on writing great answers.
+    
+    
+        
+    
+
+
+
+    Draft saved
+    Draft discarded
+
+
+
+        
+        
+        
+            
+            
+        
+
+
+
+
+                                
+                                                
+                
+                    
+                        *** Sign up or 
+log in
+                        
+                        
+                             Sign up using Google
+                        
+                        
+                             Sign up using Facebook
+                        
+                        
+                             Sign up using Email and Password
+                        
+                    
+                    
+                    
+                    Submit
+                    
+                                *** Post as a guest
+
+            
+                
+                    Name
+                    
+                        
+                    
+                
+            
+            
+                
+                    
+                        
+                            Email
+                            Required, but never shown
+                        
+                    
+                    
+                        
+                    
+                
+            
+
+                    
+                
+            
+            
+            
+                        *** Post as a guest
+
+            
+                
+                    Name
+                    
+                        
+                    
+                
+            
+            
+                
+                    
+                        
+                            Email
+                            Required, but never shown
+                        
+                    
+                    
+                        
+                    
+                
+            
+
+            
+
+                                
+
+                                    
+                                        
+Post Your Answer                                        
+                                        
+                                            Discard
+                                        
+                                            
+                                                By clicking âPost Your Answerâ, you agree to our terms of service, privacy policy and cookie policy
+                                            
+                                    
+                                    
+                            
+
+
+
+                            ** 
+Not the answer you're looking for? Browse other questions tagged 
+emacs  or ask your own question.                            
+                
+            
+            
+                
+
+                
+                    The Overflow Blog
+                
+            
+    - 
+        
+
+                
+                
+        
+        
+            Introducing Collections on Stack Overflow for Teams
+        
+    
+            
+            
+    - 
+        
+
+                
+                
+        
+        
+            A message from our CEO: The Way Forward
+        
+    
+            
+                
+                    Featured on Meta
+                
+            
+    - 
+        
+
+                
+                
+        
+        
+            Introducing the Moderator Council - and its first, pro-tempore, representatives
+        
+    
+            
+            
+    - 
+        
+
+                
+                
+        
+        
+            CEO Blog: The Way Forward
+        
+    
+            
+
+
+
+
+
+                
+                
+
+                    
+                        **** Related
+
+                        
+                            3Using emacs to control command-line processes4How do you go to the end of the line in emacs?1Emacs in terminal mode and line wrap3Insert special characters in Emacs1Why Emacs cursor movement key is chosen such a way?1Emacs — jump paragraph up / down placing cursor on the first visual line2Emacs - Line numbers are not displaying6Emacs key for Home & End0What does Emacs without X support mean?3Emacs : Jump to the next line with same indentation
+                        
+                    
+
+                
+    **** 
+        
+
+            Hot Network Questions
+        
+    
+    
+            - 
+                
+
+                    The connection of the "R" in the ideal gas law and osmotic pressure
+                
+
+            
+            - 
+                
+
+                    Implement the Zundoko Kiyoshi function
+                
+
+            
+            - 
+                
+
+                    Connecting 10AWG wires to PCB
+                
+
+            
+            - 
+                
+
+                    How can I stop people confusing my given name and surname?
+                
+
+            
+            - 
+                
+
+                    Novella with Humanity Surrounded in Fortress City
+                
+
+            
+            - 
+                
+
+                    Is it wrong to be a "people pleaser"?
+                
+
+            
+            - 
+                
+
+                    Unusual applications of regular expressions?
+                
+
+            
+            - 
+                
+
+                    Why do you have to blow sideways on a flute?
+                
+
+            
+            - 
+                
+
+                    Why are my caves warm with nobody heating them?
+                
+
+            
+            - 
+                
+
+                    Should an emoji come before or after a full-stop? 🤔
+                
+
+            
+            - 
+                
+
+                    Will upgrading my Mac result in the loss of my data?
+                
+
+            
+            - 
+                
+
+                    How to control two different variables with Locator?
+                
+
+            
+            - 
+                
+
+                    Is it possible to see Callisto with the naked eye when it's at its greatest elongation from Jupiter?
+                
+
+            
+            - 
+                
+
+                    Is there research to back up the claim that math classes help develop analytical skills?
+                
+
+            
+            - 
+                
+
+                    Was it possible for a young Japanese woman to end up enslaved in Great Britain in the mid-1600s?
+                
+
+            
+            - 
+                
+
+                    Is there a probability distribution like the binomial distribution but with continuous rather than binary trial outputs?
+                
+
+            
+            - 
+                
+
+                    "Член клуба" - how to use "член" in feminine here?
+                
+
+            
+            - 
+                
+
+                    Is Minkowski sum of boundary convex again?
+                
+
+            
+            - 
+                
+
+                    Can I mount a drive using UUID with bash? (Not fstab?)
+                
+
+            
+            - 
+                
+
+                    Master thesis advisor gave me an ill-defined question. I worked on it for a year!
+                
+
+            
+            - 
+                
+
+                    Did Picard violate Article 14, Section 31 of the Starfleet Charter?
+                
+
+            
+            - 
+                
+
+                    How to reproduce Wolfram Language's base64 encoded string with command-line tool?
+                
+
+            
+            - 
+                
+
+                    A clothing material or other method to slow free-fall descent down walls
+                
+
+            
+            - 
+                
+
+                    Word or expression for the noise in a busy house with kids?
+                
+
+            
+    
+
+        
+            more hot questions
+        
+
+
+                            
+        
+            
+            Question feed
+        
+    
+    
+        
+            * 
+                Subscribe to RSS
+            
+
+            
+                
+                    
+                        Question feed
+                        To subscribe to this RSS feed, copy and paste this URL into your RSS reader.
+                    
+                
+                
+                    
+                    
+                
+            
+            
+                
+            
+        
+    
+
+            
+    
+
+
+
+
+        
+    
+        
+    
+
+            
+        
+            
+                    
+                        ***** Super User
+
+                        
+                                    - Tour
+
+                                - Help
+
+                                    - Chat
+
+                            - Contact
+
+                                - Feedback
+
+                                - Mobile
+
+                        
+                    
+                
+                    ***** Company
+
+                    
+                            - Stack Overflow
+
+                            - Stack Overflow Business
+
+                            - Developer Jobs
+
+                                - About
+
+                        - Press
+
+                        - Legal
+
+                        - Privacy Policy
+
+                    
+                
+                
+                    
+                    
+                        ***** Stack Exchange Network
+
+                        
+                            - Technology
+
+                            - Life / Arts
+
+                            - Culture / Recreation
+
+                            - Science
+
+                            - Other
+
+                        
+                    
+                
+                
+                        
+        
+                - Stack Overflow
+
+                - Server Fault
+
+                - Super User
+
+                - Web Applications
+
+                - Ask Ubuntu
+
+                - Webmasters
+
+                - Game Development
+
+                    
+                - TeX - LaTeX
+
+                - Software Engineering
+
+                - Unix & Linux
+
+                - Ask Different (Apple)
+
+                - WordPress Development
+
+                - Geographic Information Systems
+
+                - Electrical Engineering
+
+                    
+                - Android Enthusiasts
+
+                - Information Security
+
+                - Database Administrators
+
+                - Drupal Answers
+
+                - SharePoint
+
+                - User Experience
+
+                - Mathematica
+
+                    
+                - Salesforce
+
+                - ExpressionEngine® Answers
+
+                - Stack Overflow em Português
+
+                - Blender
+
+                - Network Engineering
+
+                - Cryptography
+
+                - Code Review
+
+                    
+                - Magento
+
+                - Software Recommendations
+
+                - Signal Processing
+
+                - Emacs
+
+                - Raspberry Pi
+
+                - Stack Overflow на русском
+
+                - Code Golf
+
+                    
+                - Stack Overflow en español
+
+                - Ethereum
+
+                - Data Science
+
+                - Arduino
+
+                - Bitcoin
+
+                - Software Quality Assurance & Testing
+
+                - Sound Design
+
+                    
+                - Windows Phone
+
+                - 
+                    
+
+                        
+                            more (28)
+                        
+                    
+                
+        
+    
+    
+        
+                - Photography
+
+                - Science Fiction & Fantasy
+
+                - Graphic Design
+
+                - Movies & TV
+
+                - Music: Practice & Theory
+
+                - Worldbuilding
+
+                - Video Production
+
+                    
+                - Seasoned Advice (cooking)
+
+                - Home Improvement
+
+                - Personal Finance & Money
+
+                - Academia
+
+                - Law
+
+                - Physical Fitness
+
+                - Gardening & Landscaping
+
+                    
+                - Parenting
+
+                - 
+                    
+
+                        
+                            more (11)
+                        
+                    
+                
+        
+    
+    
+        
+                - English Language & Usage
+
+                - Skeptics
+
+                - Mi Yodeya (Judaism)
+
+                - Travel
+
+                - Christianity
+
+                - English Language Learners
+
+                - Japanese Language
+
+                    
+                - Chinese Language
+
+                - French Language
+
+                - German Language
+
+                - Biblical Hermeneutics
+
+                - History
+
+                - Spanish Language
+
+                - Islam
+
+                    
+                - Русский язык
+
+                - Russian Language
+
+                - Arqade (gaming)
+
+                - Bicycles
+
+                - Role-playing Games
+
+                - Anime & Manga
+
+                - Puzzling
+
+                    
+                - Motor Vehicle Maintenance & Repair
+
+                - Board & Card Games
+
+                - Bricks
+
+                - Homebrewing
+
+                - Martial Arts
+
+                - The Great Outdoors
+
+                - Poker
+
+                    
+                - Chess
+
+                - Sports
+
+                - 
+                    
+
+                        
+                            more (16)
+                        
+                    
+                
+        
+    
+    
+        
+                - MathOverflow
+
+                - Mathematics
+
+                - Cross Validated (stats)
+
+                - Theoretical Computer Science
+
+                - Physics
+
+                - Chemistry
+
+                - Biology
+
+                    
+                - Computer Science
+
+                - Philosophy
+
+                - Linguistics
+
+                - Psychology & Neuroscience
+
+                - Computational Science
+
+                - 
+                    
+
+                        
+                            more (8)
+                        
+                    
+                
+        
+    
+    
+        
+                - Meta Stack Exchange
+
+                - Stack Apps
+
+                - API
+
+                - Data
+
+        
+    
+
+                
+            
+            
+                
+                    - Blog
+
+                    - Facebook
+
+                    - Twitter
+
+                    - LinkedIn
+
+                    - Instagram
+
+                
+
+                
+site design / logo © 2020 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0
+                                with attribution required.                    rev 2020.5.7.36779
+                
+            
+        
+
+    
+
+            
+    
+        Super User works best with JavaScript enabled
+            
+        
+    
+
+        
+
+    
+    
+    

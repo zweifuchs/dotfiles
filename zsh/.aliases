@@ -25,8 +25,8 @@ alias l='ls -aCF --group-directories-first'
 alias mkdir='mkdir -p'
 
 alias t='tail -f'
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
+#alias fd='find . -type d -name'
+#alias ff='find . -type f -name'
 
 
 alias cd..='cd ..'

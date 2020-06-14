@@ -1,0 +1,1533 @@
+
+ 
+ 
+ Skip to content
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ All gists
+ Back to GitHub
+ 
+ 
+ 
+ Sign in
+ 
+ Sign up
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Instantly share code, notes, and snippets.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+* 
+ 
+ carolineartz/*nokogiri-commandline-ref.txt
+ 
+ Created Apr 9, 2014
+ 
+ 
+ 
+ - 
+ 
+ 
+ Star
+ 
+ 25
+ 
+ - 
+ 
+ 
+ Fork
+ 
+ 7
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Code
+ 
+ 
+ Revisions
+ 4
+ 
+ 
+ Stars
+ 25
+ 
+ 
+ Forks
+ 7
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Embed
+ 
+ 
+ 
+ What would you like to do?
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Embed
+ 
+ 
+ Embed this gist in your website.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Share
+ 
+ 
+ Copy sharable link for this gist.
+ 
+ 
+ 
+ 
+ 
+ 
+ Clone via
+ HTTPS
+ 
+ 
+ Clone with Git or checkout with SVN using the repository’s web address.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Learn more about clone URLs
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Download ZIP
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ nokogiri cheatsheet
+ 
+ 
+ 
+ 
+ 
+ Raw
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ *nokogiri-commandline-ref.txt
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ require 'nokogiri'
+ 
+ 
+ 
+ require 'open-uri'
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ # Get a Nokogiri::HTML:Document for the page we're interested in...
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ doc = Nokogiri::HTML(open('http://www.google.com/search?q=tenderlove'))
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ # Do funky things with it using Nokogiri::XML::Node methods...
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####
+ 
+ 
+ 
+ # Search for nodes by css
+ 
+ 
+ 
+ doc.css('h3.r a.l').each do |link|
+ 
+ 
+ 
+ puts link.content
+ 
+ 
+ 
+ end
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ doc.at_css('h3').content
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####
+ 
+ 
+ 
+ # Search for nodes by xpath
+ 
+ 
+ 
+ doc.xpath('//h3/a[@class="l"]').each do |link|
+ 
+ 
+ 
+ puts link.content
+ 
+ 
+ 
+ end
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####
+ 
+ 
+ 
+ # Or mix and match.
+ 
+ 
+ 
+ doc.search('h3.r a.l', '//h3/a[@class="l"]').each do |link|
+ 
+ 
+ 
+ puts link.content
+ 
+ 
+ 
+ end
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####
+ 
+ 
+ 
+ # Work with attributes
+ 
+ 
+ 
+ xml = "<foo wam='bam'>bar</foo>"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ doc = Nokogiri::XML(xml)
+ 
+ 
+ 
+ doc.at_css("foo").content => "bar"
+ 
+ 
+ 
+ doc.at_css("foo")["wam"].content => "bam"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####
+ 
+ 
+ 
+ # Work with elements
+ 
+ 
+ 
+ el = doc.at_css("foo")
+ 
+ 
+ 
+ el.children # => array of elements
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ So for example if we wanted to know all the names of the food items in our
+ 
+ 
+ 
+ document we simply say:
+ 
+ 
+ 
+ > doc.xpath("//name").collect(&:text)
+ 
+ 
+ 
+ => ["carrot", "tomato", "corn", "grapes", "orange", "pear", "apple"]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ If we were interested in the entire node we could leave off the
+ 
+ 
+ 
+ .collect(&:text). What if we wanted to select all the names of food items that
+ 
+ 
+ 
+ were best baked? This requires us to use what’s called an axis – we will
+ 
+ 
+ 
+ first need to find the element “baked” but then go back up our XML elements to
+ 
+ 
+ 
+ find which food the item is inside.
+ 
+ 
+ 
+ > doc.xpath("//tag[text()='baked']/ancestor::node()/name").collect(&:text)
+ 
+ 
+ 
+ => ["pear", "apple"]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ What if we were only interested in vegetables that were good for roasting? 
+ 
+ 
+ 
+ Just add //veggies:
+ 
+ 
+ 
+ >
+ 
+ 
+ 
+ doc.xpath("//veggies//tag[text()='roasted']/ancestor::node()/name").collect(&:t
+ 
+ 
+ 
+ xt)
+ 
+ 
+ 
+ => ["carrot", "tomato"]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ What about if we wanted to know all the tags ‘corn’ had? Again this is very
+ 
+ 
+ 
+ easy:
+ 
+ 
+ 
+ > doc.xpath("//name[text()='corn']/../tags/tag").collect(&:text)
+ 
+ 
+ 
+ => ["raw", "boiled", "grilled"]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ We can even do searches matching the first character. Let’s say we wanted to
+ 
+ 
+ 
+ know all the food items that started with the letter ‘c’:
+ 
+ 
+ 
+ > doc.xpath("//name[starts-with(text(),'c')]").collect(&:text)
+ 
+ 
+ 
+ => ["carrot", "corn"]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ You could also use [contains(text(),'rot'] and get back just carrot, useful
+ 
+ 
+ 
+ when you want to do a partial match.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####
+ 
+ 
+ 
+ # Traversion
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.ancestors # Ancestors for <node>
+ 
+ 
+ 
+ node.at('xpath') # Returns node at given XPATH
+ 
+ 
+ 
+ node.at_css('selector') # Returns node at given CSS selector
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.xpath('xpath') # Returns nodes at given XPATH
+ 
+ 
+ 
+ node.css('selector') # Returns nodes at given selector
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.child # Returns the child node
+ 
+ 
+ 
+ node.children # Returns child nodes
+ 
+ 
+ 
+ node.parent
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####
+ 
+ 
+ 
+ # Data manipulation
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.name # Element name
+ 
+ 
+ 
+ node.node_type
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.content # Returns text as string
+ 
+ 
+ 
+ # (aka: .inner_text, .text)
+ 
+ 
+ 
+ node.content = '...'
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.inner_html
+ 
+ 
+ 
+ node.inner_html = '...'
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.attribute_nodes # Returns attributes as nodes
+ 
+ 
+ 
+ node.attributes # Returns attributes as hash
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####
+ 
+ 
+ 
+ # Tree manipulation
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.add_next_sibling(other) # Place <other> after <node>
+ 
+ 
+ 
+ node.add_previous_sibling(other) # Place <other> before <node>
+ 
+ 
+ 
+ node.add_child(other) # Put <other> inside <node>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.after(data) # Put a new node after <node>
+ 
+ 
+ 
+ node.before(data) # Put a new node before <node>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ node.parent = other # Reparents <node> inside <other>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raw
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ nokogiri-cheat.md
+ 
+ 
+ 
+ 
+ 
+ 
+ A digest of most of the methods documented at nokogiri.org. Reading the source can help, too.
+Topics not covered: RelaxNG validation or Builder
+See also: http://cheat.errtheblog.com/s/nokogiri
+Strings are always stored as UTF-8 internally. Methods that return text
+values will always return UTF-8 encoded strings. Methods that return XML (like
+to_xml, to_html and inner_html) will return a string encoded like the source
+document.
+More Resources
+- sax-machine
+- feedzirra
+- elementor
+- mechanize
+- markup_validity
+- XPath Reference
+- XPath Reference 2
+- CSS Selector Reference
+- StackOverflow top questions
+** Creating and working with Documents
+Nokogiri::HTML::Document
+Nokogiri::XML::Document
+#+begin_src sh
+ 
+#+end_src
+doc = Nokogiri(string_or_io) # Nokogiri will try to guess what type of document you are attempting to parse
+ doc = Nokogiri::HTML(string_or_io) # [, url, encoding, options, &block]
+ doc = Nokogiri::XML(string_or_io) # [, url, encoding, options, &block]
+ # set options with block {|config| config.noblanks.noent.noerror.strict }
+ # OR with a bitmask {|config| config.options = Nokogiri::XML::ParseOptions::NOBLANKS | Nokogiri::XML::ParseOptions::NOENT}
+ # http://nokogiri.org/Nokogiri/XML/ParseOptions.html
+ # doc = Nokogiri.parse(...)
+ # doc = Nokogiri::XML.parse(...) #shortcut to Nokogiri::XML::Document.parse
+ # doc = Nokogiri::HTML.parse(...) #shortcut to Nokogiri::HTML::Document.parse
+ # document namespaces
+ doc.collect_namespaces
+ doc.remove_namespaces!
+ doc.namespaces
+ 
+ # shortcuts for creating new nodes
+ doc.create_cdata(string, &block)
+ doc.create_comment(string, &block)
+ doc.create_element(name, *args, &block) # Create an element
+ doc.create_element "div" # <div></div>
+ doc.create_element "div", :class => "container" # <div class='container'></div>
+ doc.create_element "div", "contents" # <div>contents</div>
+ doc.create_element "div", "contents", :class => "container" # <div class='container'>contents</div>
+ doc.create_element "div" { |node| node['class'] = "container" } # <div class='container'></div>
+ doc.create_entity
+ doc.create_text_node(string, &block)
+ 
+ doc.root
+ doc.root=node
+ 
+ # A document is a Node, so see working_with_a_node
+** Working with Fragments
+Nokogiri::XML::DocumentFragment
+Nokogiri::HTML::DocumentFragment
+Generally speaking, unless you expect to have a DOCTYPE and a single root node, you don’t have a document, you have a fragment. For HTML, another rule of thumb is that documents have html and body tags, and fragments usually do not.
+A fragment is a Node, but is not a Document. If you need to call methods that are only available on Document, like create_element, call fragment.document.create_element.
+#+begin_src sh
+ 
+#+end_src
+fragment = Nokogiri::XML.fragment(string)
+ fragment = Nokogiri::HTML.fragment(string, encoding = nil)
+ # Note: Searching a fragment relative to the document root with xpath 
+ # will probably not return what you expect. You should search relative to 
+ # the current context instead. e.g.
+ fragment.xpath('//*').size #=> 0
+ fragment.xpath('.//*').size #=> 229
+** Working with a Nokogiri::XML::Node
+#+begin_src sh
+ 
+#+end_src
+node = Nokogiri::XML::Node.new('name', document) # initialize a new node
+ node = document.create_element('name') # shortcut
+ 
+ node.document
+ 
+ node.name # alias of node.node_name
+ node.name= # alias of node.node_name=
+ 
+ node.read_only?
+ node.blank?
+ 
+ # Type of Node
+ node.type # alias of node.node_type
+ node.cdata? # type == CDATA_SECTION_NODE
+ node.comment? # type == COMMENT_NODE
+ node.element? # type == ELEMENT_NODE alias node.elem? 
+ node.fragment? # type == DOCUMENT_FRAG_NODE (Document fragment node)
+ node.html? # type == HTML_DOCUMENT_NODE
+ node.text? # type == TEXT_NODE
+ node.xml? # type == DOCUMENT_NODE (Document node type)
+ # other types not covered by a convenience method
+ # ATTRIBUTE_DECL: Attribute declaration type
+ # ATTRIBUTE_NODE: Attribute node type
+ # DOCB_DOCUMENT_NODE: DOCB document node type
+ # DOCUMENT_TYPE_NODE: Document type node type
+ # DTD_NODE: DTD node type
+ # ELEMENT_DECL: Element declaration type
+ # ENTITY_DECL: Entity declaration type
+ # ENTITY_NODE: Entity node type
+ # ENTITY_REF_NODE: Entity reference node type
+ # NAMESPACE_DECL: Namespace declaration type
+ # NOTATION_NODE: Notation node type
+ # PI_NODE: PI node type
+ # XINCLUDE_END: XInclude end type
+ # XINCLUDE_START: XInclude start type
+ 
+ # Attributes, like a hash that maps string keys to string values
+ node['src'] # aliases: node.get_attribute, node.attr.
+ node['src'] = 'value' # alias node.set_attribute
+ node.key?('src') # alias node.has_attribute?
+ node.keys 
+ node.values
+ node.delete('src') # alias of node.remove_attribute
+ node.each { |attr_name, attr_value| }
+ # Node includes Enumerable, which works on these attribute names and values
+ 
+ # Attribute Nodes
+ node.attribute('src') # Get the attribute node with name src
+ # Returns a Nokogiri::XML::Attr, a subclass of Nokogiri::XML::Node
+ # that provides +.content=+ and +.value=+ to modify the attribute value
+ node.attribute_nodes # returns an array of this' the Node attributes as Attr objects.
+ node.attribute_with_ns('src', 'namespace') # Get the attribute node with name and namespace
+ node.attributes # Returns a hash containing the node's attributes. 
+ # The key is the attribute name without any namespace, 
+ # the value is a Nokogiri::XML::Attr representing the attribute. 
+ # If you need to distinguish attributes with the same name, but with different namespaces, use #attribute_nodes instead.
+ 
+ 
+ 
+ 
+ # Traversing / Modifying
+ # +node_or_tags+ can be a Node, a DocumentFragment, a NodeSet, or a string containing markup.
+ ## Self
+ node.traverse {|node| } # yields all children and self to a block, _recursively_.
+ node.remove # alias of node.unlink # Unlink this node from its current context.
+ node.replace(node_or_tags)
+ # Replace this Node with +node_or_tags+.
+ # Returns the reparented node (if +node_or_tags+ is a Node), 
+ # or returns a NodeSet (if +node_or_tags+ is a DocumentFragment, NodeSet, or string).
+ node.swap(node_or_tags) # like +replace+, but returns self to support chaining
+ ## Siblings
+ node.next # alias of node.next_sibling # Returns the next sibling node
+ node.next=(node_or_tags) # alias of node.add_next_sibling 
+ # Inserts node_or_tags after this node (as a sibling).
+ # Returns the reparented node (if +node_or_tags+ is a Node)
+ # or returns a NodeSet if (if +node_or_tags is a DocumentFragment, NodeSet, or string.)
+ node.after(node_or_tags) # like +next=+, but returns self to suppport chaining
+ node.next_element # Returns the next Nokogiri::XML::Element sibling node.
+ node.previous # alias of node.previous_sibling # Returns the previous sibling node
+ node.previous=(node_or_tags) # alias of node.add_previous_sibling ?
+ # Inserts node_or_tags before this node (as a sibling).
+ # Returns the reparented node (if +node_or_tags+ is a Node)
+ # or returns a NodeSet (if +node_or_tags+ is a DocumentFragment, NodeSet, or string.)
+ node.before(node_or_tags) # just like +previous=+, but returns self to suppport chaining
+ node.previous_element # Returns the previous Nokogiri::XML::Element sibling node.
+ ## Parent
+ node.parent
+ node.parent=(node)
+ ## Children
+ node.child # returns a Node
+ node.children # Get the list of children of this node as a NodeSet
+ node.children=(node_or_tags)
+ # Set the inner html for this Node
+ # Returns the reparented node (if +node_or_tags+ is a Node), 
+ # or returns a NodeSet (if +node_or_tags+ is a DocumentFragment, NodeSet, or string).
+ node.elements # alias: node.element_children # Get the list of child Elements of this node as a NodeSet.
+ node.add_child(node_or_tags)
+ # Add +node_or_tags+ as a child of this Node.
+ # Returns the reparented node (if +node_or_tags+ is a Node), 
+ # or returns a NodeSet (if +node_or_tags+ is a DocumentFragment, NodeSet, or string.)
+ node << node_or_tags # like above, but returns self to support chaining, e.g. root << child1 << child2
+ node.first_element_child # Returns the first child node of this node that is an element.
+ node.last_element_child # Returns the last child node of this node that is an element.
+ ## Content / Children
+ node.content # aliases node.text node.inner_text node.to_str
+ node.content=(string) # Set the Node's content to a Text node containing +string+. The string gets XML escaped, and will not be interpreted as markup.
+ node.inner_html # (*args) children.map { |x| x.to_html(*args) }.join
+ node.inner_html=(node_or_tags)
+ # Sets the inner html of this Node to +node_or_tags+
+ # Returns self.
+ # Also see related method +children=+
+ 
+ 
+ 
+ 
+ 
+ ## Searching below (see Working with a Nodeset below)
+ # see docs for namespace bindings, variable bindings, and custom xpath functions via a handler class
+ node.search(*paths) # alias: node / path # paths can be XPath or CSS
+ node.at(*paths) # alias node % path # Search for the first occurrence of path. Returns nil if nothing is found, otherwise a Node. (like search(path, ns).first)
+ node.xpath(*paths) # search for XPath queries
+ node.at_xpath(*paths) # like xpath(*paths).first
+ node.css(*rules) # search for CSS rules
+ node.at_css(*rules) # like css(*rules).first
+ node > selector # Search this node's immediate children using a CSS selector
+ 
+ 
+ # Searching above
+ node.ancestors # list of ancestor nodes, closest to furthest, as a NodeSet.
+ node.ancestors(selector) # ancestors that match the selector
+ 
+ 
+ # Where am I?
+ node.path # Returns the path associated with this Node
+ node.css_path # Get the path to this node as a CSS expression
+ node.matches?(selector) # does this node match this selector?
+ node.line # line number from input
+ node.pointer_id # internal pointer number
+ 
+ # Namespaces
+ node.add_namespace(prefix, href) # alias of node.add_namespace_definition
+ # Adds a namespace definition with prefix using href value. The result is as
+ # if parsed XML for this node had included an attribute
+ # ‘xmlns:prefix=value'. A default namespace for this node (“xmlns=”) can be
+ # added by passing ‘nil' for prefix. Namespaces added this way will not show
+ # up in #attributes, but they will be included as an xmlns attribute when
+ # the node is serialized to XML.
+ node.default_namespace=(url)
+ # Adds a default namespace supplied as a string url href, to self. The
+ # consequence is as an xmlns attribute with supplied argument were present
+ # in parsed XML. A default namespace set with this method will now show up
+ # in #attributes, but when this node is serialized to XML an “xmlns”
+ # attribute will appear. See also #namespace and #namespace=
+ node.namespace # returns the default namespace set on this node (as with an “xmlns=” attribute), as a Namespace object.
+ node.namespace=(ns)
+ # Set the default namespace on this node (as would be defined with an
+ # “xmlns=” attribute in XML source), as a Namespace object ns . Note that a
+ # Namespace added this way will NOT be serialized as an xmlns attribute for
+ # this node. You probably want #default_namespace= instead, or perhaps
+ # #add_namespace_definition with a nil prefix argument.
+ node.namespace_definitions
+ # returns namespaces defined on self element directly, as an array of
+ # Namespace objects. Includes both a default namespace (as in“xmlns=”), and
+ # prefixed namespaces (as in “xmlns:prefix=”).
+ node.namespace_scopes
+ # returns namespaces in scope for self – those defined on self element
+ # directly or any ancestor node – as an array of Namespace objects. Default
+ # namespaces (“xmlns=” style) for self are included in this array; Default
+ # namespaces for ancestors, however, are not. See also #namespaces
+ node.namespaced_key?(attribute, namespace)
+ # Returns true if attribute is set with namespace
+ node.namespaces # Returns a Hash of {prefix => value} for all namespaces on this node and its ancestors.
+ # This method returns the same namespaces as #namespace_scopes.
+ # 
+ # Returns namespaces in scope for self – those defined on self element
+ # directly or any ancestor node – as a Hash of attribute-name/value pairs.
+ # Note that the keys in this hash XML attributes that would be used to
+ # define this namespace, such as “xmlns:prefix”, not just the prefix.
+ # Default namespace set on self will be included with key “xmlns”. However,
+ # default namespaces set on ancestor will NOT be, even if self has no
+ # explicit default namespace.
+ # see also attribute_with_ns
+ # Rubyisms
+ node <=> another_node # Compare two Node objects with respect to their Document. Nodes from different documents cannot be compared.
+ # uses xmlXPathCmpNodes "Compare two nodes w.r.t document order"
+ node == another_node # compares pointer_id
+ node.clone # alias node.dup # Copy this node. An optional depth may be passed in, but it defaults to a deep copy. 0 is a shallow copy, 1 is a deep copy.
+ # Visitor pattern
+ node.accept(visitor)# calls visitor.visit(self)
+ 
+ # Write it out (sorted from most flexible/hardest to use to least flexible/easiest to use)
+ node.write_to(io, *options)
+ # Write Node to +io+ with +options+. +options+ modify the output of
+ # this method. Valid options are:
+ #
+ # * +:encoding+ for changing the encoding
+ # * +:indent_text+ the indentation text, defaults to one space
+ # * +:indent+ the number of +:indent_text+ to use, defaults to 2
+ # * +:save_with+ a combination of SaveOptions constants.
+ # SaveOptions
+ # AS_BUILDER: Save builder created document
+ # AS_HTML: Save as HTML
+ # AS_XHTML: Save as XHTML
+ # AS_XML: Save as XML
+ # DEFAULT_HTML: the default for HTML document
+ # DEFAULT_XHTML: the default for XHTML document
+ # DEFAULT_XML: the default for XML documents
+ # FORMAT: Format serialized xml
+ # NO_DECLARATION: Do not include declarations
+ # NO_EMPTY_TAGS: Do not include empty tags
+ # NO_XHTML: Do not save XHTML
+ # e.g. node.write_to(io, :encoding => 'UTF-8', :indent => 2)
+ node.write_html_to(io, options={}) # uses write_to with :save_with => DEFAULT_HTML option (libxml2.6 does dump_html)
+ node.write_xhtml_to(io. options={}) # uses write_to with :save_with => DEFAULT_XHTML option (libxml2.6 does dump_html)
+ node.write_xml_to(io, options={}) # uses write_to with :save_with => DEFAULT_XML option
+ node.serialize # Serialize Node a string using +options+, provided as a hash or block. Uses write_to (via StringIO)
+ # node.serialize(:encoding => 'UTF-8', :save_with => FORMAT | AS_XML)
+ # node.serialize(:encoding => 'UTF-8') do |config|
+ # config.format.as_xml
+ # end
+ node.to_html(options={}) # serializes with :save_with => DEFAULT_HTML option (libxml2.6 does dump_html)
+ node.to_xhtml(options={}) # serializes with :save_with => DEFAULT_XHTML option (libxml2.6 does dump_html)
+ node.to_xml(options={}) # serializes with :save_with => DEFAULT_XML option
+ node.to_s # document.xml? ? to_xml : to_html
+ node.inspect
+ node.pretty_print(pp) # to enhance pp
+ # Utility
+ node.encode_special_chars(str) # Encodes special characters :P
+ node.fragment(tags) # Create a DocumentFragment containing tags that is relative to this context node.
+ node.parse(string_or_io, options={})
+ # Parse +string_or_io+ as a document fragment within the context of
+ # *this* node. Returns a XML::NodeSet containing the nodes parsed from
+ # +string_or_io+.
+ 
+ # External subsets, like DTD declarations
+ node.create_external_subset(name, external_id, system_id)
+ node.create_internal_subset(name, external_id, system_id)
+ node.external_subset
+ node.internal_subset
+ 
+ # Other:
+ node.description # Fetch the Nokogiri::HTML::ElementDescription for this node. Returns nil on XML documents and on unknown tags.
+ # e.g. if node is an <img> tag: Nokogiri::HTML::ElementDescription['img'] Nokogiri::HTML::ElementDescription: img embedded image >
+ node.decorate! # Decorate this node with the decorators set up in this node's Document. Used internally to provide Slop support and Hpricot compatibility via Nokogiri::Hpricot
+ node.do_xinclude # options as a block or hash
+ # Do xinclude substitution on the subtree below node. If given a block, a
+ # Nokogiri::XML::ParseOptions object initialized from +options+, will be
+ # passed to it, allowing more convenient modification of the parser options.
+** Working with a Nokogiri::XML::NodeSet
+#+begin_src sh
+ 
+#+end_src
+nodes = Nokogiri::XML::NodeSet.new(document, list=[])
+ 
+ # Set operations
+ nodes | other_nodeset # UNION, i.e. merging the sets, returning a new set
+ nodes + other_nodeset # UNION, i.e. merging the sets, returning a new set
+ nodes & other_nodeset # INTERSECTION # i.e. return a new NodeSet with the common nodes only
+ nodes - other_nodeset # DIFFERENCE Returns a new NodeSet containing the nodes in this NodeSet that aren't in other_nodeset
+ nodes.include?(node)
+ nodes.empty?
+ nodes.length # alias nodes.size
+ nodes.delete(node) # Delete node from the Nodeset, if it is a member. Returns the deleted node if found, otherwise returns nil.
+ # List operations (includes Enumerable)
+ nodes.each {|node| }
+ nodes.first
+ nodes.last
+ nodes.reverse # Returns a new NodeSet containing all the nodes in the NodeSet in reverse order
+ nodes.index(node) # returns the numeric index or nil
+ nodes[3] # element at index 3
+ nodes[3,4] # return a NodeSet of size 4, starting at index 3
+ nodes[3..6] # or return a NodeSet using a range of indexes
+ # alias nodes.slice
+ nodes.pop # Removes the last element from set and returns it, or nil if the set is empty
+ nodes.push(node) # alias nodes << node # Append node to the NodeSet.
+ nodes.shift # Returns the first element of the NodeSet and removes it. Returns nil if the set is empty.
+ nodes.filter(expr) # Filter this list for nodes that match expr. WHAT DOES THIS RETURN? NodeSet? Array?
+ # find_all { |node| node.matches?(expr) }
+ 
+ nodes.children # Returns a new NodeSet containing all the children of all the nodes in the NodeSet
+ 
+ # Content
+ nodes.inner_html(*args) # Get the inner html of all contained Node objects
+ nodes.inner_text # alias nodes.text
+ 
+ # Convenience modifiers
+ nodes.remove # alias of nodes.unlink # Unlink this NodeSet and all Node objects it contains from their current context.
+ nodes.wrap("<div class='container'></div>") # wrap new xml around EACH NODE in a Nodeset
+ nodes.before(datum) # Insert datum before the first Node in this NodeSet # e.g. first.before(datum)
+ nodes.after(datum) # Insert datum after the last Node in this NodeSet # e.g. last.after(datum)
+ nodes.attr(key, value) # set the attribute key to value on all Node objects in the NodeSet
+ nodes.attr(key) { |node| 'value' } # set the attribute key to the result of the block on all Node objects in the NodeSet
+ # alias nodes.attribute, nodes.set
+ nodes.remove_attr(name) # removes the attribute from all nodes in the nodeset
+ nodes.add_class(name) # Append the class attribute name to all Node objects in the NodeSet.
+ nodes.remove_class(name = nil) # if nil, removes the class attrinute from all nodes in the nodeset
+ 
+ # Searching
+ nodes.search(*paths) # alias nodes / path
+ nodes.at(*paths) # alias nodes % path
+ nodes.xpath(*paths)
+ nodes.at_xpath(*paths)
+ nodes.css(*rules)
+ nodes.at_css(*rules)
+ nodes > selector # Search this NodeSet's nodes' immediate children using CSS selector selector
+ 
+ # Writing out
+ nodes.to_a # alias nodes.to_ary # Return this list as an Array
+ nodes.to_html(*args)
+ nodes.to_s
+ nodes.to_xhtml(*args)
+ nodes.to_xml(*args)
+ 
+ # Rubyisms
+ nodes == nodes # Two NodeSets are equal if the contain the same number of elements and if each element is equal to the corresponding element in the other NodeSet
+ nodes.dup # Duplicate this node set
+ nodes.inspect
+** Miscellany
+#+begin_src sh
+ 
+#+end_src
+nc = Nokogiri::HTML::NamedCharacters # a Nokogiri::HTML::EntityLookup
+ nc[key] # like nc.get(key).try(:value) # e.g. nc['gt'] (62) or nc['rsquo'] (8217)
+ nc.get(key) # returns an Nokogiri::HTML::EntityDescription
+ # e.g. nc.get('rsquo') #=> #<struct Nokogiri::HTML::EntityDescription value=8217, name="rsquo", description="right single quotation mark, U+2019 ISOnum">
+ 
+ # Adding a Processing Instruction (like <?xml-stylesheet?>)
+ # Nokogiri::XML::ProcessingInstruction http://nokogiri.org/tutorials/modifying_an_html_xml_document.html
+ pi = Nokogiri::XML::ProcessingInstruction.new(doc, "xml-stylesheet",'type="text/xsl" href="foo.xsl"')
+ doc.root.add_previous_sibling(pi)
+** Reader parsers
+Reader parsers can be used to parse very large XML documents quickly without the need to load the entire document into memory or write a SAX document parser. The reader makes each node in the XML document available exactly once, only moving forward, like a cursor.
+#+begin_src sh
+ 
+#+end_src
+reader = Nokogiri::XML::Reader(string_or_io)
+ # attrs
+ # .encoding
+ # .errors
+ # .source
+ # Reading
+ reader.each {|node| } # node and reader are the same object. shortcut for while(node = self.read) yield(node); end;
+ reader.read # Move the Reader forward through the XML document.
+ node.name
+ node.local_name
+ # Attributes
+ node.attribute('src')
+ node.attribute_at(1)
+ node.attribute_count
+ node.attribute_nodes
+ node.attributes
+ node.attributes?
+ # Content
+ node.empty_element?
+ node.self_closing?
+ node.value # Get the text value of the node if present as a utf-8 encoded string. Does NOT advance the reader.
+ node.value? # Does this node have a text value?
+ node.inner_xml # Read the contents of the current node, including child nodes and markup into a utf-8 encoded string. Does NOT advance the reader
+ node.outer_xml # Does NOT advance the reader
+ node.base_uri # Get the xml:base of the node
+ node.default? # Was an attribute generated from the default value in the DTD or schema?
+ node.depth
+ # Namespaces and the rest
+ node.namespace_uri # Get the URI defining the namespace associated with the node
+ node.namespaces # Get a hash of namespaces for this Node
+ node.prefix # Get the shorthand reference to the namespace associated with the node.
+ node.xml_version # Get the XML version of the document being read
+ node.lang # Get the xml:lang scope within which the node resides.
+ node.node_type
+ # one of 
+ # TYPE_ATTRIBUTE
+ # TYPE_CDATA
+ # TYPE_COMMENT
+ # TYPE_DOCUMENT
+ # TYPE_DOCUMENT_FRAGMENT
+ # TYPE_DOCUMENT_TYPE
+ # TYPE_ELEMENT
+ # TYPE_END_ELEMENT
+ # TYPE_END_ENTITY
+ # TYPE_ENTITY
+ # TYPE_ENTITY_REFERENCE
+ # TYPE_NONE
+ # TYPE_NOTATION
+ # TYPE_PROCESSING_INSTRUCTION
+ # TYPE_SIGNIFICANT_WHITESPACE
+ # TYPE_TEXT
+ # TYPE_WHITESPACE
+ # TYPE_XML_DECLARATION
+ node.state # Get the state of the reader
+** XSD Validation
+XSD
+XSD::XMLParser
+XSD::XMLParser::Nokogiri
+#+begin_src sh
+ 
+#+end_src
+xsd = Nokogiri::XML::Schema(string_or_io_to_schema_file)
+ doc = Nokogiri::XML(File.read(PO_XML_FILE))
+ 
+ xsd.valid?(doc) # => true/false
+ 
+ xsd.validate(doc) # returns an an array of SyntaxError s
+ xsd.validate(doc).each do |syntax_error|
+ syntax_error.error?
+ syntax_error.fatal?
+ syntax_error.none?
+ syntax_error.to_s
+ syntax_error.warning?
+ 
+ # undocumented attributes
+ syntax_error.code R
+ syntax_error.column R
+ syntax_error.domain R
+ syntax_error.file R
+ syntax_error.int1 R
+ syntax_error.level R
+ syntax_error.line R
+ syntax_error.str1 R
+ syntax_error.str2 R
+ syntax_error.str3 R
+ end
+ 
+ 
+ # http://nokogiri.org/Nokogiri/XML/Schema.html
+ # http://nokogiri.org/Nokogiri/XML/AttributeDecl.html
+ # http://nokogiri.org/Nokogiri/XML/DTD.html
+ # http://nokogiri.org/Nokogiri/XML/ElementDecl.html
+ # http://nokogiri.org/Nokogiri/XML/ElementContent.html
+ # http://nokogiri.org/Nokogiri/XML/EntityDecl.html
+ # http://nokogiri.org/Nokogiri/XML/EntityReference.html
+ 
+ doc.validate # validate it against its DTD, if it has one
+** CSS Parsing
+Nokogiri::CSS
+Nokogiri::CSS::Node
+Nokogiri::CSS::Parser
+Nokogiri::CSS::SyntaxError
+Nokogiri::CSS::Tokenizer
+Nokogiri::CSS::Tokenizer::ScanError
+#+begin_src sh
+ 
+#+end_src
+# http://nokogiri.org/Nokogiri/CSS.html
+ Nokogiri::CSS.parse('selector') # => returns an AST
+ Nokogiri::CSS.xpath_for('selector', options={})
+ 
+ # http://nokogiri.org/Nokogiri/CSS/Node.html
+ # attr: type, value
+ #methods
+ # accept(visitor)
+ # find_by_type
+ # new
+ # preprocess!
+ # to_a
+ # to_type
+ # to_xpath
+ # http://nokogiri.org/Nokogiri/CSS/Parser.html # a Racc generated Parser
+** XSLT Transformation
+Nokogiri::XSLT
+Nokogiri::XSLT::Stylesheet
+#+begin_src sh
+ 
+#+end_src
+doc = Nokogiri::XML(File.read('some_file.xml'))
+ xslt = Nokogiri::XSLT(File.read('some_transformer.xslt'))
+ puts xslt.transform(doc) # [, xslt_parameters]
+ # xslt.serialize(doc) # to am xml string
+ # xslt.apply_to(doc, params=[]) # equivalent to xslt.serialize(xslt.transform(doc, params))
+** SAX Parsing
+Event-driving XML parsing appropriate for reading very large XML files without reading the entire document into memory. The best documentation is in this file.
+#+begin_src sh
+ # Document template
+#+end_src
+# Define any or all of these methods to get their notifications:
+# Your document doesn't have to subclass Nokogiri::XML::SAX::Document, 
+# doing so just saves you from having to define all the sax methods, 
+# rather than the few you need.
+class MyDocument < Nokogiri::XML::SAX::Document
+ def xmldecl(version, encoding, standalone)
+ end
+ def start_document
+ end
+ def end_document
+ end
+ def start_element(name, attrs = [])
+ end
+ def end_element(name)
+ end
+ def start_element_namespace(name, attrs = [], prefix = nil, uri = nil, ns = [])
+ end
+ def end_element_namespace(name, prefix = nil, uri = nil)
+ end
+ def characters(string)
+ end
+ def comment(string)
+ end
+ def warning(string)
+ end
+ def error(string)
+ end
+ def cdata_block(string)
+ end
+end
+# Standard Parser
+parser = Nokogiri::XML::SAX::Parser.new(MyDocument.new) # [, encoding = 'UTF-8]
+# A block can be passed to the parse methods to get the ParserContext before parsing, but you probably don't need that
+parser.parse(string_or_io)
+parser.parse_io(io) # [, encoding = "ASCII"]
+parser.parse_file(filename)
+parser.parse_memory(string)
+# If you want HTML correction features, instantiate this parser instead
+parser = Nokogiri::HTML::SAX::Parser.new(MyDoc.new)
+(If you're a weirdo,) You can stream the XML manually using Nokogiri::SAX::PushParser
+The best documentation is this file.
+** Slop decorator (Don’t use this)
+The ::Slop decorator implements method_missing such that methods may be used instead of CSS or XPath.
+See the bottom of this page
+Nokogiri.Slop
+Nokogiri::XML::Document#slop!
+Nokogiri::Decorators::Slop
+#+begin_src sh
+ doc
+#+end_src
+ = Nokogiri::Slop(string_or_io)
+doc = Nokogiri(string_or_io).slop!
+doc = Nokogiri::HTML(string_or_io).slop!
+doc = Nokogiri::XML(string_or_io).slop!
+doc = Nokogiri::Slop(<<-eohtml)
+ <html>
+ <body>
+ <p>first</p>
+ <p>second</p>
+ </body>
+ </html>
+eohtml
+assert_equal('second', doc.html.body.p[1].text)
+doc = Nokogiri::Slop <<-EOXML
+<employees>
+ <employee status="active">
+ <fullname>Dean Martin</fullname>
+ </employee>
+ <employee status="inactive">
+ <fullname>Jerry Lewis</fullname>
+ </employee>
+</employees>
+EOXML
+# navigate!
+doc.employees.employee.last.fullname.content # => "Jerry Lewis"
+# access node attributes!
+doc.employees.employee.first["status"] # => "active"
+# use some xpath!
+doc.employees.employee("[@status='active']").fullname.content # => "Dean Martin"
+doc.employees.employee(:xpath => "@status='active'").fullname.content # => "Dean Martin"
+# use some css!
+doc.employees.employee("[status='active']").fullname.content # => "Dean Martin"
+doc.employees.employee(:css => "[status='active']").fullname.content # => "Dean Martin"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+*** 
+ This comment has been minimized.
+ 
+ 
+ Sign in to view
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Copy link
+ 
+ 
+ Quote reply
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+*** 
+ 
+ 
+ etewiah
+ 
+ 
+ commented
+ Dec 2, 2017
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Awesome resource - thanks for sharing
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+*** 
+ This comment has been minimized.
+ 
+ 
+ Sign in to view
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Copy link
+ 
+ 
+ Quote reply
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+*** 
+ 
+ 
+ galileoruby
+ 
+ 
+ commented
+ Sep 27, 2019
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ I'm glad because there are people like you,
+that information is really helpfull , congratulations.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sign up for free
+ to join this conversation on GitHub.
+ Already have an account?
+ Sign in to comment
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ - © 2020 GitHub, Inc.
+ - Terms
+ - Privacy
+ - Security
+ - Status
+ - Help
+ 
+ 
+ 
+ 
+ - Contact GitHub
+ - Pricing
+ - API
+ - Training
+ - Blog
+ - About
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ You can’t perform that action at this time.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ You signed in with another tab or window. Reload to refresh your session.
+ You signed out in another tab or window. Reload to refresh your session.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

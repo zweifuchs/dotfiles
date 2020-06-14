@@ -221,6 +221,24 @@
 (setq vc-follow-symlinks t)
 
 
+;; Alf
+;; Editor Save Filename under increment Stuff
+(defun alf/increment-number-in-file-name (name)
+  (with-temp-buffer
+    (insert name)
+    (search-backward "." nil t)
+    (re-search-backward "[0-9]+" nil t)
+    ;(skip-chars-forward "0") ;; Would preserve 0s
+    (if (looking-at "[0123456789]+")
+        (replace-match (number-to-string (1+ (string-to-number (match-string 0)))))
+      (insert "-1"))
+    (buffer-string)))
+
+(defun write-file-increment ()
+  (interactive)
+  (write-file (alf/increment-number-in-file-name (buffer-file-name))))
+
+
 ;; Add babel source blocks insert
 ;;
 
@@ -239,3 +257,6 @@
 (map! :leader "w <right>" #'evil-window-rotate-upwards)
 (map! :leader "a ," #'org-insert-structure-template)
 (map! :leader "a f" #'font-lock-mode)
+(map! :leader "a s s" #'save-some-buffers)
+
+(map! :leader "a s i" #'write-file-increment)
