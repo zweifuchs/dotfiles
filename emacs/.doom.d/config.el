@@ -260,3 +260,5 @@
 (map! :leader "a s s" #'save-some-buffers)
 
 (map! :leader "a s i" #'write-file-increment)
+
+;;(map! :leader "a o" #'(persp-add-buffers-by-regexp (Org Agenda)))
