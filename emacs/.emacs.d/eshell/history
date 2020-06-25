@@ -1,9 +1,12 @@
-ls
 ll
-pwd
-PWD
-echo $PWD
-eco $PATH
-echo $PATH
-chruby 2.6
+ls
+cat package.json 
+exit
+..
+ll
+ls
+yarn gulp dev
+exit
+cd auto_export/
+firefox main.html
 exit
