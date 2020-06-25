@@ -52,11 +52,11 @@
 
 
 (package! org)
-(package! org-collector)
-(package! org-habit)
+;(package! org-collector)
+;(package! org-habit)
 (package! org-super-agenda)
 (package! ob-async)
-(package! org-crypt)
+;(package! org-crypt)
 (package! origami)
 (package! rufo)
 (package! direnv)
