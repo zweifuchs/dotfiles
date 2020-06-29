@@ -181,4 +181,9 @@ if [ -f $HOME/.config/pass/pass_completion ]; then
 	compinit
 fi
 
+# tmux random status colour
+alias tmuxr='tmux set status-bg colour$((RANDOM % 254))'
+
+
+
 chruby 2.7.1
