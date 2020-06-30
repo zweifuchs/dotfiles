@@ -258,6 +258,8 @@
 (map! :leader "a ," #'org-insert-structure-template)
 (map! :leader "a f" #'font-lock-mode)
 (map! :leader "a s s" #'save-some-buffers)
+(map! :leader "a 2" #'org-sidebar-toggle)
+(map! :leader "a 1" #'org-sidebar-tree-toggle)
 
 (map! :leader "a s i" #'write-file-increment)
 
