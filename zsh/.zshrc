@@ -1,5 +1,8 @@
 # Path to your oh-my-zsh installation.
 
+
+alias kk='/usr/local/bin/kubectl'
+
 export TIME_STYLE=long-iso
 case "$(uname -s)" in
 
@@ -26,7 +29,7 @@ esac
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -167,7 +170,6 @@ if [ -f '/Users/alfredeichenseher/Downloads/google-cloud-sdk/path.zsh.inc' ]; th
 if [ -f '/Users/alfredeichenseher/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alfredeichenseher/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 #chruby ruby-2.6.1
-echo "i was run"
 function swap()
 {
     local TMPFILE=tmp.$$
@@ -186,4 +188,24 @@ alias tmuxr='tmux set status-bg colour$((RANDOM % 254))'
 
 
 
-chruby 2.7.1
+
+for file in ~/aliases/*; do
+    source "$file"
+done
+
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+echo "kubectl source complete ..."
+source <(kubectl completion zsh)
+echo "source 10k ..."
+
+	
+#source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || source  ~/.p10k.zsh && source ~/powerlevel10k/powerlevel10k.zsh-theme
+#echo "pre source"
+#source  ~/run10k.sh
+#echo "post source"
