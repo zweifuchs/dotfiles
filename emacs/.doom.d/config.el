@@ -257,8 +257,8 @@
 (map! :map org-mode :leader "l o" #'org-insert-link)
 
 
-(global-set-key (kbd "<home>") 'beginning-of-visual-line)
-(global-set-key (kbd "<end>") 'end-of-visual-line)
+;(global-set-key (kbd "<home>") 'beginning-of-visual-line)
+;(global-set-key (kbd "<end>") 'end-of-visual-line)
 
 (map! :leader "w <left>" #'evil-window-rotate-downwards)
 (map! :leader "w <right>" #'evil-window-rotate-upwards)
@@ -334,24 +334,24 @@
  '(vc-annotate-very-old-color nil))
 
 
- '(custom-enabled-themes '(suscolors))
- '(custom-safe-themes
-   '("a7004835dd02c73989032e57574087ec78ce8c2dd0d79f21cdd7423c01d9d2f5" "97d039a52cfb190f4fd677f02f7d03cf7dbd353e08ac8a0cb991223b135ac4e6" default))
- '(inhibit-startup-screen t)
- '(org-agenda-files
-   '("/home/alf/org/cloud" "/home/alf/org/cloud/rpg" "/home/alf/org/cloud/projects" "/home/alf/org/cloud/knowledge" "/home/alf/org/cloud/business" "/home/alf/org/cloud/business/clients" "/home/alf/org/cloud/business/tax" "/home/alf/org/cloud/personal" "/home/alf/org/cloud/rpg"))
- '(org-agenda-show-all-dates t)
- '(org-deadline-warning-days 14)
- '(org-export-backends '(ascii html icalendar latex md odt))
- '(org-log-done 'note)
- '(org-log-repeat 'note)
- '(org-startup-folded 'content)
- '(org-super-agenda-mode t t)
- '(org-support-shift-select t)
- '(package-selected-packages
-   '(php-mode calfw-org calfw isearch which-key origami org-super-agenda org-mru-clock inf-ruby helm-swoop use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish))
- '(rainbow-html-colors t)
- '(rainbow-html-colors-major-mode-list '(org-mode css-mode php-mode nxml-mode xml-mode)))
+  '(custom-enabled-themes '(suscolors))
+;;  '(custom-safe-themes
+;;    '("a7004835dd02c73989032e57574087ec78ce8c2dd0d79f21cdd7423c01d9d2f5" "97d039a52cfb190f4fd677f02f7d03cf7dbd353e08ac8a0cb991223b135ac4e6" default))
+;;  '(inhibit-startup-screen t)
+;;  '(org-agenda-files
+;;    '("/home/alf/org/cloud" "/home/alf/org/cloud/rpg" "/home/alf/org/cloud/projects" "/home/alf/org/cloud/knowledge" "/home/alf/org/cloud/business" "/home/alf/org/cloud/business/clients" "/home/alf/org/cloud/business/tax" "/home/alf/org/cloud/personal" "/home/alf/org/cloud/rpg"))
+  '(org-agenda-show-all-dates t)
+  '(org-deadline-warning-days 14)
+  '(org-export-backends '(ascii html icalendar latex md odt))
+  '(org-log-done 'note)
+  '(org-log-repeat 'note)
+  '(org-startup-folded 'content)
+  '(org-super-agenda-mode t t)
+  '(org-support-shift-select t)
+  '(package-selected-packages
+    '(php-mode calfw-org calfw isearch which-key origami org-super-agenda org-mru-clock inf-ruby helm-swoop use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish))
+  '(rainbow-html-colors t)
+  '(rainbow-html-colors-major-mode-list '(org-mode css-mode php-mode nxml-mode xml-mode))
 
 
 (custom-set-faces
