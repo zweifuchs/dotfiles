@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: simple invoice
+# key: invoice
+# --
+
+** TODO ${1:Invoice Name} :invoice:
+SCHEDULED: <`(format-time-string "%Y-%m-%d %a")`>
+:PROPERTIES:
+:CLIENT:    ${2:Kostenstelle}
+:YEAR:     ${3:`(format-time-string "%Y")`}
+:MONTH:    ${4:`(replace-regexp-in-string "^0" "" (format-time-string "%m"))`}
+:ID:       ${5:Rechnungsnummer}
+:NETTO:    $6
+:UST:      $7
+:BRUTTO:   $8
+:LINK:     [[/home/alf/commercial/Kosten - Ausgaben - Rechnungen/$3/$9] [pdf]]
+:SENT:
+:PAYED:
+:STATUS:
+CREATED:  [`(format-time-string "%Y-%m-%d %a")`]
+:END:

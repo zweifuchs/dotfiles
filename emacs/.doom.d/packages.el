@@ -62,3 +62,7 @@
 (package! rufo)
 (package! direnv)
 (package! chruby)
+
+(package! auto-activating-snippets :recipe
+  (:host github :repo "ymarco/auto-activating-snippets")
+  :pin "4bd59a656bafa18a455e503b933870a8350a1720")

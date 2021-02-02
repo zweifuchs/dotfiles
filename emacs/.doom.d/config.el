@@ -253,6 +253,8 @@
 (map! :map org-mode :leader "a r" #'org-reveal)
 (map! :map org-mode :leader "a <tab>" #'org-force-cycle-archived)
 (map! :map org-mode :leader "o o" #'org-open-at-point)
+(map! :map org-mode :leader "l i" #'org-store-link)
+(map! :map org-mode :leader "l o" #'org-insert-link)
 (map! :leader "w <left>" #'evil-window-rotate-downwards)
 (map! :leader "w <right>" #'evil-window-rotate-upwards)
 (map! :leader "a ," #'org-insert-structure-template)
@@ -264,3 +266,98 @@
 (map! :leader "a s i" #'write-file-increment)
 
 ;;(map! :leader "a o" #'(persp-add-buffers-by-regexp (Org Agenda)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#21242b" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
+ '(custom-enabled-themes (quote (suscolors)))
+ '(custom-safe-themes
+   (quote
+    ("79278310dd6cacf2d2f491063c4ab8b129fee2a498e4c25912ddaa6c3c5b621e" "e074be1c799b509f52870ee596a5977b519f6d269455b84ed998666cf6fc802a" "a7004835dd02c73989032e57574087ec78ce8c2dd0d79f21cdd7423c01d9d2f5" "97d039a52cfb190f4fd677f02f7d03cf7dbd353e08ac8a0cb991223b135ac4e6" default)))
+ '(fci-rule-color "#5B6268")
+ '(inhibit-startup-screen t)
+ '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
+ '(objed-cursor-color "#ff6c6b")
+ '(org-agenda-files
+   (quote
+    ("/home/alf/org/cloud" "/home/alf/org/cloud/rpg" "/home/alf/org/cloud/projects" "/home/alf/org/cloud/knowledge" "/home/alf/org/cloud/business" "/home/alf/org/cloud/business/clients" "/home/alf/org/cloud/business/tax" "/home/alf/org/cloud/personal" "/home/alf/org/cloud/rpg")))
+ '(org-agenda-show-all-dates t)
+ '(org-deadline-warning-days 14)
+ '(org-export-backends (quote (ascii html icalendar latex md odt)))
+ '(org-log-done (quote note))
+ '(org-log-repeat (quote note))
+ '(org-super-agenda-mode t t)
+ '(org-support-shift-select t)
+ '(package-selected-packages
+   (quote
+    (php-mode calfw-org calfw isearch which-key origami org-super-agenda org-mru-clock inf-ruby helm-swoop use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish)))
+ '(pdf-view-midnight-colors (cons "#bbc2cf" "#282c34"))
+ '(rainbow-html-colors t)
+ '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode)))
+ '(rustic-ansi-faces
+   ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
+ '(vc-annotate-background "#282c34")
+ '(vc-annotate-color-map
+   (list
+    (cons 20 "#98be65")
+    (cons 40 "#b4be6c")
+    (cons 60 "#d0be73")
+    (cons 80 "#ECBE7B")
+    (cons 100 "#e6ab6a")
+    (cons 120 "#e09859")
+    (cons 140 "#da8548")
+    (cons 160 "#d38079")
+    (cons 180 "#cc7cab")
+    (cons 200 "#c678dd")
+    (cons 220 "#d974b7")
+    (cons 240 "#ec7091")
+    (cons 260 "#ff6c6b")
+    (cons 280 "#cf6162")
+    (cons 300 "#9f585a")
+    (cons 320 "#6f4e52")
+    (cons 340 "#5B6268")
+    (cons 360 "#5B6268")))
+ '(vc-annotate-very-old-color nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-level-6 ((t (:inherit outline-6 :foreground "tomato")))))
+
+(setq org-startup-folded t)
+
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      truncate-string-ellipsis "…")
+
+(use-package auto-activating-snippets
+  :hook (LaTeX-mode . auto-activating-snippets-mode)
+  :hook (org-mode . auto-activating-snippets-mode)
+  :config
+  (aas-set-snippets 'text-mode
+                    ;; expand unconditionally
+                    "qqsrcruby" "
+#+BEGIN_SRC ruby :exports both :results output
+
+%s
+#+END_SRC"
+                    "qqtimei" (lambda () (interactive)
+                                (org-time-stamp-inactive))
+                    "qqtimea" (lambda () (interactive)
+                                (org-time-stamp))
+                   "qqtable1" "
+| id | a | b | c | gesamt |
+|----+---+---+---+--------|
+|    |   |   |   |        |
+|----+---+---+---+--------|
+|    |   |   |   |        |
+#+TBLFM: @>$2=vsum(@I..@II)::@>$3=vsum(@I..@II)::@>$4=vsum(@I..@II)::$5=$2+$3+$4::@>$5=vsum(@I..@II)
+"
+                    ))

@@ -187,3 +187,6 @@ alias tmuxr='tmux set status-bg colour$((RANDOM % 254))'
 
 
 chruby 2.7.1
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
