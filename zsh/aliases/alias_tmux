@@ -1,0 +1,2 @@
+alias tmo='tmux set mouse on'
+alias tmf='tmux set mouse off'

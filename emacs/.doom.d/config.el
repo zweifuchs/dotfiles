@@ -255,6 +255,11 @@
 (map! :map org-mode :leader "o o" #'org-open-at-point)
 (map! :map org-mode :leader "l i" #'org-store-link)
 (map! :map org-mode :leader "l o" #'org-insert-link)
+
+
+(global-set-key (kbd "<home>") 'beginning-of-visual-line)
+(global-set-key (kbd "<end>") 'end-of-visual-line)
+
 (map! :leader "w <left>" #'evil-window-rotate-downwards)
 (map! :leader "w <right>" #'evil-window-rotate-upwards)
 (map! :leader "a ," #'org-insert-structure-template)
@@ -265,12 +270,16 @@
 
 (map! :leader "a s i" #'write-file-increment)
 
+
 ;;(map! :leader "a o" #'(persp-add-buffers-by-regexp (Org Agenda)))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
  '(ansi-color-names-vector
    ["#21242b" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
  '(custom-enabled-themes (quote (suscolors)))
@@ -323,12 +332,35 @@
     (cons 340 "#5B6268")
     (cons 360 "#5B6268")))
  '(vc-annotate-very-old-color nil))
+
+
+ '(custom-enabled-themes '(suscolors))
+ '(custom-safe-themes
+   '("a7004835dd02c73989032e57574087ec78ce8c2dd0d79f21cdd7423c01d9d2f5" "97d039a52cfb190f4fd677f02f7d03cf7dbd353e08ac8a0cb991223b135ac4e6" default))
+ '(inhibit-startup-screen t)
+ '(org-agenda-files
+   '("/home/alf/org/cloud" "/home/alf/org/cloud/rpg" "/home/alf/org/cloud/projects" "/home/alf/org/cloud/knowledge" "/home/alf/org/cloud/business" "/home/alf/org/cloud/business/clients" "/home/alf/org/cloud/business/tax" "/home/alf/org/cloud/personal" "/home/alf/org/cloud/rpg"))
+ '(org-agenda-show-all-dates t)
+ '(org-deadline-warning-days 14)
+ '(org-export-backends '(ascii html icalendar latex md odt))
+ '(org-log-done 'note)
+ '(org-log-repeat 'note)
+ '(org-startup-folded 'content)
+ '(org-super-agenda-mode t t)
+ '(org-support-shift-select t)
+ '(package-selected-packages
+   '(php-mode calfw-org calfw isearch which-key origami org-super-agenda org-mru-clock inf-ruby helm-swoop use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish))
+ '(rainbow-html-colors t)
+ '(rainbow-html-colors-major-mode-list '(org-mode css-mode php-mode nxml-mode xml-mode)))
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-level-6 ((t (:inherit outline-6 :foreground "tomato")))))
+
 
 (setq org-startup-folded t)
 
@@ -361,3 +393,5 @@
 #+TBLFM: @>$2=vsum(@I..@II)::@>$3=vsum(@I..@II)::@>$4=vsum(@I..@II)::$5=$2+$3+$4::@>$5=vsum(@I..@II)
 "
                     ))
+
+
