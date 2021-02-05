@@ -380,11 +380,11 @@
 
 %s
 #+END_SRC"
-                    "qqtimei" (lambda () (interactive)
+                    "qqti" (lambda () (interactive)
                                 (org-time-stamp-inactive))
-                    "qqtimea" (lambda () (interactive)
+                    "qqta" (lambda () (interactive)
                                 (org-time-stamp))
-                   "qqtable1" "
+                   "qqtb1" "
 | id | a | b | c | gesamt |
 |----+---+---+---+--------|
 |    |   |   |   |        |
