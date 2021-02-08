@@ -279,7 +279,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
  '(ansi-color-names-vector
    ["#21242b" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
  '(custom-enabled-themes (quote (suscolors)))
@@ -300,11 +299,11 @@
  '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(org-log-done (quote note))
  '(org-log-repeat (quote note))
- '(org-super-agenda-mode t t)
+ '(org-super-agenda-mode t)
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
-    (php-mode calfw-org calfw isearch which-key origami org-super-agenda org-mru-clock inf-ruby helm-swoop use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish)))
+    (dired-sidebar php-mode calfw-org calfw isearch which-key origami org-super-agenda org-mru-clock inf-ruby helm-swoop use-package suscolors-theme smartparens rainbow-mode org-plus-contrib ob-async multishell multiple-cursors helm-org-rifle helm-git-grep god-mode flx-ido eyebrowse diminish)))
  '(pdf-view-midnight-colors (cons "#bbc2cf" "#282c34"))
  '(rainbow-html-colors t)
  '(rainbow-html-colors-major-mode-list (quote (org-mode css-mode php-mode nxml-mode xml-mode)))
@@ -394,4 +393,20 @@
 "
                     ))
 
+(use-package dired-sidebar
+  :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
+  :ensure t
+  :commands (dired-sidebar-toggle-sidebar)
+  :init
+  (add-hook 'dired-sidebar-mode-hook
+            (lambda ()
+              (unless (file-remote-p default-directory)
+                (auto-revert-mode))))
+  :config
+  (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
+  (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
 
+  (setq dired-sidebar-subtree-line-prefix "__")
+  (setq dired-sidebar-theme 'all-the-icons)
+  (setq dired-sidebar-use-term-integration t)
+  (setq dired-sidebar-use-custom-font t))
