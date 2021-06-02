@@ -57,6 +57,9 @@
  ((string-equal system-type "darwin") ; Mac OS X
   (progn
     (message "Mac OS X")
+
+(global-set-key (kbd "<home>") 'beginning-of-visual-line)
+(global-set-key (kbd "<end>") 'end-of-visual-line)
   (setq alf-system "mac")))
  ((string-equal system-type "gnu/linux") ; linux
   (progn

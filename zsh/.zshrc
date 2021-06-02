@@ -11,6 +11,7 @@ case "$(uname -s)" in
 export ZSH=/Users/alfredeichenseher/.oh-my-zsh
 export PATH="/Users/alfredeichenseher/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 alias emacs='open -a /Applications/Emacs.app $1'
+source $HOME/.zsh-osx
      ;;
 
    Linux)
@@ -108,8 +109,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+#source /usr/local/share/chruby/chruby.sh
+#source /usr/local/share/chruby/auto.sh
 
 
 source $HOME/.aliases
