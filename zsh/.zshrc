@@ -159,7 +159,9 @@ export PATH=$PATH:$HOME/mkutil
 
 alias vimgo='vim -u ~/.vimrc.go'
 alias uget='uget-gtk'
-alias thedeploy='BUNDLE_GEMFILE=/home/alf/prj/ruby/deploy/Gemfile bundle exec  ruby /home/alf/prj/ruby/deploy/deploy.rb'
+#alias thedeploy='BUNDLE_GEMFILE=/home/alf/prj/ruby/deploy/Gemfile bundle exec  ruby /home/alf/prj/ruby/deploy/deploy.rb'
+alias thedeploy='ruby /home/alf/prj/ruby/deploy/deploy.rb'
+
 alias ttime='BUNDLE_GEMFILE=/home/alf/prj/ruby/teatime/Gemfile bundle exec  ruby /home/alf/prj/ruby/teatime/teatime.rb'
 
 alias gam="git add -A && git commit -m"
@@ -187,14 +189,6 @@ fi
 # tmux random status colour
 alias tmuxr='tmux set status-bg colour$((RANDOM % 254))'
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-if [ -d ~/aliases ]; then
-  for file in ~/aliases/*; do
-      source "$file"
-  done
-fi
 
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -212,4 +206,19 @@ echo "source 10k ..."
 #echo "pre source"
 #source  ~/run10k.sh
 #echo "post source"
+
+
+if [ -d ~/aliases ]; then
+  for file in ~/aliases/*; do
+      source "$file"
+  done
+fi
+
+if [ -f ~/.config/nnn/nnn.bash ]; then
+    source ~/.config/nnn/nnn.bash
+fi
+
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 

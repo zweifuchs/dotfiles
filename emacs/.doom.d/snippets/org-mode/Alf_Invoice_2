@@ -1,12 +1,12 @@
 # -*- mode: snippet -*-
-# name: simple invoice
-# key: invoice
+# name: Alf_Invoice_2
+# key:
 # --
+* TODO Invoice `(format-time-string "%Y-%m-%d")`
+** TODO ${1:`(format-time-string "%Y-%m-%d")`} :invoice:
 
-** TODO ${1:Invoice Name} :invoice:
-SCHEDULED: <`(format-time-string "%Y-%m-%d %a")`>
 :PROPERTIES:
-:CLIENT:    ${2:Kostenstelle}
+:CLIENT:   ${2:Kostenstelle}
 :YEAR:     ${3:`(format-time-string "%Y")`}
 :MONTH:    ${4:`(replace-regexp-in-string "^0" "" (format-time-string "%m"))`}
 :ID:       ${5:Rechnungsnummer}
@@ -19,3 +19,6 @@ SCHEDULED: <`(format-time-string "%Y-%m-%d %a")`>
 :STATUS:
 :CREATED:  [`(format-time-string "%Y-%m-%d %a")`]
 :END:
+
+** TODO Is Invoice `(format-time-string "%Y-%m-%d")` payed?
+SCHEDULED: <`(format-time-string "%Y-%m-%d %a")`>
