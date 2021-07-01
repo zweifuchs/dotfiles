@@ -3,7 +3,7 @@
 # key: invoice
 # --
 
-** TODO ${1:Invoice Name} :invoice:
+** TODO ${1:Invoice Name} A :INVOICE:
 SCHEDULED: <`(format-time-string "%Y-%m-%d %a")`>
 :PROPERTIES:
 :CLIENT:    ${2:Kostenstelle}

@@ -1,9 +1,10 @@
 # -*- mode: snippet -*-
 # name: Alf_Invoice_2
-# key:
+# key: InvoiceB
 # --
-* TODO Invoice `(format-time-string "%Y-%m-%d")`
-** TODO ${1:`(format-time-string "%Y-%m-%d")`} :invoice:
+
+* invoice `(format-time-string "%Y-%m-%d")`
+** TODO ${1:`(format-time-string "%Y-%m-%d")`} B :INVOICE:
 
 :PROPERTIES:
 :CLIENT:   ${2:Kostenstelle}
