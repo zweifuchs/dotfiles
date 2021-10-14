@@ -17,6 +17,7 @@ source $HOME/.zsh-osx
    Linux)
      echo 'Linux'
 export ZSH=/home/alf/.oh-my-zsh
+export ALF_NOTES_FILE='/mnt/octopus/nextcloud/cloud.alfred-eichenseher.de/notes/the_notes.org'
 export _Z_DATA="$HOME/.config/.z"
 export PATH="/home/alf/tools/phpstorm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 export PATH="/home/alf/tools/z:$PATH"

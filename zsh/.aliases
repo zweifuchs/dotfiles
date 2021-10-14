@@ -74,3 +74,6 @@ echo "starting phpstorm..."
 
 alias gco='git checkout'
 chruby 2.7.1
+
+alias psg='ps -ef | grep -i $1'
+alias nsg='netstat -natp | grep -i $1'
