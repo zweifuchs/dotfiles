@@ -9,6 +9,7 @@ case "$(uname -s)" in
    Darwin)
      echo 'Mac OS X'
 export ZSH=/Users/alfredeichenseher/.oh-my-zsh
+export ALF_NOTES_FILE='/Users/alfredeichenseher/Nextcloud/notes/the_notes.org'
 export PATH="/Users/alfredeichenseher/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 alias emacs='open -a /Applications/Emacs.app $1'
 source $HOME/.zsh-osx
