@@ -10,6 +10,10 @@ case "$(uname -s)" in
      
 	echo 'Linux'   
 	alias ls="ls --color=auto"
+
+	alias chown='chown --preserve-root'
+	alias chmod='chmod --preserve-root'
+	alias chgrp='chgrp --preserve-root'
     ;;                                                                                                                                                                                
                                                                                                                                                                                        
 esac      
@@ -43,9 +47,6 @@ alias ln='ln -i'
 alias xc="xclip -sel clip"
 
 # Parenting changing perms on / #
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
 
 ## webdev stuff
 
