@@ -1,0 +1,6 @@
+HOWTO
+cd ~/dotfiles/
+stow FOLDER (eg. zsh)
+stow FOLDER2
+etc ...
+

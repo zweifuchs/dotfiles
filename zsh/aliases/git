@@ -1,0 +1,14 @@
+git config --global alias.unstage 'reset HEAD --'
+git config --global alias.aa 'add -A'
+git config --global alias.com 'commit -m'
+git config --global alias.ll 'log --oneline'
+git config --global alias.last 'log -1 HEAD --stat'
+git config --global alias.search '!git rev-list --all | xargs git grep -F'
+git config --global alias.changed 'diff --cached HEAD^'
+git config --global alias.la "!git config -l | grep alias | cut -c 7-"
+
+
+alias lg=lazygit
+alias gst='git status'
+alias gll='git log --oneline'
+

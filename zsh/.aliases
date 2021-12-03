@@ -75,7 +75,6 @@ echo "starting phpstorm..."
 
 alias gco='git checkout'
 alias lg='lazygit'
-alias gis='git status'
 
 chruby 2.7.1
 
