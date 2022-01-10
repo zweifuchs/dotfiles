@@ -10,6 +10,8 @@ case "$(uname -s)" in
      echo 'Mac OS X'
 export ZSH=/Users/alfredeichenseher/.oh-my-zsh
 export ALF_NOTES_FILE='/Users/alfredeichenseher/Nextcloud/notes/the_notes.org'
+export ALF_FNOTES_FILE='/Users/alfredeichenseher/Nextcloud/notes/fnote.txt'
+alias fnote='/Users/alfredeichenseher/Nextcloud/nuby prj/ruby/fnote/main.rb'
 export PATH="/Users/alfredeichenseher/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 alias emacs='open -a /Applications/Emacs.app $1'
 source $HOME/.zsh-osx
@@ -19,6 +21,8 @@ source $HOME/.zsh-osx
      echo 'Linux'
 export ZSH=/home/alf/.oh-my-zsh
 export ALF_NOTES_FILE='/mnt/octopus/nextcloud/cloud.alfred-eichenseher.de/notes/the_notes.org'
+export ALF_FNOTES_FILE='/mnt/octopus/nextcloud/cloud.alfred-eichenseher.de/notes/fnote.txt'
+alias fnote='ruby /mnt/octopus/nextcloud/cloud.alfred-eichenseher.de/prj/ruby/fnote/main.rb'
 export _Z_DATA="$HOME/.config/.z"
 export PATH="/home/alf/tools/phpstorm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 export PATH="/home/alf/tools/z:$PATH"
